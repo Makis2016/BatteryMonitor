@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd"
+        version="2.0">
+
+    <description></description>
+    <display-name>XspWeb Tags Library</display-name>
+    <tlib-version>1.0</tlib-version>
+    <short-name>xtl</short-name>
+    <uri>http://www.furongsoft.com/XspWeb/tags/XspWebTags</uri>
+
+    <!-- 获取资源标签 -->
+    <tag>
+        <name>resource</name>
+        <tag-class>com.furongsoft.XspWeb.Tags.ResourceTag</tag-class>
+        <body-content>JSP</body-content>
+        <attribute>
+            <name>url</name>
+            <required>true</required>
+            <type>java.lang.String</type>
+        </attribute>
+    </tag>
+
+    <!-- 获取视图资源标签 -->
+    <tag>
+        <name>viewResource</name>
+        <tag-class>com.furongsoft.XspWeb.Tags.ViewResourceTag</tag-class>
+        <body-content>JSP</body-content>
+        <attribute>
+            <name>url</name>
+            <required>true</required>
+            <type>java.lang.String</type>
+        </attribute>
+    </tag>
+
+    <!-- 获取资源函数 -->
+    <function>
+        <name>r</name>
+        <function-class>com.furongsoft.XspWeb.Tags.ResourceFunction</function-class>
+        <function-signature>java.lang.String r(java.lang.String)</function-signature>
+    </function>
+
+    <!-- 获取视图资源函数 -->
+    <function>
+        <name>vr</name>
+        <function-class>com.furongsoft.XspWeb.Tags.ResourceFunction</function-class>
+        <function-signature>java.lang.String vr(java.lang.String)</function-signature>
+    </function>
+</taglib>

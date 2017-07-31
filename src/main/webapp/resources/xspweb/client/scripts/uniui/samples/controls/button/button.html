@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link type="text/css" rel="stylesheet" href="../../../../uniui/css/page.css">
+</head>
+<body>
+<div id="root">
+    <div id="button2" class="uniui uniui-button">
+        <input value="content"/>
+    </div>
+</div>
+
+<script type="text/javascript" src="../../../../thirdparty/jquery-1.9.1/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="../../../../thirdparty/avalon-1.4.7/avalon.js"></script>
+<script type="text/javascript" src="../../../../uniui/js/initPage.js"></script>
+<script type="text/javascript">
+    imports(["uniui/button"], function () {
+        var button = XspWeb.Controls.Uniui.Button.create("button1", "hello");
+        button.addToParent("root");
+        button.setContent("world");
+        button.setOnClickHandler(function () {
+            alert("123");
+        });
+
+        button.removeFromParent();
+        button.addToParent("root");
+
+        var button1 = new XspWeb.Controls.Uniui.Button("button2");
+        button1.setContent("xxx");
+    });
+</script>
+</body>
+</html>

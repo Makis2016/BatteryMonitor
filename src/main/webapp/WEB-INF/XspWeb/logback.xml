@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- scan:当此属性设置为true时，配置文件如果发生改变，将会被重新加载，默认值为true。 -->
+<!-- scanPeriod:设置监测配置文件是否有修改的时间间隔，如果没有给出时间单位，默认单位是毫秒。当scan为true时，此属性生效。默认的时间间隔为1分钟。 -->
+<!-- debug:当此属性设置为true时，将打印出logback内部日志信息，实时查看logback运行状态。默认值为false。 -->
+<configuration scan="true" scanPeriod="60 seconds" debug="false">
+
+	<!-- 日志保存路径 -->
+	<property name="LOG_PATH" value="${webapp.root}/WEB-INF/logs" />
+	<!-- 日志文件名称前缀 -->
+	<property name="LOG_FILENAME_PREFIX" value="logfile" />
+	<!-- 日志历史文件天数 -->
+	<property name="MAX_HISTORY" value="30" />
+
+	<!-- 控制台输出日志 -->
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<!-- %d:日期, %thread:线程名, %-5level:级别从左显示5个字符宽度, %msg:日志消息, %n:换行符 -->
+		<encoder charset="UTF-8">
+			<Pattern>
+				%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level - %msg%n
+			</Pattern>
+		</encoder>
+	</appender>
+
+	<!-- Debug文件输出日志 -->
+	<appender name="FILE_DEBUG"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<filter class="ch.qos.logback.classic.filter.LevelFilter">
+			<level>DEBUG</level>
+			<onMatch>ACCEPT</onMatch>
+			<onMismatch>DENY</onMismatch>
+		</filter>
+
+		<!-- 如果是 true，日志会被安全的写入文件，即使其他的FileAppender也在向此文件做写入操作，效率低，默认是 false -->
+		<prudent>true</prudent>
+
+		<!-- 周期性配置 -->
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>
+				${LOG_PATH}/${LOG_FILENAME_PREFIX}_debug.%d{yyyy-MM-dd}.log
+			</fileNamePattern>
+			<maxHistory>${MAX_HISTORY}</maxHistory>
+		</rollingPolicy>
+
+		<!-- %d:日期, %thread:线程名, %-5level:级别从左显示5个字符宽度, %msg:日志消息, %n:换行符 -->
+		<encoder charset="UTF-8">
+			<Pattern>
+				%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level - %msg%n
+			</Pattern>
+		</encoder>
+	</appender>
+
+	<!-- Info文件输出日志 -->
+	<appender name="FILE_INFO"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<filter class="ch.qos.logback.classic.filter.LevelFilter">
+			<level>INFO</level>
+			<onMatch>ACCEPT</onMatch>
+			<onMismatch>DENY</onMismatch>
+		</filter>
+
+		<!-- 如果是 true，日志会被安全的写入文件，即使其他的FileAppender也在向此文件做写入操作，效率低，默认是 false -->
+		<prudent>true</prudent>
+
+		<!-- 周期性配置 -->
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>
+				${LOG_PATH}/${LOG_FILENAME_PREFIX}_info.%d{yyyy-MM-dd}.log
+			</fileNamePattern>
+			<maxHistory>${MAX_HISTORY}</maxHistory>
+		</rollingPolicy>
+
+		<!-- %d:日期, %thread:线程名, %-5level:级别从左显示5个字符宽度, %msg:日志消息, %n:换行符 -->
+		<encoder charset="UTF-8">
+			<Pattern>
+				%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level - %msg%n
+			</Pattern>
+		</encoder>
+	</appender>
+
+	<!-- Warning文件输出日志 -->
+	<appender name="FILE_WARN"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<filter class="ch.qos.logback.classic.filter.LevelFilter">
+			<level>WARN</level>
+			<onMatch>ACCEPT</onMatch>
+			<onMismatch>DENY</onMismatch>
+		</filter>
+
+		<!-- 如果是 true，日志会被安全的写入文件，即使其他的FileAppender也在向此文件做写入操作，效率低，默认是 false -->
+		<prudent>true</prudent>
+
+		<!-- 周期性配置 -->
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>
+				${LOG_PATH}/${LOG_FILENAME_PREFIX}_warn.%d{yyyy-MM-dd}.log
+			</fileNamePattern>
+			<maxHistory>${MAX_HISTORY}</maxHistory>
+		</rollingPolicy>
+
+		<!-- %d:日期, %thread:线程名, %-5level:级别从左显示5个字符宽度, %msg:日志消息, %n:换行符 -->
+		<encoder charset="UTF-8">
+			<Pattern>
+				%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level - %msg%n
+			</Pattern>
+		</encoder>
+	</appender>
+
+	<!-- Error文件输出日志 -->
+	<appender name="FILE_ERROR"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<filter class="ch.qos.logback.classic.filter.LevelFilter">
+			<level>ERROR</level>
+			<onMatch>ACCEPT</onMatch>
+			<onMismatch>DENY</onMismatch>
+		</filter>
+
+		<!-- 如果是 true，日志会被安全的写入文件，即使其他的FileAppender也在向此文件做写入操作，效率低，默认是 false -->
+		<prudent>true</prudent>
+
+		<!-- 周期性配置 -->
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>
+				${LOG_PATH}/${LOG_FILENAME_PREFIX}_error.%d{yyyy-MM-dd}.log
+			</fileNamePattern>
+			<maxHistory>${MAX_HISTORY}</maxHistory>
+		</rollingPolicy>
+
+		<!-- %d:日期, %thread:线程名, %-5level:级别从左显示5个字符宽度, %msg:日志消息, %n:换行符 -->
+		<encoder charset="UTF-8">
+			<Pattern>
+				%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level - %msg%n
+			</Pattern>
+		</encoder>
+	</appender>
+
+	<!-- 网络输出日志 -->
+	<appender name="FILE_NETWORK"
+			  class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<!-- 如果是 true，日志会被安全的写入文件，即使其他的FileAppender也在向此文件做写入操作，效率低，默认是 false -->
+		<prudent>true</prudent>
+
+		<!-- 周期性配置 -->
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>
+				${LOG_PATH}/${LOG_FILENAME_PREFIX}_network.%d{yyyy-MM-dd}.log
+			</fileNamePattern>
+			<maxHistory>${MAX_HISTORY}</maxHistory>
+		</rollingPolicy>
+
+		<!-- %d:日期, %thread:线程名, %-5level:级别从左显示5个字符宽度, %msg:日志消息, %n:换行符 -->
+		<encoder charset="UTF-8">
+			<Pattern>
+				%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level - %msg%n
+			</Pattern>
+		</encoder>
+	</appender>
+
+	<!-- 用来设置某一个包或者具体的某一个类的日志打印级别 -->
+	<logger name="org.springframework" level="debug" />
+	<!-- Hibernate日志输出 -->
+	<logger name="org.hibernate.type" level="ALL" />
+	<logger name="org.hibernate" level="DEBUG" />
+
+	<logger name="network">
+        <appender-ref ref="STDOUT" />
+		<appender-ref ref="FILE_NETWORK" />
+	</logger>
+
+	<root level="debug">
+		<appender-ref ref="STDOUT" />
+		<appender-ref ref="FILE_DEBUG" />
+		<appender-ref ref="FILE_INFO" />
+		<appender-ref ref="FILE_WARN" />
+		<appender-ref ref="FILE_ERROR" />
+	</root>
+</configuration>

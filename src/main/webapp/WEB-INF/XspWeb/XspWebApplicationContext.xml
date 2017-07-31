@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:task="http://www.springframework.org/schema/task" xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:cache="http://www.springframework.org/schema/cache" xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+        http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context 
+        http://www.springframework.org/schema/context/spring-context-3.0.xsd http://www.springframework.org/schema/tx 
+        http://www.springframework.org/schema/tx/spring-tx-4.0.xsd http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache.xsd">
+
+	<!-- XspWeb公用配置 -->
+
+	<!-- 初始化常量 -->
+	<bean class="com.furongsoft.XspWeb.Common.Constants" lazy-init="false" />
+
+	<!-- EhCache配置 -->
+	<cache:annotation-driven cache-manager="cacheManager_system" />
+	<bean id="cacheManager_system" class="org.springframework.cache.ehcache.EhCacheCacheManager">
+		<property name="cacheManager" ref="ehcache_system" />
+	</bean>
+	<bean id="ehcache_system"
+		class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean">
+		<property name="configLocation" value="/WEB-INF/XspWeb/ehcache.xml" />
+	</bean>
+
+	<!-- 系统数据源连接池 -->
+	<bean id="dataSource_system" class="com.alibaba.druid.pool.DruidDataSource"
+		destroy-method="close">
+		<property name="url" value="jdbc:mysql://localhost:3306/shenfubpm" />
+		<property name="username" value="root" />
+		<property name="password" value="123456" />
+		<property name="filters" value="stat" />
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+	</bean>
+
+	<!-- 系统Hibernate连接工厂 -->
+	<bean id="hibernateSessionFactory_system"
+		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource_system" />
+		<property name="configLocation" value="/WEB-INF/XspWeb/hibernate.cfg.xml" />
+		<property name="packagesToScan">
+			<list>
+				<value>com.furongsoft.XspWeb.Security</value>
+				<value>com.furongsoft.Public.Dao.Entities</value>
+			</list>
+		</property>
+	</bean>
+
+	<!-- 系统MyBatis连接工厂 -->
+	<bean id="myBatisSessionFactory_system" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource_system" />
+	</bean>
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="sqlSessionFactory" ref="myBatisSessionFactory_system" />
+		<property name="annotationClass"
+			value="com.furongsoft.XspWeb.DbHelper.ORM.BaseDao.MyBatisMapper" />
+		<property name="basePackage" value="com.furongsoft" />
+	</bean>
+
+	<!-- 基础数据访问对象 -->
+	<bean id="SecurityDao" class="com.furongsoft.XspWeb.Security.Dao.SecurityDao">
+		<property name="dataSource" ref="dataSource_system" />
+		<property name="sf" ref="hibernateSessionFactory_system" />
+		<property name="ssf" ref="myBatisSessionFactory_system" />
+	</bean>
+
+	<!-- 基础数据访问对象 -->
+	<bean id="BaseDao_system" class="com.furongsoft.XspWeb.DbHelper.ORM.BaseDao">
+		<property name="dataSource" ref="dataSource_system" />
+		<property name="sf" ref="hibernateSessionFactory_system" />
+		<property name="ssf" ref="myBatisSessionFactory_system" />
+	</bean>
+
+	<!-- PUBLIC基础数据访问对象 -->
+	<bean id="ObjectMapper" class="com.furongsoft.Public.Dao.MbMapper.ObjectMapper">
+		<property name="dataSource" ref="dataSource_system" />
+		<property name="sf" ref="hibernateSessionFactory_system" />
+		<property name="ssf" ref="myBatisSessionFactory_system" />
+	</bean>
+
+	<!-- 默认事务管理器,不支持多事务管理器 -->
+	<bean id="transactionManager_system"
+		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+		<property name="sessionFactory" ref="hibernateSessionFactory_system" />
+	</bean>
+	<!-- 使用annotation定义事务 -->
+	<tx:annotation-driven transaction-manager="transactionManager_system" />
+
+	<!-- shiro 过滤器配置 -->
+	<!--<bean id="xspRealm" class="com.furongsoft.XspWeb.Security.XspRealm">-->
+		<!--<property name="credentialsMatcher">-->
+			<!--<bean class="com.furongsoft.XspWeb.Security.HashedCredentialsMatcher">-->
+				<!--<property name="hashAlgorithmName" value="MD5" />-->
+				<!--<property name="hashIterations" value="2" />-->
+				<!--<property name="storedCredentialsHexEncoded" value="true" />-->
+			<!--</bean>-->
+		<!--</property>-->
+	<!--</bean>-->
+	<!--<bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">-->
+		<!--<property name="realm" ref="xspRealm" />-->
+	<!--</bean>-->
+
+	<!--<bean id="chainDefinitionSectionMetaSource"-->
+		<!--class="com.furongsoft.XspWeb.Security.ChainDefinitionSectionMetaSource">-->
+		<!--<property name="filterChainDefinitions">-->
+			<!--<value>-->
+				<!--&lt;!&ndash;/Main/** = authc&ndash;&gt;-->
+				<!--&lt;!&ndash; /Samples/** = authc &ndash;&gt;-->
+				<!--&lt;!&ndash; 忽略随机码 &ndash;&gt;-->
+				<!--/Captcha/* = anon-->
+				<!--&lt;!&ndash; 忽略资源 &ndash;&gt;-->
+				<!--/resource/** = anon-->
+				<!--&lt;!&ndash;/System/** = anon&ndash;&gt;-->
+			<!--</value>-->
+		<!--</property>-->
+	<!--</bean>-->
+	<!--<bean id="securityFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">-->
+		<!--<property name="securityManager" ref="securityManager" />-->
+		<!--<property name="loginUrl" value="/Security/login" />-->
+		<!--<property name="successUrl" value="/Index" />-->
+		<!--<property name="unauthorizedUrl" value="/Unauthorized" />-->
+		<!--<property name="filterChainDefinitionMap" ref="chainDefinitionSectionMetaSource" />-->
+	<!--</bean>-->
+	<!--<bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor" />-->
+	<!--<bean-->
+		<!--class="org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor">-->
+		<!--<property name="securityManager" ref="securityManager" />-->
+	<!--</bean>-->
+
+	<!-- 默认扫描包 -->
+	<context:component-scan base-package="com.furongsoft.XspWeb" />
+
+</beans>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:task="http://www.springframework.org/schema/task" xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:cache="http://www.springframework.org/schema/cache" xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+        http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context 
+        http://www.springframework.org/schema/context/spring-context-3.0.xsd http://www.springframework.org/schema/tx 
+        http://www.springframework.org/schema/tx/spring-tx-4.0.xsd http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache.xsd">
+
+	<!-- Servlet自定义配置 -->
+	<!-- 基础数据访问对象 -->
+
+	<!-- 初始化常量 -->
+
+	<!-- ApplicationContext存储器 -->
+	<bean class="com.furongsoft.XspWeb.Servlets.ApplicationContextHolder"
+		lazy-init="false" />
+
+	<!--开启shiro注解，并验证用户和权限重定向页面 -->
+	<!--<bean-->
+		<!--class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator"-->
+		<!--depends-on="lifecycleBeanPostProcessor" />-->
+	<!--<bean-->
+		<!--class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">-->
+		<!--<property name="exceptionMappings">-->
+			<!--<props>-->
+				<!--<prop key="org.apache.shiro.authz.UnauthorizedException">-->
+					<!--/XspWeb/Security/Login/unauthorizedException-->
+				<!--</prop>-->
+				<!--<prop key="org.apache.shiro.authz.UnauthenticatedException">-->
+					<!--/XspWeb/Security/Login/unLogin-->
+				<!--</prop>-->
+			<!--</props>-->
+		<!--</property>-->
+	<!--</bean>-->
+
+	<!-- Enables the Spring MVC @Controller programming model -->
+	<mvc:annotation-driven enable-matrix-variables="true" />
+
+	<!-- 配置JSP视图解析器 -->
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/views/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
+
+	<!-- Handles HTTP GET requests for /resources/** by efficiently serving 
+		up static resources in the ${webappRoot}/resources/ directory -->
+	<mvc:resources mapping="/resources/**" location="/resources/" />
+	<mvc:resources mapping="/views/**" location="/WEB-INF/views/" />
+
+	<!-- 自定义扫描包 -->
+	<context:component-scan base-package="com.furongsoft.Public" />
+
+</beans>

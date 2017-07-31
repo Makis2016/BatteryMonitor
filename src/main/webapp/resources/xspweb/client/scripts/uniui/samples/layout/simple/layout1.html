@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="root" style="height: 200px">
+</div>
+<script type="text/javascript" src="../../../../thirdparty/jquery-1.9.1/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="../../../../thirdparty/avalon-1.4.7/avalon.js"></script>
+<script type="text/javascript" src="../../../../uniui/js/initPage.js"></script>
+<script type="text/javascript">
+    imports(["uniui/layout"], function () {
+        var layout1 = XspWeb.Controls.Uniui.Layout.create("layout1");
+
+        var layout2 = XspWeb.Controls.Uniui.Layout.create("layout2", "south");
+        layout2.setSize("30%");
+
+        var layout3 = XspWeb.Controls.Uniui.Layout.create("layout3", "centre");
+        // layout3.setSize("50");
+
+        var layout4 = XspWeb.Controls.Uniui.Layout.create("layout4", "north");
+        layout4.setSize("20%");
+
+        var layout5 = XspWeb.Controls.Uniui.Layout.create("layout5", "east");
+        layout5.setSize("30%");
+
+        var layout6 = XspWeb.Controls.Uniui.Layout.create("layout6", "west");
+        layout6.setSize("30%");
+
+        layout3.addToParent(layout1);
+        layout2.addToParent(layout1);
+        layout4.addToParent(layout1);
+        layout5.addToParent(layout1);
+        layout6.addToParent(layout1);
+        layout1.addToParent("root");
+    });
+</script>
+</body>
+</html>

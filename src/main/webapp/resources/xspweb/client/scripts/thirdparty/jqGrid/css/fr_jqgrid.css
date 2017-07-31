@@ -1,0 +1,19 @@
+@CHARSET "UTF-8";
+
+#gbox_HDGroup, #gview_HDGroup, #gview_HDGroup .ui-jqgrid-hdiv,
+	#gview_HDGroup .ui-jqgrid-bdiv {
+	width: 100% !important;
+}
+
+#gbox_HDGroup,#pager {
+	width: 100%;
+}
+
+.pager_point{
+	width:100%;
+	position:fixed;
+	boottom:0px;
+}
+.layout {
+    overflow: hidden !important;
+}

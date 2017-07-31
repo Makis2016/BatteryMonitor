@@ -1,0 +1,132 @@
+<web-app xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+         version="3.0">
+    <display-name>BatteryMonitor</display-name>
+
+    <!-- The definition of the Root Spring Container shared by all Servlets
+		and Filters -->
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>/WEB-INF/XspWeb/XspWebApplicationContext.xml,/WEB-INF/XspWeb/root-context.xml</param-value>
+    </context-param>
+
+    <!-- Disables Servlet Container welcome file handling. Needed for compatibility
+        with Servlet 3.0 and Tomcat 7.0 -->
+    <welcome-file-list>
+        <welcome-file>home.jsp</welcome-file>
+    </welcome-file-list>
+
+    <!-- Creates the Spring Container shared by all Servlets and Filters -->
+    <!-- 会话配置 -->
+    <session-config>
+        <session-timeout>30</session-timeout>
+    </session-config>
+
+    <!-- logback配置 -->
+    <context-param>
+        <param-name>logbackConfigLocation</param-name>
+        <param-value>/WEB-INF/XspWeb/logback.xml</param-value>
+    </context-param>
+    <listener>
+        <listener-class>ch.qos.logback.ext.spring.web.LogbackConfigListener</listener-class>
+    </listener>
+
+    <!-- SPRING MVC 配置 -->
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+
+    <!-- 请求上下文监听器 -->
+    <listener>
+        <listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
+    </listener>
+
+    <!-- jActiveRecord-EL 配置 -->
+    <listener>
+        <listener-class>com.furongsoft.XspWeb.ThirdParty.me.zzp.ar.el.ResolverSetup</listener-class>
+    </listener>
+
+    <!-- 公用资源分发器配置 -->
+    <servlet>
+        <servlet-name>publicDispatcher</servlet-name>
+        <servlet-class>com.furongsoft.XspWeb.Servlets.XspDispatcherServlet</servlet-class>
+        <init-param>
+            <!-- XSP文件存放路径 -->
+            <param-name>XSPPath</param-name>
+            <param-value>views</param-value>
+        </init-param>
+        <init-param>
+            <!-- 网站标题 -->
+            <param-name>Title</param-name>
+            <param-value>Public</param-value>
+        </init-param>
+        <init-param>
+            <!-- 界面风格 -->
+            <param-name>Theme</param-name>
+            <param-value>Default</param-value>
+        </init-param>
+        <init-param>
+            <!-- 语言配置 -->
+            <param-name>Language</param-name>
+            <param-value>zh_CN</param-value>
+        </init-param>
+        <init-param>
+            <!-- 版本配置 -->
+            <param-name>Version</param-name>
+            <param-value>0.1.0</param-value>
+        </init-param>
+        <init-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>classpath:public/servlet-context.xml</param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+        <async-supported>true</async-supported>
+    </servlet>
+
+    <servlet>
+        <servlet-name>DruidStatView</servlet-name>
+        <servlet-class>com.alibaba.druid.support.http.StatViewServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>DruidStatView</servlet-name>
+        <url-pattern>/druid/*</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>publicDispatcher</servlet-name>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
+
+    <!-- Spring MVC 编码过滤器配置 -->
+    <filter>
+        <filter-name>encodingFilter</filter-name>
+        <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+        <init-param>
+            <param-name>encoding</param-name>
+            <param-value>UTF-8</param-value>
+        </init-param>
+        <init-param>
+            <param-name>forceEncoding</param-name>
+            <param-value>true</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>encodingFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <!-- Security 过滤器配置 -->
+    <!--<filter>-->
+        <!--<filter-name>securityFilter</filter-name>-->
+        <!--<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>-->
+        <!--<init-param>-->
+            <!--<param-name>targetFilterLifecycle</param-name>-->
+            <!--<param-value>true</param-value>-->
+        <!--</init-param>-->
+    <!--</filter>-->
+    <!--<filter-mapping>-->
+        <!--<filter-name>securityFilter</filter-name>-->
+        <!--<url-pattern>/*</url-pattern>-->
+    <!--</filter-mapping>-->
+</web-app>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="root">
+</div>
+<script type="text/javascript" src="../../../../thirdparty/jquery-1.9.1/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="../../../../thirdparty/avalon-1.4.7/avalon.js"></script>
+<script type="text/javascript" src="../../../../uniui/js/initPage.js"></script>
+<script type="text/javascript">
+    imports(["uniui/datepicker"], function () {
+        var datepicker = XspWeb.Controls.Uniui.DatePicker.create("datepicker1", "标题", "2016-01-01");
+        datepicker.addToParent("root");
+        datepicker.setContent("老王");
+        datepicker.setTitle("大胖");
+        alert(datepicker.getContent());
+        alert(datepicker.getTitle());
+        alert(datepicker.verify());
+    });
+</script>
+</body>
+</html>
