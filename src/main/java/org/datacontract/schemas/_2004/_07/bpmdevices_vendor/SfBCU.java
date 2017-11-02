@@ -27,7 +27,8 @@ import javax.xml.bind.annotation.XmlType;
  *         &lt;element name="IsRefresh" type="{http://www.w3.org/2001/XMLSchema}boolean" minOccurs="0"/>
  *         &lt;element name="Length" type="{http://www.w3.org/2001/XMLSchema}unsignedByte" minOccurs="0"/>
  *         &lt;element name="Mac" type="{http://www.w3.org/2001/XMLSchema}base64Binary" minOccurs="0"/>
- *         &lt;element name="PANId" type="{http://www.w3.org/2001/XMLSchema}unsignedShort" minOccurs="0"/>
+ *         &lt;element name="PANId1" type="{http://www.w3.org/2001/XMLSchema}unsignedShort" minOccurs="0"/>
+ *         &lt;element name="PANId2" type="{http://www.w3.org/2001/XMLSchema}unsignedShort" minOccurs="0"/>
  *         &lt;element name="RegisterAddress" type="{http://www.w3.org/2001/XMLSchema}unsignedShort" minOccurs="0"/>
  *         &lt;element name="Reserve" type="{http://www.w3.org/2001/XMLSchema}base64Binary" minOccurs="0"/>
  *         &lt;element name="SerialNumber" type="{http://www.w3.org/2001/XMLSchema}unsignedByte" minOccurs="0"/>
@@ -51,7 +52,8 @@ import javax.xml.bind.annotation.XmlType;
     "isRefresh",
     "length",
     "mac",
-    "panId",
+    "panId1",
+    "panId2",
     "registerAddress",
     "reserve",
     "serialNumber",
@@ -80,9 +82,12 @@ public class SfBCU {
     protected Short length;
     @XmlElementRef(name = "Mac", namespace = "http://schemas.datacontract.org/2004/07/BPMDevices.Vendor.Shenfu", type = JAXBElement.class, required = false)
     protected JAXBElement<byte[]> mac;
-    @XmlElement(name = "PANId")
+    @XmlElement(name = "PANId1")
     @XmlSchemaType(name = "unsignedShort")
-    protected Integer panId;
+    protected Integer panId1;
+    @XmlElement(name = "PANId2")
+    @XmlSchemaType(name = "unsignedShort")
+    protected Integer panId2;
     @XmlElement(name = "RegisterAddress")
     @XmlSchemaType(name = "unsignedShort")
     protected Integer registerAddress;
@@ -270,27 +275,51 @@ public class SfBCU {
     }
 
     /**
-     * 获取panId属性的值。
+     * 获取panId1属性的值。
      * 
      * @return
      *     possible object is
      *     {@link Integer }
      *     
      */
-    public Integer getPANId() {
-        return panId;
+    public Integer getPANId1() {
+        return panId1;
     }
 
     /**
-     * 设置panId属性的值。
+     * 设置panId1属性的值。
      * 
      * @param value
      *     allowed object is
      *     {@link Integer }
      *     
      */
-    public void setPANId(Integer value) {
-        this.panId = value;
+    public void setPANId1(Integer value) {
+        this.panId1 = value;
+    }
+
+    /**
+     * 获取panId2属性的值。
+     * 
+     * @return
+     *     possible object is
+     *     {@link Integer }
+     *     
+     */
+    public Integer getPANId2() {
+        return panId2;
+    }
+
+    /**
+     * 设置panId2属性的值。
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link Integer }
+     *     
+     */
+    public void setPANId2(Integer value) {
+        this.panId2 = value;
     }
 
     /**

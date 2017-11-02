@@ -109,7 +109,7 @@ public class ObjectMapper extends BaseDao
     @MyBatisMapper
     public interface SystemMapper
     {
-        @Select("SELECT id,pid,area_name FROM t_sys_area")
+        @Select("SELECT id,pid,area_name FROM t_sys_area where status = 1")
         public List<SimpleDateForzTree> getSimpleDateForzTree();
 
         @Select("SELECT\n" +

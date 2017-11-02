@@ -8,7 +8,7 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElementRef;
 import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
-import org.datacontract.schemas._2004._07.bpmdevices.AlarmManagerAlarmLevel;
+import org.datacontract.schemas._2004._07.bpmdevices_vendor.AlarmAlarmLevel;
 import org.datacontract.schemas._2004._07.bpmdevices_vendor.ArrayOfBattery;
 import org.datacontract.schemas._2004._07.bpmdevices_vendor.BatteryPackHealthyState;
 import org.datacontract.schemas._2004._07.bpmdevices_vendor.BatteryPackHotStates;
@@ -34,15 +34,15 @@ import org.datacontract.schemas._2004._07.bpmdevices_vendor.BatteryPackHotStates
  *         &lt;element name="BatteryVoltageLevelBaseLine2" type="{http://www.w3.org/2001/XMLSchema}double" minOccurs="0"/>
  *         &lt;element name="Current" type="{http://www.w3.org/2001/XMLSchema}double" minOccurs="0"/>
  *         &lt;element name="EnvironmentTemperature" type="{http://www.w3.org/2001/XMLSchema}double" minOccurs="0"/>
- *         &lt;element name="HotAlarmLevel" type="{http://schemas.datacontract.org/2004/07/BPMDevices}AlarmManager.AlarmLevel" minOccurs="0"/>
+ *         &lt;element name="HotAlarmLevel" type="{http://schemas.datacontract.org/2004/07/BPMDevices.Vendor.Common}Alarm.AlarmLevel" minOccurs="0"/>
  *         &lt;element name="HotState" type="{http://schemas.datacontract.org/2004/07/BPMDevices.Vendor.Common}BatteryPack.HotStates" minOccurs="0"/>
  *         &lt;element name="Id" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/>
  *         &lt;element name="Name" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="RemainCapacity" type="{http://www.w3.org/2001/XMLSchema}double" minOccurs="0"/>
  *         &lt;element name="SOC" type="{http://www.w3.org/2001/XMLSchema}double" minOccurs="0"/>
- *         &lt;element name="SOCAlarmLevel" type="{http://schemas.datacontract.org/2004/07/BPMDevices}AlarmManager.AlarmLevel" minOccurs="0"/>
+ *         &lt;element name="SOCAlarmLevel" type="{http://schemas.datacontract.org/2004/07/BPMDevices.Vendor.Common}Alarm.AlarmLevel" minOccurs="0"/>
  *         &lt;element name="SOH" type="{http://schemas.datacontract.org/2004/07/BPMDevices.Vendor.Common}BatteryPack.HealthyState" minOccurs="0"/>
- *         &lt;element name="SOHAlarmLevel" type="{http://schemas.datacontract.org/2004/07/BPMDevices}AlarmManager.AlarmLevel" minOccurs="0"/>
+ *         &lt;element name="SOHAlarmLevel" type="{http://schemas.datacontract.org/2004/07/BPMDevices.Vendor.Common}Alarm.AlarmLevel" minOccurs="0"/>
  *         &lt;element name="Voltage" type="{http://www.w3.org/2001/XMLSchema}double" minOccurs="0"/>
  *         &lt;element name="WaterTemperature" type="{http://www.w3.org/2001/XMLSchema}double" minOccurs="0"/>
  *         &lt;element name="mBatteries" type="{http://schemas.datacontract.org/2004/07/BPMDevices.Vendor.Common}ArrayOfBattery" minOccurs="0"/>
@@ -103,7 +103,7 @@ public class BatteryPackInfo {
     protected JAXBElement<Double> environmentTemperature;
     @XmlElement(name = "HotAlarmLevel")
     @XmlSchemaType(name = "string")
-    protected AlarmManagerAlarmLevel hotAlarmLevel;
+    protected AlarmAlarmLevel hotAlarmLevel;
     @XmlElement(name = "HotState")
     @XmlSchemaType(name = "string")
     protected BatteryPackHotStates hotState;
@@ -117,13 +117,13 @@ public class BatteryPackInfo {
     protected Double soc;
     @XmlElement(name = "SOCAlarmLevel")
     @XmlSchemaType(name = "string")
-    protected AlarmManagerAlarmLevel socAlarmLevel;
+    protected AlarmAlarmLevel socAlarmLevel;
     @XmlElement(name = "SOH")
     @XmlSchemaType(name = "string")
     protected BatteryPackHealthyState soh;
     @XmlElement(name = "SOHAlarmLevel")
     @XmlSchemaType(name = "string")
-    protected AlarmManagerAlarmLevel sohAlarmLevel;
+    protected AlarmAlarmLevel sohAlarmLevel;
     @XmlElementRef(name = "Voltage", namespace = "http://schemas.datacontract.org/2004/07/BPMService.Model", type = JAXBElement.class, required = false)
     protected JAXBElement<Double> voltage;
     @XmlElementRef(name = "WaterTemperature", namespace = "http://schemas.datacontract.org/2004/07/BPMService.Model", type = JAXBElement.class, required = false)
@@ -376,10 +376,10 @@ public class BatteryPackInfo {
      * 
      * @return
      *     possible object is
-     *     {@link AlarmManagerAlarmLevel }
+     *     {@link AlarmAlarmLevel }
      *     
      */
-    public AlarmManagerAlarmLevel getHotAlarmLevel() {
+    public AlarmAlarmLevel getHotAlarmLevel() {
         return hotAlarmLevel;
     }
 
@@ -388,10 +388,10 @@ public class BatteryPackInfo {
      * 
      * @param value
      *     allowed object is
-     *     {@link AlarmManagerAlarmLevel }
+     *     {@link AlarmAlarmLevel }
      *     
      */
-    public void setHotAlarmLevel(AlarmManagerAlarmLevel value) {
+    public void setHotAlarmLevel(AlarmAlarmLevel value) {
         this.hotAlarmLevel = value;
     }
 
@@ -520,10 +520,10 @@ public class BatteryPackInfo {
      * 
      * @return
      *     possible object is
-     *     {@link AlarmManagerAlarmLevel }
+     *     {@link AlarmAlarmLevel }
      *     
      */
-    public AlarmManagerAlarmLevel getSOCAlarmLevel() {
+    public AlarmAlarmLevel getSOCAlarmLevel() {
         return socAlarmLevel;
     }
 
@@ -532,10 +532,10 @@ public class BatteryPackInfo {
      * 
      * @param value
      *     allowed object is
-     *     {@link AlarmManagerAlarmLevel }
+     *     {@link AlarmAlarmLevel }
      *     
      */
-    public void setSOCAlarmLevel(AlarmManagerAlarmLevel value) {
+    public void setSOCAlarmLevel(AlarmAlarmLevel value) {
         this.socAlarmLevel = value;
     }
 
@@ -568,10 +568,10 @@ public class BatteryPackInfo {
      * 
      * @return
      *     possible object is
-     *     {@link AlarmManagerAlarmLevel }
+     *     {@link AlarmAlarmLevel }
      *     
      */
-    public AlarmManagerAlarmLevel getSOHAlarmLevel() {
+    public AlarmAlarmLevel getSOHAlarmLevel() {
         return sohAlarmLevel;
     }
 
@@ -580,10 +580,10 @@ public class BatteryPackInfo {
      * 
      * @param value
      *     allowed object is
-     *     {@link AlarmManagerAlarmLevel }
+     *     {@link AlarmAlarmLevel }
      *     
      */
-    public void setSOHAlarmLevel(AlarmManagerAlarmLevel value) {
+    public void setSOHAlarmLevel(AlarmAlarmLevel value) {
         this.sohAlarmLevel = value;
     }
 

@@ -17,7 +17,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="isIgnored" type="{http://www.w3.org/2001/XMLSchema}boolean" minOccurs="0"/>
+ *         &lt;element name="circuitId" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -28,35 +28,35 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "isIgnored"
+    "circuitId"
 })
-@XmlRootElement(name = "GetRealTimeAlarmCount")
-public class GetRealTimeAlarmCount {
+@XmlRootElement(name = "CheckResistance")
+public class CheckResistance {
 
-    protected Boolean isIgnored;
+    protected Long circuitId;
 
     /**
-     * 获取isIgnored属性的值。
+     * 获取circuitId属性的值。
      * 
      * @return
      *     possible object is
-     *     {@link Boolean }
+     *     {@link Long }
      *     
      */
-    public Boolean isIsIgnored() {
-        return isIgnored;
+    public Long getCircuitId() {
+        return circuitId;
     }
 
     /**
-     * 设置isIgnored属性的值。
+     * 设置circuitId属性的值。
      * 
      * @param value
      *     allowed object is
-     *     {@link Boolean }
+     *     {@link Long }
      *     
      */
-    public void setIsIgnored(Boolean value) {
-        this.isIgnored = value;
+    public void setCircuitId(Long value) {
+        this.circuitId = value;
     }
 
 }

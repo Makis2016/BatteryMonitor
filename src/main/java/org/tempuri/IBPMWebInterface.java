@@ -11,6 +11,7 @@ import javax.xml.ws.ResponseWrapper;
 import com.microsoft.schemas._2003._10.serialization.arrays.ArrayOfanyType;
 import org.datacontract.schemas._2004._07.bpmdevices.BatteryPackThreshold;
 import org.datacontract.schemas._2004._07.bpmdevices.BatteryThreshold;
+import org.datacontract.schemas._2004._07.bpmdevices_vendor.AlarmAlarmType;
 import org.datacontract.schemas._2004._07.bpmdevices_vendor.ArrayOfAlarm;
 import org.datacontract.schemas._2004._07.bpmdevices_vendor.ArrayOfBattery;
 import org.datacontract.schemas._2004._07.bpmdevices_vendor.ArrayOfBatteryPack;
@@ -68,8 +69,9 @@ public interface IBPMWebInterface {
 
     /**
      * 
-     * @param pageInde
-     * @param areas
+     * @param area
+     * @param batteriesVisible
+     * @param pageIndex
      * @param pageDataCount
      * @return
      *     returns org.datacontract.schemas._2004._07.bpmdevices_vendor.ArrayOfCircuitInfo
@@ -79,16 +81,18 @@ public interface IBPMWebInterface {
     @RequestWrapper(localName = "GetCircuitInfos", targetNamespace = "http://tempuri.org/", className = "org.tempuri.GetCircuitInfos")
     @ResponseWrapper(localName = "GetCircuitInfosResponse", targetNamespace = "http://tempuri.org/", className = "org.tempuri.GetCircuitInfosResponse")
     public ArrayOfCircuitInfo getCircuitInfos(
-        @WebParam(name = "areas", targetNamespace = "http://tempuri.org/")
-        String areas,
-        @WebParam(name = "pageInde", targetNamespace = "http://tempuri.org/")
-        Integer pageInde,
+        @WebParam(name = "area", targetNamespace = "http://tempuri.org/")
+        Long area,
+        @WebParam(name = "pageIndex", targetNamespace = "http://tempuri.org/")
+        Integer pageIndex,
         @WebParam(name = "pageDataCount", targetNamespace = "http://tempuri.org/")
-        Integer pageDataCount);
+        Integer pageDataCount,
+        @WebParam(name = "batteriesVisible", targetNamespace = "http://tempuri.org/")
+        Boolean batteriesVisible);
 
     /**
      * 
-     * @param areas
+     * @param area
      * @return
      *     returns java.lang.Long
      */
@@ -97,8 +101,8 @@ public interface IBPMWebInterface {
     @RequestWrapper(localName = "GetCircuitsCount", targetNamespace = "http://tempuri.org/", className = "org.tempuri.GetCircuitsCount")
     @ResponseWrapper(localName = "GetCircuitsCountResponse", targetNamespace = "http://tempuri.org/", className = "org.tempuri.GetCircuitsCountResponse")
     public Long getCircuitsCount(
-        @WebParam(name = "areas", targetNamespace = "http://tempuri.org/")
-        String areas);
+        @WebParam(name = "area", targetNamespace = "http://tempuri.org/")
+        Long area);
 
     /**
      * 
@@ -150,23 +154,6 @@ public interface IBPMWebInterface {
     public CircuitInfo getCircuit(
         @WebParam(name = "id", targetNamespace = "http://tempuri.org/")
         Long id);
-
-    /**
-     * 
-     * @param areas
-     * @param userId
-     * @return
-     *     returns java.lang.Boolean
-     */
-    @WebMethod(operationName = "RemoveAreaCircuits", action = "http://tempuri.org/IBPMWebInterface/RemoveAreaCircuits")
-    @WebResult(name = "RemoveAreaCircuitsResult", targetNamespace = "http://tempuri.org/")
-    @RequestWrapper(localName = "RemoveAreaCircuits", targetNamespace = "http://tempuri.org/", className = "org.tempuri.RemoveAreaCircuits")
-    @ResponseWrapper(localName = "RemoveAreaCircuitsResponse", targetNamespace = "http://tempuri.org/", className = "org.tempuri.RemoveAreaCircuitsResponse")
-    public Boolean removeAreaCircuits(
-        @WebParam(name = "areas", targetNamespace = "http://tempuri.org/")
-        String areas,
-        @WebParam(name = "userId", targetNamespace = "http://tempuri.org/")
-        Long userId);
 
     /**
      * 
@@ -576,6 +563,9 @@ public interface IBPMWebInterface {
 
     /**
      * 
+     * @param pageIndex
+     * @param pageDataCount
+     * @param isIgnored
      * @return
      *     returns org.datacontract.schemas._2004._07.bpmdevices_vendor.ArrayOfAlarm
      */
@@ -583,10 +573,17 @@ public interface IBPMWebInterface {
     @WebResult(name = "GetRealTimeAlarmResult", targetNamespace = "http://tempuri.org/")
     @RequestWrapper(localName = "GetRealTimeAlarm", targetNamespace = "http://tempuri.org/", className = "org.tempuri.GetRealTimeAlarm")
     @ResponseWrapper(localName = "GetRealTimeAlarmResponse", targetNamespace = "http://tempuri.org/", className = "org.tempuri.GetRealTimeAlarmResponse")
-    public ArrayOfAlarm getRealTimeAlarm();
+    public ArrayOfAlarm getRealTimeAlarm(
+        @WebParam(name = "isIgnored", targetNamespace = "http://tempuri.org/")
+        Boolean isIgnored,
+        @WebParam(name = "pageIndex", targetNamespace = "http://tempuri.org/")
+        Integer pageIndex,
+        @WebParam(name = "pageDataCount", targetNamespace = "http://tempuri.org/")
+        Integer pageDataCount);
 
     /**
      * 
+     * @param isIgnored
      * @return
      *     returns java.lang.Long
      */
@@ -594,11 +591,13 @@ public interface IBPMWebInterface {
     @WebResult(name = "GetRealTimeAlarmCountResult", targetNamespace = "http://tempuri.org/")
     @RequestWrapper(localName = "GetRealTimeAlarmCount", targetNamespace = "http://tempuri.org/", className = "org.tempuri.GetRealTimeAlarmCount")
     @ResponseWrapper(localName = "GetRealTimeAlarmCountResponse", targetNamespace = "http://tempuri.org/", className = "org.tempuri.GetRealTimeAlarmCountResponse")
-    public Long getRealTimeAlarmCount();
+    public Long getRealTimeAlarmCount(
+        @WebParam(name = "isIgnored", targetNamespace = "http://tempuri.org/")
+        Boolean isIgnored);
 
     /**
      * 
-     * @param key
+     * @param alarmId
      * @return
      *     returns java.lang.Boolean
      */
@@ -607,8 +606,22 @@ public interface IBPMWebInterface {
     @RequestWrapper(localName = "IgnoreAlarm", targetNamespace = "http://tempuri.org/", className = "org.tempuri.IgnoreAlarm")
     @ResponseWrapper(localName = "IgnoreAlarmResponse", targetNamespace = "http://tempuri.org/", className = "org.tempuri.IgnoreAlarmResponse")
     public Boolean ignoreAlarm(
-        @WebParam(name = "key", targetNamespace = "http://tempuri.org/")
-        String key);
+        @WebParam(name = "alarmId", targetNamespace = "http://tempuri.org/")
+        Long alarmId);
+
+    /**
+     * 
+     * @param alarmType
+     * @return
+     *     returns java.lang.Boolean
+     */
+    @WebMethod(operationName = "IgnoreAlarmType", action = "http://tempuri.org/IBPMWebInterface/IgnoreAlarmType")
+    @WebResult(name = "IgnoreAlarmTypeResult", targetNamespace = "http://tempuri.org/")
+    @RequestWrapper(localName = "IgnoreAlarmType", targetNamespace = "http://tempuri.org/", className = "org.tempuri.IgnoreAlarmType")
+    @ResponseWrapper(localName = "IgnoreAlarmTypeResponse", targetNamespace = "http://tempuri.org/", className = "org.tempuri.IgnoreAlarmTypeResponse")
+    public Boolean ignoreAlarmType(
+        @WebParam(name = "alarmType", targetNamespace = "http://tempuri.org/")
+        AlarmAlarmType alarmType);
 
     /**
      * 
@@ -992,5 +1005,39 @@ public interface IBPMWebInterface {
     @RequestWrapper(localName = "GetSfECUConfigData", targetNamespace = "http://tempuri.org/", className = "org.tempuri.GetSfECUConfigData")
     @ResponseWrapper(localName = "GetSfECUConfigDataResponse", targetNamespace = "http://tempuri.org/", className = "org.tempuri.GetSfECUConfigDataResponse")
     public SfECU getSfECUConfigData();
+
+    /**
+     * 
+     * @param circuitId
+     * @return
+     *     returns java.lang.Boolean
+     */
+    @WebMethod(operationName = "CheckResistance", action = "http://tempuri.org/IBPMWebInterface/CheckResistance")
+    @WebResult(name = "CheckResistanceResult", targetNamespace = "http://tempuri.org/")
+    @RequestWrapper(localName = "CheckResistance", targetNamespace = "http://tempuri.org/", className = "org.tempuri.CheckResistance")
+    @ResponseWrapper(localName = "CheckResistanceResponse", targetNamespace = "http://tempuri.org/", className = "org.tempuri.CheckResistanceResponse")
+    public Boolean checkResistance(
+        @WebParam(name = "circuitId", targetNamespace = "http://tempuri.org/")
+        Long circuitId);
+
+    /**
+     * 
+     * @param circuit
+     * @param outputVoltage
+     * @param inputCurrent
+     * @return
+     *     returns java.lang.Boolean
+     */
+    @WebMethod(operationName = "SetCurrentDucer", action = "http://tempuri.org/IBPMWebInterface/SetCurrentDucer")
+    @WebResult(name = "SetCurrentDucerResult", targetNamespace = "http://tempuri.org/")
+    @RequestWrapper(localName = "SetCurrentDucer", targetNamespace = "http://tempuri.org/", className = "org.tempuri.SetCurrentDucer")
+    @ResponseWrapper(localName = "SetCurrentDucerResponse", targetNamespace = "http://tempuri.org/", className = "org.tempuri.SetCurrentDucerResponse")
+    public Boolean setCurrentDucer(
+        @WebParam(name = "circuit", targetNamespace = "http://tempuri.org/")
+        Long circuit,
+        @WebParam(name = "inputCurrent", targetNamespace = "http://tempuri.org/")
+        Double inputCurrent,
+        @WebParam(name = "outputVoltage", targetNamespace = "http://tempuri.org/")
+        Double outputVoltage);
 
 }

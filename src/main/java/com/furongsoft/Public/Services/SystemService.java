@@ -1402,6 +1402,9 @@ public class SystemService {
         try {
             InputStream inputStream = character.getBinaryStream();
             File file = new File(path);
+            if(!file.exists()){
+                file.createNewFile();
+            }
             byte[] buf = new byte[8];
             int index = 0;
             BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file)));
@@ -2125,5 +2128,29 @@ public class SystemService {
             return Boolean.parseBoolean(param);
         }
         return param;
+    }
+
+    /**
+     *  设置电流传感器
+     * @param circuitId 回路ID
+     * @param inputCurrent 输入电流
+     * @param outputVoltage 输出电压
+     * @return
+     */
+    public String setCurrentDucer(Long circuitId, Double inputCurrent, Double outputVoltage) {
+        if (CallService.setCurrentDucer(circuitId,inputCurrent,outputVoltage))
+            return JSON.toJSONString(new AResult("请求成功", 0, null));
+        return JSON.toJSONString(new AResult("请求失败", 0, null));
+    }
+
+    /**
+     *  检测内阻
+     * @param circuitId 回路ID
+     * @return
+     */
+    public String checkResistance(Long circuitId){
+        if (CallService.checkResistance(circuitId))
+            return JSON.toJSONString(new AResult("请求成功", 0, null));
+        return JSON.toJSONString(new AResult("请求失败", 0, null));
     }
 }

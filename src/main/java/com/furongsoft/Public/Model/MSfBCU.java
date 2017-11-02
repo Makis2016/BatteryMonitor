@@ -45,7 +45,7 @@ public class MSfBCU
     private Integer ZigBeeLocal;
 
     /// <summary>
-    /// 通信信道
+    /// 通信信道1
     /// </summary>
     private Short Channel;
 
@@ -97,7 +97,12 @@ public class MSfBCU
     /**
      * 网段通讯ID
      */
-    private Integer panId;
+    private Integer panId1;
+
+    /**
+     * 网段通讯ID
+     */
+    private Integer panId2;
 
     /**
      * Modbus寄存器地址(BCU编号) 修改前
@@ -192,16 +197,6 @@ public class MSfBCU
         ZigBeeLocal = zigBeeLocal;
     }
 
-    public Short getChannel()
-    {
-        return Channel;
-    }
-
-    public void setChannel(Short channel)
-    {
-        Channel = channel;
-    }
-
     public Short getBaudRate()
     {
         return BaudRate;
@@ -280,19 +275,36 @@ public class MSfBCU
         this.battery_state = battery_state;
     }
 
-    public Integer getPanId() {
-        return panId;
-    }
-
-    public void setPanId(Integer panId) {
-        this.panId = panId;
-    }
-
     public Integer getOldRegisterAddress() {
         return oldRegisterAddress;
     }
 
     public void setOldRegisterAddress(Integer oldRegisterAddress) {
         this.oldRegisterAddress = oldRegisterAddress;
+    }
+
+
+    public Integer getPanId1() {
+        return panId1;
+    }
+
+    public void setPanId1(Integer panId1) {
+        this.panId1 = panId1;
+    }
+
+    public Integer getPanId2() {
+        return panId2;
+    }
+
+    public void setPanId2(Integer panId2) {
+        this.panId2 = panId2;
+    }
+
+    public Short getChannel() {
+        return Channel;
+    }
+
+    public void setChannel(Short channel) {
+        Channel = channel;
     }
 }

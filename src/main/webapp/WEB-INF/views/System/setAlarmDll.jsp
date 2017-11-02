@@ -13,6 +13,7 @@
 <html>
 <head>
     <title></title>
+    <%@ include file="/WEB-INF/tags/header.ftl" %>
     <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
 
 </head>
@@ -74,12 +75,12 @@
                 <div style="padding-top: 5px;">系统版本号:<span id="systemVersion">V20170105385</span></div>
                 <div style="padding-top: 5px;">
                         <span>
-                            福容软件 版权所有
+                           深圳市福光动力通信设备有限公司 版权所有
                         </span>
                 </div>
                 <div style="padding-top: 5px;">
                         <span>
-                            Copyright© 2016 Fujian Furong Software Technologies Co.,Ltd. All Rights Reserved.
+                            Copyright© 2016 Shenzhen FuGuang Power communication equipment Co., Ltd. All Rights Reserved.
                         </span>
                 </div>
             </div>

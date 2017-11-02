@@ -34,14 +34,14 @@
         height: 40px !important;
         line-height: 40px !important;
         width: 80px;
-        color: #ffffff;
-        background: #2794D5;
+        color: #000000;
+        background: #ffffff;
     }
 
     .tabs li.tabs-selected a.tabs-inner {
         border: none;
-        color: #000000;
-        background-color: #e8ecef;
+        color: #ffffff;
+        background-color: #2B96D2;
     }
 
     .tabs li a.tabs-close {
@@ -76,6 +76,21 @@
         float: right;
     }
 
+    @font-face {
+        font-family: 'fzlt';
+        src:url('/BatteryMonitor/resources/css/fzlt.ttf') format('truetype');
+        font-weight: normal;
+        font-style: normal;
+    }
+    body{
+        font-family: 'fzlt'!important;
+    }
+
+    #version{
+        width: 100% !important;
+        height: 700px !important;
+        border: none;
+    }
 
 </style>
 <div id="Device" style="height: 100%;width: 100%;background-color: rgba(0, 0, 0, 0);">
@@ -84,7 +99,7 @@
         <div title="回路管理">
             <div style="width: 90%;height: 90%;padding: 10px 0 0 0px;margin: auto;">
                 <input id="btnAddGroup" type="button" value="新增"
-                       style="border-width: 1px;margin-bottom: 15px;color: #ffffff;border-radius: 20px;width: 80px;height: 35px; background-color: #2794D5; cursor: pointer"/>
+                       style="border-width: 1px;margin-bottom: 15px;color: #ffffff;border-radius: 20px;width: 80px;height: 35px; background-color: #2B96D2; cursor: pointer;font-family: 'fzlt'!important"/>
                 <div id="d_Group" style="width: 100%;height: 100%;">
                     <table id="t_Group"></table>
                 </div>
@@ -94,7 +109,7 @@
         <div title="电池组管理">
             <div style="width: 90%;height: 90%;padding: 10px 0 0 0px;margin: auto;">
                 <input id="btnAddBatteryPack" type="button" value="新增"
-                       style="border-width: 1px;margin-bottom: 15px;color: #ffffff;border-radius: 20px;width: 80px;height: 35px; background-color: #2794D5;cursor: pointer"/>
+                       style="border-width: 1px;margin-bottom: 15px;color: #ffffff;border-radius: 20px;width: 80px;height: 35px; background-color: #2B96D2;cursor: pointer;font-family: 'fzlt'!important"/>
                 <div id="d_batteryGroup" style="width: 100%;height: 100%;">
                     <table id="t_batteryGroup"></table>
                 </div>
@@ -105,14 +120,22 @@
             <div style="width: 90%;height: 90%;padding: 10px 0 0 0px;margin: auto;">
                 <div>
                     <input id="btnAddDevice" type="button" value="新增监控设备"
-                           style="border-width: 1px;float: left;margin-bottom: 15px;color: #ffffff;border-radius: 20px;width: 100px;height: 35px; background-color: #2794D5;margin-right: 10px;cursor: pointer"/>
+                           style="border-width: 1px;float: left;margin-bottom: 15px;color: #ffffff;border-radius: 20px;width: 100px;height: 35px; background-color: #2B96D2;margin-right: 10px;cursor: pointer;font-family: 'fzlt'!important"/>
                     <%--<input todo="add" id="btnAddCDevice" type="button" value="新增组网设备"--%>
                            <%--style="border-width: 1px;float: left;margin-bottom: 15px;color: #ffffff;border-radius: 20px;width: 100px;height: 35px; background-color: #2794D5;margin-right: 10px;cursor: pointer"/>--%>
                     <%--<input todo="select" id="btnSelectCDevice" type="button" value="查询组网设备"--%>
                            <%--style="border-width: 1px;float: left;margin-bottom: 15px;color: #ffffff;border-radius: 20px;width: 100px;height: 35px; background-color: #2794D5;cursor: pointer"/>--%>
                 </div>
-                <div id="d_Device" style="width: 100%;height: 100%;">
+                <div id="d_Device" style="width: 100%;height: 100%;overflow: hidden">
                     <table id="t_Device"></table>
+                </div>
+            </div>
+        </div>
+
+        <div title="版本信息">
+            <div style="width: 90%;height: 90%;padding: 10px 0 0 0px;margin: auto;">
+                <div style="width: 100%;height: 100%;overflow: hidden">
+                    <div id="version" class="easyui-panel"></div>
                 </div>
             </div>
         </div>
@@ -131,13 +154,22 @@
                     loadBatteryPackDataByAjax();
                 } else if (index == 2) {
                     loadDeviceDataByAjax();
+                }else if(index == 3){
+                    loadVersionPage();
                 }
             }
         });
 
         tabMenu.SelectTab(2);
         tabMenu.SelectTab(1);
+        tabMenu.SelectTab(3);
         tabMenu.SelectTab(0);
+    }
+
+    function loadVersionPage(){
+        $("#version").panel({
+            href: '${_RootPath}/System/setAlarmDll'
+        });
     }
 
     /* 回路管理 */
@@ -307,7 +339,7 @@
                     }
                 }).Show({
             title: "编辑回路",
-            width: 850,
+            width: 1000,
             height: 565,
             maximizable: false,
             minimizable: false

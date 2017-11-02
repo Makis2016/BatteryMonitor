@@ -3,6 +3,7 @@ package org.tempuri;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
@@ -17,7 +18,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="isIgnored" type="{http://www.w3.org/2001/XMLSchema}boolean" minOccurs="0"/>
+ *         &lt;element name="SetCurrentDucerResult" type="{http://www.w3.org/2001/XMLSchema}boolean" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -28,35 +29,36 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "isIgnored"
+    "setCurrentDucerResult"
 })
-@XmlRootElement(name = "GetRealTimeAlarmCount")
-public class GetRealTimeAlarmCount {
+@XmlRootElement(name = "SetCurrentDucerResponse")
+public class SetCurrentDucerResponse {
 
-    protected Boolean isIgnored;
+    @XmlElement(name = "SetCurrentDucerResult")
+    protected Boolean setCurrentDucerResult;
 
     /**
-     * 获取isIgnored属性的值。
+     * 获取setCurrentDucerResult属性的值。
      * 
      * @return
      *     possible object is
      *     {@link Boolean }
      *     
      */
-    public Boolean isIsIgnored() {
-        return isIgnored;
+    public Boolean isSetCurrentDucerResult() {
+        return setCurrentDucerResult;
     }
 
     /**
-     * 设置isIgnored属性的值。
+     * 设置setCurrentDucerResult属性的值。
      * 
      * @param value
      *     allowed object is
      *     {@link Boolean }
      *     
      */
-    public void setIsIgnored(Boolean value) {
-        this.isIgnored = value;
+    public void setSetCurrentDucerResult(Boolean value) {
+        this.setCurrentDucerResult = value;
     }
 
 }

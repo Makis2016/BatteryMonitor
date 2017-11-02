@@ -82,12 +82,12 @@
 	</bean>
 
 	<!-- 默认事务管理器,不支持多事务管理器 -->
-	<bean id="transactionManager_system"
-		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
-		<property name="sessionFactory" ref="hibernateSessionFactory_system" />
-	</bean>
+	<!--<bean id="transactionManager_system"-->
+		<!--class="org.springframework.orm.hibernate4.HibernateTransactionManager">-->
+		<!--<property name="sessionFactory" ref="hibernateSessionFactory_system" />-->
+	<!--</bean>-->
 	<!-- 使用annotation定义事务 -->
-	<tx:annotation-driven transaction-manager="transactionManager_system" />
+	<!--<tx:annotation-driven transaction-manager="transactionManager_system" />-->
 
 	<!-- shiro 过滤器配置 -->
 	<!--<bean id="xspRealm" class="com.furongsoft.XspWeb.Security.XspRealm">-->

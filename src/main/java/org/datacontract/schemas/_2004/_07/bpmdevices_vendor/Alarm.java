@@ -8,7 +8,6 @@ import javax.xml.bind.annotation.XmlElementRef;
 import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.datatype.XMLGregorianCalendar;
-import org.datacontract.schemas._2004._07.bpmdevices.AlarmManagerAlarmLevel;
 
 
 /**
@@ -21,17 +20,17 @@ import org.datacontract.schemas._2004._07.bpmdevices.AlarmManagerAlarmLevel;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="key" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *         &lt;element name="mAlarmId" type="{http://schemas.datacontract.org/2004/07/BPMDevices.Vendor.Common}AlarmConfig.AlarmType" minOccurs="0"/>
  *         &lt;element name="mAlarmMessage" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="mAlarmType" type="{http://schemas.datacontract.org/2004/07/BPMDevices.Vendor.Common}Alarm.AlarmType" minOccurs="0"/>
  *         &lt;element name="mAreaId" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/>
  *         &lt;element name="mAreaName" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="mBatteryPackId" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/>
  *         &lt;element name="mCircuitId" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/>
  *         &lt;element name="mEndTime" type="{http://www.w3.org/2001/XMLSchema}dateTime" minOccurs="0"/>
  *         &lt;element name="mId" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/>
- *         &lt;element name="mIgnoreTime" type="{http://www.w3.org/2001/XMLSchema}dateTime" minOccurs="0"/>
- *         &lt;element name="mLevel" type="{http://schemas.datacontract.org/2004/07/BPMDevices}AlarmManager.AlarmLevel" minOccurs="0"/>
+ *         &lt;element name="mIgnoredTime" type="{http://www.w3.org/2001/XMLSchema}dateTime" minOccurs="0"/>
+ *         &lt;element name="mIsIgnored" type="{http://www.w3.org/2001/XMLSchema}boolean" minOccurs="0"/>
+ *         &lt;element name="mLevel" type="{http://schemas.datacontract.org/2004/07/BPMDevices.Vendor.Common}Alarm.AlarmLevel" minOccurs="0"/>
  *         &lt;element name="mMaintainAdvise" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="mStrarTime" type="{http://www.w3.org/2001/XMLSchema}dateTime" minOccurs="0"/>
  *       &lt;/sequence>
@@ -44,28 +43,26 @@ import org.datacontract.schemas._2004._07.bpmdevices.AlarmManagerAlarmLevel;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "Alarm", propOrder = {
-    "key",
-    "mAlarmId",
     "mAlarmMessage",
+    "mAlarmType",
     "mAreaId",
     "mAreaName",
     "mBatteryPackId",
     "mCircuitId",
     "mEndTime",
     "mId",
-    "mIgnoreTime",
+    "mIgnoredTime",
+    "mIsIgnored",
     "mLevel",
     "mMaintainAdvise",
     "mStrarTime"
 })
 public class Alarm {
 
-    @XmlElementRef(name = "key", namespace = "http://schemas.datacontract.org/2004/07/BPMDevices.Vendor.Common", type = JAXBElement.class, required = false)
-    protected JAXBElement<String> key;
-    @XmlSchemaType(name = "string")
-    protected AlarmConfigAlarmType mAlarmId;
     @XmlElementRef(name = "mAlarmMessage", namespace = "http://schemas.datacontract.org/2004/07/BPMDevices.Vendor.Common", type = JAXBElement.class, required = false)
     protected JAXBElement<String> mAlarmMessage;
+    @XmlSchemaType(name = "string")
+    protected AlarmAlarmType mAlarmType;
     protected Long mAreaId;
     @XmlElementRef(name = "mAreaName", namespace = "http://schemas.datacontract.org/2004/07/BPMDevices.Vendor.Common", type = JAXBElement.class, required = false)
     protected JAXBElement<String> mAreaName;
@@ -75,61 +72,14 @@ public class Alarm {
     protected XMLGregorianCalendar mEndTime;
     protected Long mId;
     @XmlSchemaType(name = "dateTime")
-    protected XMLGregorianCalendar mIgnoreTime;
+    protected XMLGregorianCalendar mIgnoredTime;
+    protected Boolean mIsIgnored;
     @XmlSchemaType(name = "string")
-    protected AlarmManagerAlarmLevel mLevel;
+    protected AlarmAlarmLevel mLevel;
     @XmlElementRef(name = "mMaintainAdvise", namespace = "http://schemas.datacontract.org/2004/07/BPMDevices.Vendor.Common", type = JAXBElement.class, required = false)
     protected JAXBElement<String> mMaintainAdvise;
     @XmlSchemaType(name = "dateTime")
     protected XMLGregorianCalendar mStrarTime;
-
-    /**
-     * 获取key属性的值。
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link String }{@code >}
-     *     
-     */
-    public JAXBElement<String> getKey() {
-        return key;
-    }
-
-    /**
-     * 设置key属性的值。
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link String }{@code >}
-     *     
-     */
-    public void setKey(JAXBElement<String> value) {
-        this.key = value;
-    }
-
-    /**
-     * 获取mAlarmId属性的值。
-     * 
-     * @return
-     *     possible object is
-     *     {@link AlarmConfigAlarmType }
-     *     
-     */
-    public AlarmConfigAlarmType getMAlarmId() {
-        return mAlarmId;
-    }
-
-    /**
-     * 设置mAlarmId属性的值。
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link AlarmConfigAlarmType }
-     *     
-     */
-    public void setMAlarmId(AlarmConfigAlarmType value) {
-        this.mAlarmId = value;
-    }
 
     /**
      * 获取mAlarmMessage属性的值。
@@ -153,6 +103,30 @@ public class Alarm {
      */
     public void setMAlarmMessage(JAXBElement<String> value) {
         this.mAlarmMessage = value;
+    }
+
+    /**
+     * 获取mAlarmType属性的值。
+     * 
+     * @return
+     *     possible object is
+     *     {@link AlarmAlarmType }
+     *     
+     */
+    public AlarmAlarmType getMAlarmType() {
+        return mAlarmType;
+    }
+
+    /**
+     * 设置mAlarmType属性的值。
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link AlarmAlarmType }
+     *     
+     */
+    public void setMAlarmType(AlarmAlarmType value) {
+        this.mAlarmType = value;
     }
 
     /**
@@ -300,27 +274,51 @@ public class Alarm {
     }
 
     /**
-     * 获取mIgnoreTime属性的值。
+     * 获取mIgnoredTime属性的值。
      * 
      * @return
      *     possible object is
      *     {@link XMLGregorianCalendar }
      *     
      */
-    public XMLGregorianCalendar getMIgnoreTime() {
-        return mIgnoreTime;
+    public XMLGregorianCalendar getMIgnoredTime() {
+        return mIgnoredTime;
     }
 
     /**
-     * 设置mIgnoreTime属性的值。
+     * 设置mIgnoredTime属性的值。
      * 
      * @param value
      *     allowed object is
      *     {@link XMLGregorianCalendar }
      *     
      */
-    public void setMIgnoreTime(XMLGregorianCalendar value) {
-        this.mIgnoreTime = value;
+    public void setMIgnoredTime(XMLGregorianCalendar value) {
+        this.mIgnoredTime = value;
+    }
+
+    /**
+     * 获取mIsIgnored属性的值。
+     * 
+     * @return
+     *     possible object is
+     *     {@link Boolean }
+     *     
+     */
+    public Boolean isMIsIgnored() {
+        return mIsIgnored;
+    }
+
+    /**
+     * 设置mIsIgnored属性的值。
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link Boolean }
+     *     
+     */
+    public void setMIsIgnored(Boolean value) {
+        this.mIsIgnored = value;
     }
 
     /**
@@ -328,10 +326,10 @@ public class Alarm {
      * 
      * @return
      *     possible object is
-     *     {@link AlarmManagerAlarmLevel }
+     *     {@link AlarmAlarmLevel }
      *     
      */
-    public AlarmManagerAlarmLevel getMLevel() {
+    public AlarmAlarmLevel getMLevel() {
         return mLevel;
     }
 
@@ -340,10 +338,10 @@ public class Alarm {
      * 
      * @param value
      *     allowed object is
-     *     {@link AlarmManagerAlarmLevel }
+     *     {@link AlarmAlarmLevel }
      *     
      */
-    public void setMLevel(AlarmManagerAlarmLevel value) {
+    public void setMLevel(AlarmAlarmLevel value) {
         this.mLevel = value;
     }
 

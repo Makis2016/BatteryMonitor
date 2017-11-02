@@ -4,7 +4,9 @@ package org.tempuri;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
+import org.datacontract.schemas._2004._07.bpmdevices_vendor.AlarmAlarmType;
 
 
 /**
@@ -17,7 +19,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="isIgnored" type="{http://www.w3.org/2001/XMLSchema}boolean" minOccurs="0"/>
+ *         &lt;element name="alarmType" type="{http://schemas.datacontract.org/2004/07/BPMDevices.Vendor.Common}Alarm.AlarmType" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -28,35 +30,36 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "isIgnored"
+    "alarmType"
 })
-@XmlRootElement(name = "GetRealTimeAlarmCount")
-public class GetRealTimeAlarmCount {
+@XmlRootElement(name = "IgnoreAlarmType")
+public class IgnoreAlarmType {
 
-    protected Boolean isIgnored;
+    @XmlSchemaType(name = "string")
+    protected AlarmAlarmType alarmType;
 
     /**
-     * 获取isIgnored属性的值。
+     * 获取alarmType属性的值。
      * 
      * @return
      *     possible object is
-     *     {@link Boolean }
+     *     {@link AlarmAlarmType }
      *     
      */
-    public Boolean isIsIgnored() {
-        return isIgnored;
+    public AlarmAlarmType getAlarmType() {
+        return alarmType;
     }
 
     /**
-     * 设置isIgnored属性的值。
+     * 设置alarmType属性的值。
      * 
      * @param value
      *     allowed object is
-     *     {@link Boolean }
+     *     {@link AlarmAlarmType }
      *     
      */
-    public void setIsIgnored(Boolean value) {
-        this.isIgnored = value;
+    public void setAlarmType(AlarmAlarmType value) {
+        this.alarmType = value;
     }
 
 }

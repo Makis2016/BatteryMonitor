@@ -79,7 +79,11 @@
                 <td>对应地址：</td>
                 <td id="ecuAV0_address">xxxx</td>
                 <td>无线通道1：</td>
-                <td><input id="ecuA0_canel1" name="ecuA0_canel1" class="easyui-textbox" style="width: 60px;"></td>
+                <td><input id="ecuA0_canel1" name="ecuA0_canel1" class="easyui-combobox" style="width: 60px;"></td>
+                <td>协调器1PANID1：</td>
+                <td><input id="ecuA0_panid1" name="ecuA0_panid1" class="easyui-textbox" disabled style="width: 60px;"></td>
+                <td>协调器1PANID2：</td>
+                <td><input id="ecuA0_panid2" name="ecuA0_panid2" class="easyui-textbox" disabled style="width: 60px;"></td>
             </tr>
             <tr>
                 <td>电流:</td>
@@ -87,7 +91,11 @@
                 <td>对应地址：</td>
                 <td id="ecuAI0_address">xxxx</td>
                 <td>无线通道2：</td>
-                <td><input id="ecuA0_canel2" name="ecuA0_canel2" class="easyui-textbox" style="width: 60px;"></td>
+                <td><input id="ecuA0_canel2" name="ecuA0_canel2" class="easyui-combobox" style="width: 60px;"></td>
+                <td>协调器2PANID1：</td>
+                <td><input id="ecuA0_panid3" name="ecuA0_panid3" class="easyui-textbox" disabled style="width: 60px;"></td>
+                <td>协调器2PANID2：</td>
+                <td><input id="ecuA0_panid4" name="ecuA0_panid4" class="easyui-textbox" disabled style="width: 60px;"></td>
             </tr>
             <tr>
                 <td>环境温度:</td>
@@ -95,7 +103,11 @@
                 <td>对应地址：</td>
                 <td id="ecuAT_address">620</td>
                 <td>无线通道3：</td>
-                <td><input id="ecuA0_canel3" name="ecuA0_canel3" class="easyui-textbox" style="width: 60px;"></td>
+                <td><input id="ecuA0_canel3" name="ecuA0_canel3" class="easyui-combobox" style="width: 60px;"></td>
+                <td>协调器3PANID1：</td>
+                <td><input id="ecuA0_panid5" name="ecuA0_panid5" class="easyui-textbox" disabled style="width: 60px;"></td>
+                <td>协调器3PANID2：</td>
+                <td><input id="ecuA0_panid6" name="ecuA0_panid6" class="easyui-textbox" disabled style="width: 60px;"></td>
             </tr>
         </table>
     </div>
@@ -114,7 +126,11 @@
                 <td>对应地址：</td>
                 <td id="ecuBV2_address">xxxx</td>
                 <td>无线通道1：</td>
-                <td><input id="ecuB0_canel1" name="ecuB0_canel1" class="easyui-textbox" style="width: 60px;"></td>
+                <td><input id="ecuB0_canel1" name="ecuB0_canel1" class="easyui-combobox" style="width: 60px;"></td>
+                <td>协调器1PANID1：</td>
+                <td><input id="ecuB0_panid1" name="ecuB0_panid1" class="easyui-textbox" disabled style="width: 60px;"></td>
+                <td>协调器1PANID2：</td>
+                <td><input id="ecuB0_panid2" name="ecuB0_panid2" class="easyui-textbox" disabled style="width: 60px;"></td>
             </tr>
             <tr>
                 <td>(正)电流:</td>
@@ -126,7 +142,11 @@
                 <td>对应地址：</td>
                 <td id="ecuBI2_address">xxxx</td>
                 <td>无线通道2：</td>
-                <td><input id="ecuB0_canel2" name="ecuB0_canel2" class="easyui-textbox" style="width: 60px;"></td>
+                <td><input id="ecuB0_canel2" name="ecuB0_canel2" class="easyui-combobox" style="width: 60px;"></td>
+                <td>协调器2PANID1：</td>
+                <td><input id="ecuB0_panid3" name="ecuB0_panid3" class="easyui-textbox" disabled style="width: 60px;"></td>
+                <td>协调器2PANID2：</td>
+                <td><input id="ecuB0_panid4" name="ecuB0_panid4" class="easyui-textbox" disabled style="width: 60px;"></td>
             </tr>
             <tr>
                 <td>环境温度:</td>
@@ -138,12 +158,16 @@
                 <td></td>
                 <td></td>
                 <td>无线通道3：</td>
-                <td><input id="ecuB0_canel3" name="ecuB0_canel3" class="easyui-textbox" style="width: 60px;"></td>
+                <td><input id="ecuB0_canel3" name="ecuB0_canel3" class="easyui-combobox"  style="width: 60px;"></td>
+                <td>协调器3PANID1：</td>
+                <td><input id="ecuB0_panid5" name="ecuB0_panid5" class="easyui-textbox" disabled style="width: 60px;"></td>
+                <td>协调器3PANID2：</td>
+                <td><input id="ecuB0_panid6" name="ecuB0_panid6" class="easyui-textbox" disabled style="width: 60px;"></td>
             </tr>
         </table>
     </div>
     <div id="batteryPack" style="display: none;">
-        <span class="title">电池组信息 <input type="button" id="set_batteryPack" value="设置"></span>
+        <span class="title">电池组信息 <input type="button" id="set_batteryPack" value="设置"><input type="button" value="检测内阻" style="margin-left: 10px" onclick="checkResistance()"></span>
         <table class="set-table">
             <tr>
                 <td>电池组名称：</td>
@@ -157,6 +181,10 @@
                            name="voltageRange" class="easyui-textbox" style="width:100px;">
                 </td>
                 <td style="display: none;">测试模式：<span id="testMode" testMode="auto">自动</span></td>
+                <td>充电电流传感器额定输入电流：</td>
+                <td><input id="inputCurrent"  class="easyui-textbox" style="width:100px;"></td>
+                <td>充电电流传感器额定输出电压：</td>
+                <td><input id="outputVoltage"  class="easyui-textbox" style="width:100px;"></td>
             </tr>
             <td>电池节数：</td>
             <td><input onchange="batteryPackParamChangeEvent(this)" test="true" disabled="disabled"
@@ -169,6 +197,11 @@
             <td><input onchange="batteryPackParamChangeEvent(this)" test="true" id="checkCycleTime"
                        name="checkCycleTime" class="easyui-textbox" style="width:100px;">
             </td>
+            <td>放电电流传感器额定输入电流：</td>
+            <td><input id="inputCurrent2"  class="easyui-textbox" style="width:100px;"></td>
+            <td>放电电流传感器额定输出电压：</td>
+            <td><input id="outputVoltage2"  class="easyui-textbox" style="width:100px;"></td>
+            <td><input type="button" value="设置传感器" onclick="setCurrentDucer()"></td>
             <td style="display: none;">
                 <input id="btnAutoTest" type="button" value="自动" title="根据自动周期进行循环测试"/>
                 <input id="btnTest" type="button" value="手动" title="手动点击一次测试一次"/>
@@ -243,7 +276,7 @@
         </table>
     </div>
 </div>
-<div id="bcu_grid_content" data-options="region:'center'" style="height: 470px;display: none;">
+<div id="bcu_grid_content" data-options="region:'center'" style="height: 470px;display: none;margin-top: 30px">
     <table id="dg"></table>
 </div>
 <div data-options="region:'south'" style="text-align: center;">
@@ -256,6 +289,11 @@
                   method="post">
                 上传文件1：<input type="file" name="file1"/>
             </form>
+        </div>
+    </div>
+    <div id="checkResistance">
+        <div style="left: 80px;top: 24px;text-align: center">
+            请确认是否要测试内阻
         </div>
     </div>
 </div>
@@ -367,6 +405,42 @@
         "text": 4
     }, {"value": 5, "text": 5}, {"value": 6, "text": 6}];
 
+
+    var ecuA0_canel1_data = [{"index":0,"value":'0B',"text":'0B'},{"index":1,"value":'0C',"text":'0C'},{"index":2,"value":'0D',"text":'0D'},{"index":3,"value":'0E',"text":'0E'}
+    ,{"index":4,"value":'0F',"text":'0F'},{"index":5,"value":'10',"text":'10'},{"index":6,"value":'11',"text":'11'},{"index":7,"value":'12',"text":'12'},{"index":8,"value":'13',"text":'13'},
+        {"index":9,"value":'14',"text":'14'},{"index":10,"value":'15',"text":'15'},{"index":11,"value":'16',"text":'16'},{"index":12,"value":'17',"text":'17'},{"index":13,"value":'18',"text":'18'},
+        {"index":14,"value":'19',"text":'19'},{"index":15,"value":'1A',"text":'1A'}];
+
+    var ecuA0_canel2_data = [{"index":0,"value":'0B',"text":'0B'},{"index":1,"value":'0C',"text":'0C'},{"index":2,"value":'0D',"text":'0D'},{"index":3,"value":'0E',"text":'0E'}
+        ,{"index":4,"value":'0F',"text":'0F'},{"index":5,"value":'10',"text":'10'},{"index":6,"value":'11',"text":'11'},{"index":7,"value":'12',"text":'12'},{"index":8,"value":'13',"text":'13'},
+        {"index":9,"value":'14',"text":'14'},{"index":10,"value":'15',"text":'15'},{"index":11,"value":'16',"text":'16'},{"index":12,"value":'17',"text":'17'},{"index":13,"value":'18',"text":'18'},
+        {"index":14,"value":'19',"text":'19'},{"index":15,"value":'1A',"text":'1A'}];
+
+    var ecuA0_canel3_data = [{"index":0,"value":'0B',"text":'0B'},{"index":1,"value":'0C',"text":'0C'},{"index":2,"value":'0D',"text":'0D'},{"index":3,"value":'0E',"text":'0E'}
+        ,{"index":4,"value":'0F',"text":'0F'},{"index":5,"value":'10',"text":'10'},{"index":6,"value":'11',"text":'11'},{"index":7,"value":'12',"text":'12'},{"index":8,"value":'13',"text":'13'},
+        {"index":9,"value":'14',"text":'14'},{"index":10,"value":'15',"text":'15'},{"index":11,"value":'16',"text":'16'},{"index":12,"value":'17',"text":'17'},{"index":13,"value":'18',"text":'18'},
+        {"index":14,"value":'19',"text":'19'},{"index":15,"value":'1A',"text":'1A'}];
+
+    var ecuB0_canel1_data =[{"index":0,"value":'0B',"text":'0B'},{"index":1,"value":'0C',"text":'0C'},{"index":2,"value":'0D',"text":'0D'},{"index":3,"value":'0E',"text":'0E'}
+        ,{"index":4,"value":'0F',"text":'0F'},{"index":5,"value":'10',"text":'10'},{"index":6,"value":'11',"text":'11'},{"index":7,"value":'12',"text":'12'},{"index":8,"value":'13',"text":'13'},
+        {"index":9,"value":'14',"text":'14'},{"index":10,"value":'15',"text":'15'},{"index":11,"value":'16',"text":'16'},{"index":12,"value":'17',"text":'17'},{"index":13,"value":'18',"text":'18'},
+        {"index":14,"value":'19',"text":'19'},{"index":15,"value":'1A',"text":'1A'}];
+
+    var ecuB0_canel2_data = [{"index":0,"value":'0B',"text":'0B'},{"index":1,"value":'0C',"text":'0C'},{"index":2,"value":'0D',"text":'0D'},{"index":3,"value":'0E',"text":'0E'}
+        ,{"index":4,"value":'0F',"text":'0F'},{"index":5,"value":'10',"text":'10'},{"index":6,"value":'11',"text":'11'},{"index":7,"value":'12',"text":'12'},{"index":8,"value":'13',"text":'13'},
+        {"index":9,"value":'14',"text":'14'},{"index":10,"value":'15',"text":'15'},{"index":11,"value":'16',"text":'16'},{"index":12,"value":'17',"text":'17'},{"index":13,"value":'18',"text":'18'},
+        {"index":14,"value":'19',"text":'19'},{"index":15,"value":'1A',"text":'1A'}];
+
+    var ecuB0_canel3_data = [{"index":0,"value":'0B',"text":'0B'},{"index":1,"value":'0C',"text":'0C'},{"index":2,"value":'0D',"text":'0D'},{"index":3,"value":'0E',"text":'0E'}
+        ,{"index":4,"value":'0F',"text":'0F'},{"index":5,"value":'10',"text":'10'},{"index":6,"value":'11',"text":'11'},{"index":7,"value":'12',"text":'12'},{"index":8,"value":'13',"text":'13'},
+        {"index":9,"value":'14',"text":'14'},{"index":10,"value":'15',"text":'15'},{"index":11,"value":'16',"text":'16'},{"index":12,"value":'17',"text":'17'},{"index":13,"value":'18',"text":'18'},
+        {"index":14,"value":'19',"text":'19'},{"index":15,"value":'1A',"text":'1A'}];
+
+    var panid1_data = ['0B0B','0C0C','0D0D','0E0E','0F0F','1010','1111','1212','1313','1414','1515','1616','1717','1818','1919','1A1A'];
+
+    var panid2_data = ['0B1B','0C1C','0D1D','0E1E','0F1F','1020','1121','1222','1323','1424','1525','1626','1727','1828','1929','1A2A'];
+
+
     /**
      * 设备信息视图-初始化内容
      */
@@ -383,6 +457,73 @@
                 $("#writeTimeout").val(config.WriteTimeout ? config.WriteTimeout : 0);
             }
         }
+    }
+
+    function setCurrentDucer(){
+
+        var circuitId = parameters.circuit.id;
+        if (!Business.Misc.validateNumber($('#inputCurrent').val())) {
+            XspWeb.Misc.Tips("充电电流传感器额定输入电流必须是数字");
+            return;
+        }
+
+        if (!Business.Misc.validateNumber($('#outputVoltage').val())) {
+            XspWeb.Misc.Tips("充电电流传感器额定输出电压必须是数字");
+            return;
+        }
+
+        if (!Business.Misc.validateNumber($('#inputCurrent2').val())) {
+            XspWeb.Misc.Tips("放电电流传感器额定输入电流必须是数字");
+            return;
+        }
+
+        if (!Business.Misc.validateNumber($('#outputVoltage2').val())) {
+            XspWeb.Misc.Tips("放电电流传感器额定输出电压必须是数字");
+            return;
+        }
+
+        XspWeb.Misc.Ajax({
+            action: "${_RootPath}/System/setCurrentDucer",
+            data: {
+                circuitId: circuitId,
+                inputCurrent:$('#inputCurrent').val(),
+                outputVoltage:$('#outputVoltage').val()
+            },
+            success: function (rec) {
+                XspWeb.Misc.Tips(rec.message);
+            }
+        });
+    }
+
+    function checkResistance() {
+        var obj = $("#checkResistance");
+
+        XspWeb.Misc.Dialog(obj, {
+            title: "提示",
+            width: 400,
+            height: 150,
+            maximizable: false,
+            minimizable: false,
+            buttons: [{
+                text: "确定",
+                handler: function () {
+                    var circuitId = parameters.circuit.id;
+                    console.log(circuitId);
+                    XspWeb.Misc.Ajax({
+                        action: "${_RootPath}/System/checkResistance",
+                        data: {
+                            circuitId: circuitId
+                        },
+                        success: function (rec) {
+                            XspWeb.Misc.Tips(rec.message);
+                            if (rec.code == 0) {
+                                obj.dialog('close');
+                            }
+                        }
+                    });
+                }
+            }]
+        });
     }
 
     /**
@@ -431,7 +572,7 @@
      * 电池组类型下拉框
      * */
     function batteryPackCombobox() {
-        var data = [{"value": 1, "text": "2V"}, {"value": 0, "text": "12V"}];
+        var data = [{"value": 0, "text": "2V"}, {"value": 1, "text": "12V"}];
         $("#type").combobox({
             data: data,
             textField: "text",
@@ -449,7 +590,7 @@
      * 单体规格下拉框
      * */
     function batteryCombobox(index) {
-        var data = [{"value": 1, "text": "2V"}, {"value": 0, "text": "12V"}];
+        var data = [{"value": 0, "text": "2V"}, {"value": 1, "text": "12V"}];
         $("#battery_specifications_" + (index + 1)).combobox({
             data: data,
             textField: "text",
@@ -489,101 +630,101 @@
     function initCircuitGrid() {
         var testGrid = new XspWeb.Controls.RemoteDataGrid();
         testGrid.Initialize("#dg", "${_RootPath}/System/getBCUList", {
-                    border: false,
-                    fit: true,
-                    scrollbarSize: 0,
-                    pageSize: 500,
-                    pageList: [10, 20, 30, 40, 60, 80, 100, 500],
-                    onClickCell: onClickCell,
-                    view: detailview,
-                    detailFormatter: function (index, row) {
-                        var html = '<span class="title">' + (index + 1) + '号单体信息' +
-                                '<input onchange="batteryParamChangeEvent(this,' + index + ')" id="isAlarm_' + (index + 1) + '" type="checkbox" title="是否屏蔽告警">' + '</span>' +
-                                '<table class="set-table">' +
-                                '<tr>' +
-                                '<td>电池名称：</td>' +
-                                '<td><input onchange="batteryParamChangeEvent(this,' + index + ')" id="battery_name_' + (index + 1) + '" name="battery_name" style="width:80px;"></td>' +
-                                '<td>厂商名称：</td>' +
-                                '<td><input onchange="batteryParamChangeEvent(this,' + index + ')" id="producerName_' + (index + 1) + '" name="producerName" style="width:80px;"></td>' +
-                                '<td>生产日期：</td>' +
-                                '<td><input id="productionDate_' + (index + 1) + '" name="productionDate" style="width:80px;"></td>' +
-                                '<td>首次使用日期：</td>' +
-                                '<td><input id="battery_firstUseDate_' + (index + 1) + '" name="battery_firstUseDate" style="width:80px;"></td>' +
-                                '</tr>' +
-                                '<tr>' +
-                                '<td>序列号：</td>' +
-                                '<td><input onchange="batteryParamChangeEvent(this,' + index + ')" id="serialNum_' + (index + 1) + '" name="serialNum" style="width:80px;"></td>' +
-                                '<td>条形码编号：</td>' +
-                                '<td><input onchange="batteryParamChangeEvent(this,' + index + ')" id="barcode_' + (index + 1) + '" name="barcode" style="width:80px;"></td>' +
-                                '<td>电池规格：</td>' +
-                                '<td><input id="battery_specifications_' + (index + 1) + '" name="battery_specifications" style="width:80px;">(2V/12V)</td>' +
-                                '<td>电池容量：</td>' +
-                                '<td><input onchange="batteryParamChangeEvent(this,' + index + ')" id="initCapacity_' + (index + 1) + '" name="initCapacity" style="width:80px;">Ah</td>' +
-                                '</tr>' +
-                                '<tr>' +
-                                '<td>化学组成：</td>' +
-                                '<td><input onchange="batteryParamChangeEvent(this,' + index + ')" id="chemicalComposition_' + (index + 1) + '" name="chemicalComposition" style="width:80px;"></td>' +
-                                '<td>浮充电压：</td>' +
-                                '<td><input onchange="batteryParamChangeEvent(this,' + index + ')" id="floatChargeVolt_' + (index + 1) + '" name="floatChargeVolt" style="width:80px;" test="true">V</td>' +
-                                '<td>设计浮充寿命：</td>' +
-                                '<td><input onchange="batteryParamChangeEvent(this,' + index + ')" id="floatChargeLife_' + (index + 1) + '" name="floatChargeLife" style="width:80px;">月</td>' +
-                                '<td>设计循环寿命：</td>' +
-                                '<td><input onchange="batteryParamChangeEvent(this,' + index + ')" id="circleLife_' + (index + 1) + '" name="circleLife" style="width:80px;">次</td>' +
-                                '</tr>' +
-                                '<tr>' +
-                                '<td>容量校准点：</td>' +
-                                '<td><input onchange="batteryParamChangeEvent(this,' + index + ')" id="capacityCheckPoInt32_' + (index + 1) + '" name="capacityCheckPoInt32" style="width:80px;" test="true">Ah</td>' +
-                                '<td>均充电压：</td>' +
-                                '<td><input onchange="batteryParamChangeEvent(this,' + index + ')" id="equalChargeVolt_' + (index + 1) + '" name="equalChargeVolt" style="width:80px;" test="true">V</td>' +
-                                '<td>典型放电容量：</td>' +
-                                '<td><input onchange="batteryParamChangeEvent(this,' + index + ')" id="virtualCapacity_' + (index + 1) + '" name="virtualCapacity" style="width:80px;" test="true">Ah</td>' +
-                                '<td>典型放电电流：</td>' +
-                                '<td><input onchange="batteryParamChangeEvent(this,' + index + ')" id="virtualAmp_' + (index + 1) + '" name="virtualAmp" style="width:80px;" test="true">A</td>' +
-                                '</tr>' +
-                                '<tr>' +
-                                '<td>单体数量：</td>' +
-                                '<td><input onchange="batteryParamChangeEvent(this,' + index + ')" id="cellNum_' + (index + 1) + '" name="cellNum" style="width:80px;"></td>' +
-                                '<td>充电效率：</td>' +
-                                '<td><input onchange="batteryParamChangeEvent(this,' + index + ')" id="chargeRate_' + (index + 1) + '" name="chargeRate" style="width:80px;">%</td>' +
-                                '<td>数据刷新周期：</td>' +
-                                '<td><input onchange="batteryParamChangeEvent(this,' + index + ')" id="schedulingCycle_' + (index + 1) + '" name="schedulingCycle" style="width:80px;">Min</td>' +
-                                '</tr>' +
-                                '</table>';
-                        return '<div style="height: 160px;width: 100%;background-color: #f0f1f9;">' +
-                                html +
-                                '</div>';
-                    },
-                    onExpandRow:function(index,row){
-                            console.log(row);
-                        $("#productionDate_" + (index + 1)).datetimebox({
-                            onChange: function (value) {
-                                if (submitData.batteries) {
-                                    submitData.batteries[index].productionDate = value;
-                                }
+                border: false,
+                fit: true,
+                scrollbarSize: 0,
+                pageSize: 500,
+                pageList: [10, 20, 30, 40, 60, 80, 100, 500],
+                onClickCell: onClickCell,
+                view: detailview,
+                detailFormatter: function (index, row) {
+                    var html = '<span class="title">' + (index + 1) + '号单体信息' +
+                        '<input onchange="batteryParamChangeEvent(this,' + index + ')" id="isAlarm_' + (index + 1) + '" type="checkbox" title="是否屏蔽告警">' + '</span>' +
+                        '<table class="set-table">' +
+                        '<tr>' +
+                        '<td>电池名称：</td>' +
+                        '<td><input onchange="batteryParamChangeEvent(this,' + index + ')" id="battery_name_' + (index + 1) + '" name="battery_name" style="width:80px;"></td>' +
+                        '<td>厂商名称：</td>' +
+                        '<td><input onchange="batteryParamChangeEvent(this,' + index + ')" id="producerName_' + (index + 1) + '" name="producerName" style="width:80px;"></td>' +
+                        '<td>生产日期：</td>' +
+                        '<td><input id="productionDate_' + (index + 1) + '" name="productionDate" style="width:80px;"></td>' +
+                        '<td>首次使用日期：</td>' +
+                        '<td><input id="battery_firstUseDate_' + (index + 1) + '" name="battery_firstUseDate" style="width:80px;"></td>' +
+                        '</tr>' +
+                        '<tr>' +
+                        '<td>序列号：</td>' +
+                        '<td><input onchange="batteryParamChangeEvent(this,' + index + ')" id="serialNum_' + (index + 1) + '" name="serialNum" style="width:80px;"></td>' +
+                        '<td>条形码编号：</td>' +
+                        '<td><input onchange="batteryParamChangeEvent(this,' + index + ')" id="barcode_' + (index + 1) + '" name="barcode" style="width:80px;"></td>' +
+                        '<td>电池规格：</td>' +
+                        '<td><input id="battery_specifications_' + (index + 1) + '" name="battery_specifications" style="width:80px;">(2V/12V)</td>' +
+                        '<td>电池容量：</td>' +
+                        '<td><input onchange="batteryParamChangeEvent(this,' + index + ')" id="initCapacity_' + (index + 1) + '" name="initCapacity" style="width:80px;">Ah</td>' +
+                        '</tr>' +
+                        '<tr>' +
+                        '<td>化学组成：</td>' +
+                        '<td><input onchange="batteryParamChangeEvent(this,' + index + ')" id="chemicalComposition_' + (index + 1) + '" name="chemicalComposition" style="width:80px;"></td>' +
+                        '<td>浮充电压：</td>' +
+                        '<td><input onchange="batteryParamChangeEvent(this,' + index + ')" id="floatChargeVolt_' + (index + 1) + '" name="floatChargeVolt" style="width:80px;" test="true">V</td>' +
+                        '<td>设计浮充寿命：</td>' +
+                        '<td><input onchange="batteryParamChangeEvent(this,' + index + ')" id="floatChargeLife_' + (index + 1) + '" name="floatChargeLife" style="width:80px;">月</td>' +
+                        '<td>设计循环寿命：</td>' +
+                        '<td><input onchange="batteryParamChangeEvent(this,' + index + ')" id="circleLife_' + (index + 1) + '" name="circleLife" style="width:80px;">次</td>' +
+                        '</tr>' +
+                        '<tr>' +
+                        '<td>容量校准点：</td>' +
+                        '<td><input onchange="batteryParamChangeEvent(this,' + index + ')" id="capacityCheckPoInt32_' + (index + 1) + '" name="capacityCheckPoInt32" style="width:80px;" test="true">Ah</td>' +
+                        '<td>均充电压：</td>' +
+                        '<td><input onchange="batteryParamChangeEvent(this,' + index + ')" id="equalChargeVolt_' + (index + 1) + '" name="equalChargeVolt" style="width:80px;" test="true">V</td>' +
+                        '<td>典型放电容量：</td>' +
+                        '<td><input onchange="batteryParamChangeEvent(this,' + index + ')" id="virtualCapacity_' + (index + 1) + '" name="virtualCapacity" style="width:80px;" test="true">Ah</td>' +
+                        '<td>典型放电电流：</td>' +
+                        '<td><input onchange="batteryParamChangeEvent(this,' + index + ')" id="virtualAmp_' + (index + 1) + '" name="virtualAmp" style="width:80px;" test="true">A</td>' +
+                        '</tr>' +
+                        '<tr>' +
+                        '<td>单体数量：</td>' +
+                        '<td><input onchange="batteryParamChangeEvent(this,' + index + ')" id="cellNum_' + (index + 1) + '" name="cellNum" style="width:80px;"></td>' +
+                        '<td>充电效率：</td>' +
+                        '<td><input onchange="batteryParamChangeEvent(this,' + index + ')" id="chargeRate_' + (index + 1) + '" name="chargeRate" style="width:80px;">%</td>' +
+                        '<td>数据刷新周期：</td>' +
+                        '<td><input onchange="batteryParamChangeEvent(this,' + index + ')" id="schedulingCycle_' + (index + 1) + '" name="schedulingCycle" style="width:80px;">Min</td>' +
+                        '</tr>' +
+                        '</table>';
+                    return '<div style="height: 160px;width: 100%;background-color: #f0f1f9;">' +
+                        html +
+                        '</div>';
+                },
+                onExpandRow: function (index, row) {
+                    console.log(row);
+                    $("#productionDate_" + (index + 1)).datetimebox({
+                        onChange: function (value) {
+                            if (submitData.batteries) {
+                                submitData.batteries[index].productionDate = value;
                             }
-                        });
+                        }
+                    });
 
-                        $("#battery_firstUseDate_" + (index + 1)).datetimebox({
-                            onChange: function (value) {
-                                if (submitData.batteries) {
-                                    submitData.batteries[index].battery_firstUseDate = value;
-                                }
+                    $("#battery_firstUseDate_" + (index + 1)).datetimebox({
+                        onChange: function (value) {
+                            if (submitData.batteries) {
+                                submitData.batteries[index].battery_firstUseDate = value;
                             }
-                        });
-                            batteryCombobox(index);
-                            initChemicalComposition(index);
-                            getBatteryDataById(row.battery_id, index);
-                    },
-                    onLoadSuccess: function (data) {
-                        if (data && data.total > 0) {
-                            isBcuGridInit = true;
-                            initBatteriesEditInfo(data.total);
+                        }
+                    });
+                    batteryCombobox(index);
+                    initChemicalComposition(index);
+                    getBatteryDataById(row.battery_id, index);
+                },
+                onLoadSuccess: function (data) {
+                    if (data && data.total > 0) {
+                        isBcuGridInit = true;
+                        initBatteriesEditInfo(data.total);
 //                                batteryCombobox(i);
 //                                initChemicalComposition(i);
 //                                getBatteryDataById(data.rows[i].battery_id, i);
-                        }
                     }
                 }
+            }
         ).SetColumns([[{
             field: "type",
             title: "采样类型",
@@ -639,135 +780,141 @@
             width: 80,
             editor: 'text'
         }, {
-            field: "panId",
-            title: "PANID",
+            field: "panId1",
+            title: "PANID1",
             width: 80,
             editor: 'text'
-        }, {
-            field: "zigBeeLocal",
-            title: "短地址",
-            width: 80,
-            editor: 'text'
-        }, {
-            field: "battery_status",
-            title: "电池状态",
-            width: 80,
-            formatter: function (value, row, index) {
-                if (!value) {
-                    return "激活";
+        },
+            {
+                field: "panId2",
+                title: "PANID2",
+                width: 80,
+                editor: 'text'
+            }, {
+                field: "zigBeeLocal",
+                title: "短地址",
+                width: 80,
+                editor: 'text'
+            }, {
+                field: "battery_status",
+                title: "电池状态",
+                width: 80,
+                formatter: function (value, row, index) {
+                    if (!value) {
+                        return "激活";
+                    }
+                    return "未激活";
                 }
-                return "未激活";
-            }
-        }, {
-            field: "BtnSet",
-            ContentType: "button",
-            text: "设置",
-            width: 40,
-            handler: function (index, row) {
-                var oldRegisterAddress = row.oldRegisterAddress;
-                if (endEditing()) {
-                    $('#dg').datagrid('acceptChanges');
-                }
-                if (row.op === "edit") {
-                    sendUpdCmd(index, row, oldRegisterAddress,row.registerAddress);
-                } else {
-                    sendAddCmd(index, row);
-                }
+            }, {
+                field: "BtnSet",
+                ContentType: "button",
+                text: "设置",
+                width: 40,
+                handler: function (index, row) {
+                    var oldRegisterAddress = row.oldRegisterAddress;
+                    if (endEditing()) {
+                        $('#dg').datagrid('acceptChanges');
+                    }
+                    if (row.op === "edit") {
+                        sendUpdCmd(index, row, oldRegisterAddress, row.registerAddress);
+                    } else {
+                        sendAddCmd(index, row);
+                    }
 
-            }
-        }, {
-            field: "BtnReload",
-            ContentType: "button",
-            text: "刷新",
-            width: 40,
-            handler: function (index, row) {
-                if (endEditing()) {
-                    $('#dg').datagrid('acceptChanges');
                 }
-                sendSelCmd(index, row);
-            }
-        }, {
-            field: "BtnEdit",
-            ContentType: "button",
-            text: "详细信息",
-            width: 80,
-            handler: function (index, row) {
-                if (endEditing()) {
-                    $('#dg').datagrid('acceptChanges');
+            }, {
+                field: "BtnReload",
+                ContentType: "button",
+                text: "刷新",
+                width: 40,
+                handler: function (index, row) {
+                    if (endEditing()) {
+                        $('#dg').datagrid('acceptChanges');
+                    }
+                    sendSelCmd(index, row);
                 }
-                var expander = $('#dg').datagrid('getExpander', index);
-                if ((expander) && (expander.hasClass('datagrid-row-expand'))) {
-                    $("#productionDate_" + (index + 1)).datetimebox({
-                        onChange: function (value) {
-                            if (submitData.batteries) {
-                                submitData.batteries[index].productionDate = value;
+            }, {
+                field: "BtnEdit",
+                ContentType: "button",
+                text: "详细信息",
+                width: 80,
+                handler: function (index, row) {
+                    if (endEditing()) {
+                        $('#dg').datagrid('acceptChanges');
+                    }
+                    var expander = $('#dg').datagrid('getExpander', index);
+                    if ((expander) && (expander.hasClass('datagrid-row-expand'))) {
+                        $("#productionDate_" + (index + 1)).datetimebox({
+                            onChange: function (value) {
+                                if (submitData.batteries) {
+                                    submitData.batteries[index].productionDate = value;
+                                }
                             }
-                        }
-                    });
+                        });
 
-                    $("#battery_firstUseDate_" + (index + 1)).datetimebox({
-                        onChange: function (value) {
-                            if (submitData.batteries) {
-                                submitData.batteries[index].battery_firstUseDate = value;
+                        $("#battery_firstUseDate_" + (index + 1)).datetimebox({
+                            onChange: function (value) {
+                                if (submitData.batteries) {
+                                    submitData.batteries[index].battery_firstUseDate = value;
+                                }
                             }
-                        }
-                    });
-                    batteryCombobox(index);
-                    initChemicalComposition(index);
+                        });
+                        batteryCombobox(index);
+                        initChemicalComposition(index);
 
-                    getBatteryDataById(row.battery_id, index);
+                        getBatteryDataById(row.battery_id, index);
 
-                    $('#dg').datagrid('expandRow', index);
+                        $('#dg').datagrid('expandRow', index);
+                    }
+                    else
+                        $('#dg').datagrid('collapseRow', index);
                 }
-                else
-                    $('#dg').datagrid('collapseRow', index);
-            }
-        }, {
-            field: "BtnDelete",
-            ContentType: "button",
-            text: "拆除",
-            width: 60,
-            handler: function (index, row) {
-                if (!row.battery_state) {
-                    // 拆除
-                    removeBattery(parameters.circuit.id, row.battery_id);
-                } else {
-                    // 恢复
-                    recoveryBattery(parameters.circuit.id, row.battery_id);
+            }, {
+                field: "BtnDelete",
+                ContentType: "button",
+                text: "拆除",
+                width: 60,
+                handler: function (index, row) {
+                    if (!row.battery_state) {
+                        // 拆除
+                        removeBattery(parameters.circuit.id, row.battery_id);
+                    } else {
+                        // 恢复
+                        recoveryBattery(parameters.circuit.id, row.battery_id);
+                    }
+                },
+                formatter: function (value, row, index) {
+                    if (!row.battery_state)
+                        return '<a href="javascript:;">拆除</a>';
+                    return '<a href="javascript:;">恢复</a>';
                 }
-            },
-            formatter: function (value, row, index) {
-                if (!row.battery_state)
-                    return '<a href="javascript:;">拆除</a>';
-                return '<a href="javascript:;">恢复</a>';
-            }
-        }, {
-            field: "alarmDllForParam",
-            ContentType: "button",
-            text: "查看告警库参数",
-            width: 150,
-            handler: function (index, row) {
-               console.log(index,row,parameters.circuit.id);
-                var showAlarmDllForParam = new XspWeb.Controls.Dialog("addGroupDialog");
-                showAlarmDllForParam.SetUrl("${_RootPath}/System/alarmDllBatteryForParam?circuitId=" + parameters.circuit.id + "&index=" + index)
-                    .SetCallback({
-                        name: "showAlarmDllBatteryForParam",
-                        callback: function () {
-                            showAlarmDllForParam.Hide();
-                            if(window.alarmDll_timer){
-                                alert(window.alarmDll_timer);
-                                clearInterval(window.alarmDll_timer);
+            }, {
+                field: "alarmDllForParam",
+                ContentType: "button",
+                text: "查看告警库参数",
+                width: 150,
+                handler: function (index, row) {
+                    console.log(index, row, parameters.circuit.id);
+                    var showAlarmDllForParam = new XspWeb.Controls.Dialog("addGroupDialog");
+                    showAlarmDllForParam.SetUrl("${_RootPath}/System/alarmDllBatteryForParam?circuitId=" + parameters.circuit.id + "&index=" + index)
+                        .SetCallback({
+                            name: "showAlarmDllBatteryForParam",
+                            callback: function () {
+                                showAlarmDllForParam.Hide();
+                                if (window.alarmDll_timer) {
+                                    alert(window.alarmDll_timer);
+                                    clearInterval(window.alarmDll_timer);
+                                }
                             }
-                        }
-                    }).Show({
-                    title: "实时查看动态告警库参数",
-                    width: 850,
-                    height: 565,
-                    maximizable: false,
-                    minimizable: false
-                }, true);
-            }
-        }]]);
+                        }).Show({
+                        title: "实时查看动态告警库参数",
+                        width: 850,
+                        height: 565,
+                        maximizable: false,
+                        minimizable: false
+                    }, true);
+                }
+            }]]);
 
         return testGrid;
     }
@@ -825,7 +972,7 @@
         if (editIndex != index) {
             if (endEditing()) {
                 $('#dg').datagrid('selectRow', index)
-                        .datagrid('beginEdit', index);
+                    .datagrid('beginEdit', index);
                 var ed = $('#dg').datagrid('getEditor', {index: index, field: field});
                 if (ed) {
                     ($(ed.target).data('textbox') ? $(ed.target).textbox('textbox') : $(ed.target)).focus();
@@ -842,7 +989,14 @@
     /**
      * 列表中设置按钮事件-增加
      */
+    var ajaxBCUCount = 0;
     function sendAddCmd(index, row) {
+
+        if(ajaxBCUCount>0){
+            XspWeb.Misc.Tips("正在获取数据，请稍等");
+            return;
+        }
+
         var circuitId = parameters.circuit.id;
         if (!circuitId) {
             XspWeb.Misc.Tips("请选择一条回路");
@@ -858,6 +1012,43 @@
             XspWeb.Misc.Tips("编号必须是数字");
             return;
         }
+
+        var channel = row.channel;
+        if (!Business.Misc.validateHex(channel)) {
+            XspWeb.Misc.Tips("无线信道必须是16进制数,最小一位最大四位");
+            return;
+        }
+
+        var zigBeeLocal = row.zigBeeLocal;
+        if (!Business.Misc.validateHex(zigBeeLocal)) {
+            XspWeb.Misc.Tips("短地址必须是16进制数,最小一位最大四位");
+            return;
+        }
+
+        var panId1 = row.panId1;
+        if (!panId1) {
+            XspWeb.Misc.Tips("请输入PANID1");
+            return;
+        }
+        if (!Business.Misc.validateHex(panId1)) {
+            XspWeb.Misc.Tips("PANID1必须是16进制数,最小一位最大四位");
+            return;
+        }
+
+        var panId2 = row.panId2;
+        if (!panId2) {
+            XspWeb.Misc.Tips("请输入PANID2");
+            return;
+        }
+        if (!Business.Misc.validateHex(panId2)) {
+            XspWeb.Misc.Tips("PANID2必须是16进制数,最小一位最大四位");
+            return;
+        }
+
+        row.panId1 = parseInt(panId1,16);
+        row.panId2 = parseInt(panId2,16)
+        row.channel = parseInt(channel,16);
+        row.zigBeeLocal = parseInt(zigBeeLocal,16);
 
         var bcuConfig = JSON.stringify(row);
 
@@ -886,20 +1077,48 @@
     /**
      * 列表中设置按钮事件-修改
      */
-    function sendUpdCmd(index, row, oldRegisterAddress,registerAddress) {
+    function sendUpdCmd(index, row, oldRegisterAddress, registerAddress) {
+
+        if(ajaxBCUCount>0){
+            XspWeb.Misc.Tips("正在获取数据，请稍等");
+            return;
+        }
+
         var oldCircuitId = parameters.circuit.id;
         if (!oldCircuitId) {
             XspWeb.Misc.Tips("请选择一条回路");
             return;
         }
 
-        var panId = row.panId;
-        if (!panId) {
-            XspWeb.Misc.Tips("请输入PANID");
+        var channel = row.channel;
+        if (!Business.Misc.validateHex(channel)) {
+            XspWeb.Misc.Tips("无线信道必须是16进制数,最小一位最大四位");
             return;
         }
-        if (!Business.Misc.validateNumber(panId)) {
-            XspWeb.Misc.Tips("PANID必须是数字");
+
+        var zigBeeLocal = row.zigBeeLocal;
+        if (!Business.Misc.validateHex(zigBeeLocal)) {
+            XspWeb.Misc.Tips("短地址必须是16进制数,最小一位最大四位");
+            return;
+        }
+
+        var panId1 = row.panId1;
+        if (!panId1) {
+            XspWeb.Misc.Tips("请输入PANID1");
+            return;
+        }
+        if (!Business.Misc.validateHex(panId1)) {
+            XspWeb.Misc.Tips("PANID1必须是16进制数,最小一位最大四位");
+            return;
+        }
+
+        var panId2 = row.panId2;
+        if (!panId2) {
+            XspWeb.Misc.Tips("请输入PANID2");
+            return;
+        }
+        if (!Business.Misc.validateHex(panId2)) {
+            XspWeb.Misc.Tips("PANID2必须是16进制数,最小一位最大四位");
             return;
         }
 
@@ -919,6 +1138,11 @@
             return;
         }
 
+        row.panId1 = parseInt(panId1,16);
+        row.panId2 = parseInt(panId2,16)
+        row.channel = parseInt(channel,16);
+        row.zigBeeLocal = parseInt(zigBeeLocal,16);
+
         var bcuConfig = JSON.stringify(row);
 
         XspWeb.Misc.Ajax({
@@ -928,7 +1152,7 @@
                 oldRegisterAddress: oldRegisterAddress,
                 newCircuitId: newCircuitId,
                 bcuConfig: bcuConfig,
-                registerAddress:registerAddress
+                registerAddress: registerAddress
             },
             success: function (rec) {
                 if (rec) {
@@ -948,6 +1172,12 @@
      * 列表中刷新按钮事件
      */
     function sendSelCmd(index, row) {
+
+        if(ajaxBCUCount>0){
+            XspWeb.Misc.Tips("正在获取数据，请稍等");
+            return;
+        }
+
         var circuitId = parameters.circuit.id;
         if (!circuitId) {
             XspWeb.Misc.Tips("请选择一条回路");
@@ -987,19 +1217,20 @@
     /**
      * 轮询获取深福BCU
      */
-    var ajaxBCUCount = 0;
     function getSfBCU(index) {
         XspWeb.Misc.Ajax({
             action: "${_RootPath}/System/getSfBCUConfigData",
             success: function (rec) {
                 if (rec) {
                     if (rec.code === 0) {
+                        ajaxBCUCount = 0;
                         $('#dg').datagrid('updateRow', {
                             index: index,
                             row: {
                                 channel: rec.data.channel,
                                 mac: rec.data.mac,
-                                panId: rec.data.panId,
+                                panId1: rec.data.panId1,
+                                panId2: rec.data.panId2,
                                 zigBeeLocal: rec.data.zigBeeLocal
                             }
                         });
@@ -1086,11 +1317,11 @@
                 selector.attr("checked", data[key]);
             }
             else if ((selector) &&
-                    ((key === "battery_firstUseDate") || (key === "productionDate"))) {
+                ((key === "battery_firstUseDate") || (key === "productionDate"))) {
                 selector.datetimebox('setValue', data[key]);
             }
             else if ((selector) &&
-                    ((key === "battery_specifications") || (key === "chemicalComposition")))
+                ((key === "battery_specifications") || (key === "chemicalComposition")))
                 selector.combobox('setValue', data[key]);
             else if (selector)
                 selector.val(data[key]);
@@ -1275,7 +1506,7 @@
      */
     function ecuRadioCheckedEvent() {
         $("#tool-content").css("display", "block");
-        $("#tool-content").css("height", "120px");
+//        $("#tool-content").css("height", "120px");
 
         $("#btn_shrink").attr("style", "width:62px;display: block;");
 
@@ -1356,17 +1587,109 @@
      */
     function setECUNumber() {
         var params = {};
+
         if ($("#ecuA_radio")[0].checked) {
-            params.VoltageAddress = $("#ecuAV0").combobox('getValue');
+            if(!Business.Misc.validateHex($("#ecuA0_canel1").combobox('getValue'))){
+                XspWeb.Misc.Tips("无线通道1输入有误");
+                return;
+            }
+            if(!Business.Misc.validateHex($("#ecuA0_canel2").combobox('getValue'))){
+                XspWeb.Misc.Tips("无线通道2输入有误");
+                return;
+            }
+            if(!Business.Misc.validateHex($("#ecuA0_canel3").combobox('getValue'))){
+                XspWeb.Misc.Tips("无线通道3输入有误");
+                return;
+            }
+            if(!Business.Misc.validateHex($("#ecuA0_panid1").val())){
+                XspWeb.Misc.Tips("协调器1PANID1输入有误");
+                return;
+            }
+            if(!Business.Misc.validateHex($("#ecuA0_panid2").val())){
+                XspWeb.Misc.Tips("协调器1PANID2输入有误");
+                return;
+            }
+            if(!Business.Misc.validateHex($("#ecuA0_panid3").val())){
+                XspWeb.Misc.Tips("协调器2PANID1输入有误");
+                return;
+            }
+            if(!Business.Misc.validateHex($("#ecuA0_panid4").val())){
+                XspWeb.Misc.Tips("协调器2PANID2输入有误");
+                return;
+            }
+            if(!Business.Misc.validateHex($("#ecuA0_panid5").val())){
+                XspWeb.Misc.Tips("协调器3PANID1输入有误");
+                return;
+            }
+            if(!Business.Misc.validateHex($("#ecuA0_panid6").val())){
+                XspWeb.Misc.Tips("协调器3PANID2输入有误");
+                return;
+            }
+
+            params.VoltageAddress =$("#ecuAV0").combobox('getValue');
             params.CurrentAddress = $("#ecuAI0").combobox('getValue');
-            params.Channel = $("#ecuA0_canel1").val();
+            params.Channel1 =  parseInt($("#ecuA0_canel1").combobox('getValue'),16);
+            params.Channel2 = parseInt($("#ecuA0_canel2").combobox('getValue'),16);
+            params.Channel3 = parseInt($("#ecuA0_canel3").combobox('getValue'),16);
+            params.PANId1 = parseInt($("#ecuA0_panid1").val(),16);
+            params.PANId2 = parseInt($("#ecuA0_panid2").val(),16);
+            params.PANId3 = parseInt($("#ecuA0_panid3").val(),16);
+            params.PANId4 = parseInt($("#ecuA0_panid4").val(),16);
+            params.PANId5 = parseInt($("#ecuA0_panid5").val(),16);
+            params.PANId6 = parseInt($("#ecuA0_panid6").val(),16);
         }
         else {
+
+            if(!Business.Misc.validateHex($("#ecuB0_canel1").combobox('getValue'))){
+                XspWeb.Misc.Tips("无线通道1输入有误");
+                return;
+            }
+            if(!Business.Misc.validateHex($("#ecuB0_canel2").combobox('getValue'))){
+                XspWeb.Misc.Tips("无线通道2输入有误");
+                return;
+            }
+            if(!Business.Misc.validateHex($("#ecuB0_canel3").combobox('getValue'))){
+                XspWeb.Misc.Tips("无线通道3输入有误");
+                return;
+            }
+            if(!Business.Misc.validateHex($("#ecuB0_panid1").val())){
+                XspWeb.Misc.Tips("协调器1PANID1输入有误");
+                return;
+            }
+            if(!Business.Misc.validateHex($("#ecuB0_panid2").val())){
+                XspWeb.Misc.Tips("协调器1PANID2输入有误");
+                return;
+            }
+            if(!Business.Misc.validateHex($("#ecuB0_panid3").val())){
+                XspWeb.Misc.Tips("协调器2PANID1输入有误");
+                return;
+            }
+            if(!Business.Misc.validateHex($("#ecuB0_panid4").val())){
+                XspWeb.Misc.Tips("协调器2PANID2输入有误");
+                return;
+            }
+            if(!Business.Misc.validateHex($("#ecuB0_panid5").val())){
+                XspWeb.Misc.Tips("协调器3PANID1输入有误");
+                return;
+            }
+            if(!Business.Misc.validateHex($("#ecuB0_panid6").val())){
+                XspWeb.Misc.Tips("协调器3PANID2输入有误");
+                return;
+            }
+
             params.VoltageAddress = $("#ecuBV1").combobox('getValue');
             params.CurrentAddress = $("#ecuBI1").combobox('getValue');
             params.NegativeVoltageAddress = $("#ecuBV2").combobox('getValue');
             params.NegativeCurrentAddress = $("#ecuBI2").combobox('getValue');
-            params.Channel = $("#ecuB0_canel1").val();
+            params.Channel1 =  parseInt($("#ecuA0_canel1").combobox('getValue'),16);
+            params.Channel2 = parseInt($("#ecuA0_canel2").combobox('getValue'),16);
+            params.Channel3 = parseInt($("#ecuA0_canel3").combobox('getValue'),16);
+            params.PANId1 = parseInt($("#ecuA0_panid1").val(),16);
+            params.PANId2 = parseInt($("#ecuA0_panid2").val(),16);
+            params.PANId3 = parseInt($("#ecuA0_panid3").val(),16);
+            params.PANId4 = parseInt($("#ecuA0_panid4").val(),16);
+            params.PANId5 = parseInt($("#ecuA0_panid5").val(),16);
+            params.PANId6 = parseInt($("#ecuA0_panid6").val(),16);
         }
         params.batteryCount = parameters.batteryPackInfo.data.batteryCount;
         XspWeb.Misc.Ajax({
@@ -1429,8 +1752,8 @@
         }
         // 电池容量：0~65535Ah;浮充寿命(0~65535月)和循环寿命（0~65535次）
         else if ((id === "initCapacity") ||
-                (id === "floatChargeLife") ||
-                (id === "circleLife")) {
+            (id === "floatChargeLife") ||
+            (id === "circleLife")) {
             if (obj.value < 0 || obj.value > 655535) {
                 XspWeb.Misc.Tips("输入有误,请重新输入");
                 $("#" + obj.id).val("");
@@ -1454,10 +1777,10 @@
             }
             else if ($(obj).attr("test")) {
                 if (id === "floatChargeVolt"
-                        || id === "equalChargeVolt"
-                        || id === "capacityCheckPoInt32"
-                        || id === "virtualCapacity"
-                        || id === "virtualAmp") {
+                    || id === "equalChargeVolt"
+                    || id === "capacityCheckPoInt32"
+                    || id === "virtualCapacity"
+                    || id === "virtualAmp") {
 
                     if (Business.Misc.validateFloatNumber(obj.value)) {
                         var value = parseFloat(obj.value);
@@ -1542,6 +1865,68 @@
      * 绑定按钮事件
      */
     function bindBtnEvent() {
+
+        $("#ecuA0_canel1").combobox({
+            data: ecuA0_canel1_data,
+            valueField: "value",
+            textField: "text",
+            onSelect: function (record) {
+                $('#ecuA0_panid1').val(panid1_data[record.index]);
+                $('#ecuA0_panid2').val(panid2_data[record.index]);
+            }
+        });
+
+        $("#ecuA0_canel2").combobox({
+            data: ecuA0_canel2_data,
+            valueField: "value",
+            textField: "text",
+            onSelect: function (record) {
+                $('#ecuA0_panid3').val(panid1_data[record.index]);
+                $('#ecuA0_panid4').val(panid2_data[record.index]);
+            }
+        });
+
+        $("#ecuA0_canel3").combobox({
+            data: ecuA0_canel3_data,
+            valueField: "value",
+            textField: "text",
+            onSelect: function (record) {
+                $('#ecuA0_panid5').val(panid1_data[record.index]);
+                $('#ecuA0_panid6').val(panid2_data[record.index]);
+            }
+        });
+
+        $("#ecuB0_canel1").combobox({
+            data: ecuB0_canel1_data,
+            valueField: "value",
+            textField: "text",
+            onSelect: function (record) {
+                $('#ecuB0_panid1').val(panid1_data[record.index]);
+                $('#ecuB0_panid2').val(panid2_data[record.index]);
+            }
+        });
+
+        $("#ecuB0_canel2").combobox({
+            data: ecuB0_canel2_data,
+            valueField: "value",
+            textField: "text",
+            onSelect: function (record) {
+                $('#ecuB0_panid3').val(panid1_data[record.index]);
+                $('#ecuB0_panid4').val(panid2_data[record.index]);
+            }
+        });
+
+        $("#ecuB0_canel3").combobox({
+            data: ecuB0_canel3_data,
+            valueField: "value",
+            textField: "text",
+            onSelect: function (record) {
+                $('#ecuB0_panid5').val(panid1_data[record.index]);
+                $('#ecuB0_panid6').val(panid2_data[record.index]);
+            }
+        });
+
+
         /**
          * 电池组按钮-点击
          */
@@ -1549,7 +1934,7 @@
             var flag2 = $(this).attr("flag");
             $("#btn_device").attr("flag", "collapse");
             if (flag2 === "collapse") {
-                $("#bcu_grid_content").attr("style", "height: 470px;display: block;");
+                $("#bcu_grid_content").attr("style", "height: 470px;display: block;margin-top: 30px");
                 // 第一次初始化列表
                 if (!isBcuGridInit) {
                     var paramsJson = '${circuit}';
@@ -1562,7 +1947,7 @@
                 }
 
                 $("#tool-content").css("display", "block");
-                $("#tool-content").css("height", "130px");
+                $("#tool-content").css("height", "200px");
 
                 $("#btn_shrink").attr("style", "width:62px;display: block;");
 
@@ -1623,7 +2008,7 @@
             $("#set_fd").attr("flag", "collapse");
             if (flag3 === "collapse") {
                 $("#tool-content").css("display", "block");
-                $("#tool-content").css("height", "120px");
+//                $("#tool-content").css("height", "120px");
 
                 $("#btn_shrink").attr("style", "width:62px;display: block;");
 

@@ -570,4 +570,17 @@ public class SystemController extends BaseController {
     public void removeBattery(Long circuitId, Long batteryId) {
         responseJson(systemService.removeBattery(circuitId, batteryId));
     }
+
+    @RequestMapping(value = "/setCurrentDucer")
+    @ResponseBody
+    public void setCurrentDucer(Long circuitId,Double inputCurrent,Double outputVoltage){
+        responseJson(systemService.setCurrentDucer(circuitId,inputCurrent,outputVoltage));
+    }
+
+    @RequestMapping(value = "/checkResistance")
+    @ResponseBody
+    public void  checkResistance(Long circuitId){
+        responseJson(systemService.checkResistance(circuitId));
+    }
+
 }

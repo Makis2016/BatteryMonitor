@@ -462,36 +462,37 @@ public class CallService {
     /// </summary>
     /// <returns>获取所有实时告警链表</returns>
     public static List<MAlarm> GetRealTimeAlarm() {
-        List<Alarm> alarmList = BpmServiceUtil.GetService().getRealTimeAlarm().getAlarm();
-        List<MAlarm> mAlarms = new ArrayList<>();
-        if (alarmList != null && alarmList.size() > 0) {
-            int i = 0;
-            for (Alarm alarm : alarmList) {
-                ++i;
-                MAlarm mAlarm = new MAlarm();
-                mAlarm.AlarmId = alarm.getMAlarmId().value();
-                mAlarm.AlarmMessage = alarm.getMAlarmMessage().getValue();
-                mAlarm.AreaName = alarm.getMAreaName().getValue();
-                mAlarm.Id = alarm.getMId() > 0 ? alarm.getMId() : i;
-                mAlarm.Level = alarm.getMLevel().value();
-                mAlarm.MaintainAdvise = alarm.getMMaintainAdvise().getValue();
-                XMLGregorianCalendar xmlSCdate = alarm.getMStrarTime();
-                mAlarm.StrarTime = xmlSCdate.getMonth() + "月"
-                        + xmlSCdate.getDay() + "日 "
-                        + xmlSCdate.getHour() + ":"
-                        + xmlSCdate.getMinute() + ":"
-                        + xmlSCdate.getSecond();
-                XMLGregorianCalendar xmlECdate = alarm.getMEndTime();
-                mAlarm.EndTime = xmlECdate.getMonth() + "月"
-                        + xmlECdate.getDay() + "日 "
-                        + xmlECdate.getHour() + ":"
-                        + xmlECdate.getMinute() + ":"
-                        + xmlECdate.getSecond();
-                mAlarm.CircuitId = alarm.getMCircuitId();
-                mAlarms.add(mAlarm);
-            }
-        }
-        return mAlarms;
+//        List<Alarm> alarmList = BpmServiceUtil.GetService().getRealTimeAlarm().getAlarm();
+//        List<MAlarm> mAlarms = new ArrayList<>();
+//        if (alarmList != null && alarmList.size() > 0) {
+//            int i = 0;
+//            for (Alarm alarm : alarmList) {
+//                ++i;
+//                MAlarm mAlarm = new MAlarm();
+//                mAlarm.AlarmId = alarm.getMAlarmId().value();
+//                mAlarm.AlarmMessage = alarm.getMAlarmMessage().getValue();
+//                mAlarm.AreaName = alarm.getMAreaName().getValue();
+//                mAlarm.Id = alarm.getMId() > 0 ? alarm.getMId() : i;
+//                mAlarm.Level = alarm.getMLevel().value();
+//                mAlarm.MaintainAdvise = alarm.getMMaintainAdvise().getValue();
+//                XMLGregorianCalendar xmlSCdate = alarm.getMStrarTime();
+//                mAlarm.StrarTime = xmlSCdate.getMonth() + "月"
+//                        + xmlSCdate.getDay() + "日 "
+//                        + xmlSCdate.getHour() + ":"
+//                        + xmlSCdate.getMinute() + ":"
+//                        + xmlSCdate.getSecond();
+//                XMLGregorianCalendar xmlECdate = alarm.getMEndTime();
+//                mAlarm.EndTime = xmlECdate.getMonth() + "月"
+//                        + xmlECdate.getDay() + "日 "
+//                        + xmlECdate.getHour() + ":"
+//                        + xmlECdate.getMinute() + ":"
+//                        + xmlECdate.getSecond();
+//                mAlarm.CircuitId = alarm.getMCircuitId();
+//                mAlarms.add(mAlarm);
+//            }
+//        }
+//        return mAlarms;
+        return null;
     }
 
     /// <summary>
@@ -555,17 +556,21 @@ public class CallService {
             String bcuConfig) {
         QName _SfBCUMac_QNAME = new QName("http://schemas.datacontract.org/2004/07/BPMDevices.Vendor.Shenfu", "Mac");
         JSONObject sfBCUObject = JSON.parseObject(bcuConfig);
+        byte[] bMac =  new byte[8];
         //SfBCU sfBCU1 = JSON.parseObject(bcuConfig, SfBCU.class);
-        String[] sMac = sfBCUObject.getString("mac").split(":");
-        byte[] bMac = new byte[8];
-        for(int i=0 ;i< sMac.length;i++){
-            int s = Integer.parseInt(sMac[i]);
-            bMac[i] = (byte) s;
+        if(sfBCUObject.getString("mac") !=null){
+            String[] sMac = sfBCUObject.getString("mac").split(":");
+            for(int i=0 ;i< sMac.length;i++){
+                int s = Integer.parseInt(sMac[i]);
+                bMac[i] = (byte) s;
+            }
         }
+
         JAXBElement<byte[]> mac = new JAXBElement<byte[]>(_SfBCUMac_QNAME, byte[].class, SfBCU.class, ((byte[]) bMac));
         SfBCU sfBCU = new SfBCU();
         sfBCU.setMac(mac);
-        sfBCU.setPANId(sfBCUObject.getIntValue("panId"));
+        sfBCU.setPANId1(sfBCUObject.getIntValue("panId1"));
+        sfBCU.setPANId2(sfBCUObject.getIntValue("panId2"));
         sfBCU.setChannel(sfBCUObject.getShort("channel"));
         sfBCU.setZigBeeLocal(sfBCUObject.getIntValue("zigBeeLocal"));
         sfBCU.setType(sfBCUObject.getShort("type"));
@@ -607,7 +612,8 @@ public class CallService {
             mSfBCU.setRefresh(sfBCU.isIsRefresh());
             mSfBCU.setType(sfBCU.getType());
             mSfBCU.setSerialNumber(sfBCU.getSerialNumber());
-            mSfBCU.setPanId(sfBCU.getPANId());
+            mSfBCU.setPanId1(sfBCU.getPANId1());
+            mSfBCU.setPanId2(sfBCU.getPANId2());
             byte[] reserveBytes = sfBCU.getReserve().getValue();
             if (macBytes != null) {
                 String reserve = "";
@@ -731,7 +737,7 @@ public class CallService {
             }
             mSfBCU.setAddress(sfECU.getAddress());
             mSfBCU.setBaudRate(sfECU.getBaudRate());
-            mSfBCU.setChannel(sfECU.getChannel());
+            mSfBCU.setChannel(sfECU.getChannel1());
             mSfBCU.setIdStatus(sfECU.getIdStatus());
             mSfBCU.setLength(sfECU.getLength());
             mSfBCU.setRegisterAddress(sfECU.getRegisterAddress());
@@ -863,9 +869,9 @@ public class CallService {
     public static Boolean removeBattery(Long circuitId, Long batteryId) {
         try {
             if (BpmServiceUtil.GetService() != null) {
-                com.furongsoft.Public.Dao.Entities.User user = (com.furongsoft.Public.Dao.Entities.User)
-                        SecurityUtils.getSubject().getSession().getAttribute("userModel");
-                return BpmServiceUtil.GetService().disableBattery(circuitId, batteryId, user.getId());
+//                com.furongsoft.Public.Dao.Entities.User user = (com.furongsoft.Public.Dao.Entities.User)
+//                        SecurityUtils.getSubject().getSession().getAttribute("userModel");
+                return BpmServiceUtil.GetService().disableBattery(circuitId, batteryId, 1L);
             }
             else {
                 return false;
@@ -885,9 +891,9 @@ public class CallService {
         try {
             if (BpmServiceUtil.GetService() != null) {
                 //return false;
-                com.furongsoft.Public.Dao.Entities.User user = (com.furongsoft.Public.Dao.Entities.User)
-                        SecurityUtils.getSubject().getSession().getAttribute("userModel");
-                return BpmServiceUtil.GetService().recoveryBattery(circuitId, batteryId,user.getId());
+//                com.furongsoft.Public.Dao.Entities.User user = (com.furongsoft.Public.Dao.Entities.User)
+//                        SecurityUtils.getSubject().getSession().getAttribute("userModel");
+                return BpmServiceUtil.GetService().recoveryBattery(circuitId, batteryId,1L);
             }
             else {
                 return false;
@@ -897,5 +903,25 @@ public class CallService {
             Tracker.e(e);
         }
         return false;
+    }
+
+    /**
+     *  设置电流传感器
+     * @param circuitId 回路ID
+     * @param inputCurrent 输入电流
+     * @param outputVoltage 输出电压
+     * @return
+     */
+    public static Boolean setCurrentDucer(Long circuitId, Double inputCurrent, Double outputVoltage){
+        return BpmServiceUtil.GetService().setCurrentDucer(circuitId,inputCurrent,outputVoltage);
+    }
+
+    /**
+     *  检测内阻
+     * @param circuitId 回路ID
+     * @return
+     */
+    public static Boolean checkResistance(Long circuitId){
+        return BpmServiceUtil.GetService().checkResistance(circuitId);
     }
 }

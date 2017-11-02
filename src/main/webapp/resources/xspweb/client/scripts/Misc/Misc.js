@@ -24,11 +24,11 @@ $.DeclareClass("XspWeb.Misc.Browser", {
      * 静态成员
      */
     Static: {
-        Version: $.browser.version,
-        IsMozilla: !!$.browser.mozilla,
-        IsWebkit: (!!$.browser.webkit) || (!!$.browser.safari),
-        IsMSIE: !!$.browser.msie,
-        IsIE6: (!!$.browser.msie) && ($.browser.version == 6)
+        // Version: $.browser.version,
+        // IsMozilla: !!$.browser.mozilla,
+        // IsWebkit: (!!$.browser.webkit) || (!!$.browser.safari),
+        // IsMSIE: !!$.browser.msie,
+        // IsIE6: (!!$.browser.msie) && ($.browser.version == 6)
     }
 });
 

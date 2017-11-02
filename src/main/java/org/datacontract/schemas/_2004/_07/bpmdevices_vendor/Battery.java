@@ -39,6 +39,9 @@ import org.datacontract.schemas._2004._07.bpmdevices.BatteryThreshold;
  *         &lt;element name="Id" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/>
  *         &lt;element name="InitCapacity" type="{http://www.w3.org/2001/XMLSchema}double" minOccurs="0"/>
  *         &lt;element name="IsAlarm" type="{http://www.w3.org/2001/XMLSchema}boolean" minOccurs="0"/>
+ *         &lt;element name="IsResistanceAlarm" type="{http://www.w3.org/2001/XMLSchema}boolean" minOccurs="0"/>
+ *         &lt;element name="IsTemperatureAlarm" type="{http://www.w3.org/2001/XMLSchema}boolean" minOccurs="0"/>
+ *         &lt;element name="IsVoltageAlarm" type="{http://www.w3.org/2001/XMLSchema}boolean" minOccurs="0"/>
  *         &lt;element name="Name" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="PackId" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/>
  *         &lt;element name="ProducerName" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
@@ -82,6 +85,9 @@ import org.datacontract.schemas._2004._07.bpmdevices.BatteryThreshold;
     "id",
     "initCapacity",
     "isAlarm",
+    "isResistanceAlarm",
+    "isTemperatureAlarm",
+    "isVoltageAlarm",
     "name",
     "packId",
     "producerName",
@@ -136,6 +142,12 @@ public class Battery {
     protected JAXBElement<Double> initCapacity;
     @XmlElement(name = "IsAlarm")
     protected Boolean isAlarm;
+    @XmlElement(name = "IsResistanceAlarm")
+    protected Boolean isResistanceAlarm;
+    @XmlElement(name = "IsTemperatureAlarm")
+    protected Boolean isTemperatureAlarm;
+    @XmlElement(name = "IsVoltageAlarm")
+    protected Boolean isVoltageAlarm;
     @XmlElementRef(name = "Name", namespace = "http://schemas.datacontract.org/2004/07/BPMDevices.Vendor.Common", type = JAXBElement.class, required = false)
     protected JAXBElement<String> name;
     @XmlElement(name = "PackId")
@@ -578,6 +590,78 @@ public class Battery {
      */
     public void setIsAlarm(Boolean value) {
         this.isAlarm = value;
+    }
+
+    /**
+     * 获取isResistanceAlarm属性的值。
+     * 
+     * @return
+     *     possible object is
+     *     {@link Boolean }
+     *     
+     */
+    public Boolean isIsResistanceAlarm() {
+        return isResistanceAlarm;
+    }
+
+    /**
+     * 设置isResistanceAlarm属性的值。
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link Boolean }
+     *     
+     */
+    public void setIsResistanceAlarm(Boolean value) {
+        this.isResistanceAlarm = value;
+    }
+
+    /**
+     * 获取isTemperatureAlarm属性的值。
+     * 
+     * @return
+     *     possible object is
+     *     {@link Boolean }
+     *     
+     */
+    public Boolean isIsTemperatureAlarm() {
+        return isTemperatureAlarm;
+    }
+
+    /**
+     * 设置isTemperatureAlarm属性的值。
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link Boolean }
+     *     
+     */
+    public void setIsTemperatureAlarm(Boolean value) {
+        this.isTemperatureAlarm = value;
+    }
+
+    /**
+     * 获取isVoltageAlarm属性的值。
+     * 
+     * @return
+     *     possible object is
+     *     {@link Boolean }
+     *     
+     */
+    public Boolean isIsVoltageAlarm() {
+        return isVoltageAlarm;
+    }
+
+    /**
+     * 设置isVoltageAlarm属性的值。
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link Boolean }
+     *     
+     */
+    public void setIsVoltageAlarm(Boolean value) {
+        this.isVoltageAlarm = value;
     }
 
     /**

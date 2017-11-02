@@ -8,7 +8,6 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElementRef;
 import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
-import org.datacontract.schemas._2004._07.bpmdevices.AlarmManagerAlarmLevel;
 import org.datacontract.schemas._2004._07.bpmservice.BatteryPackInfo;
 import org.datacontract.schemas._2004._07.bpmservice.DataAccuracyInfo;
 import org.datacontract.schemas._2004._07.bpmservice.DcdcData;
@@ -25,7 +24,7 @@ import org.datacontract.schemas._2004._07.bpmservice.DcdcData;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
  *         &lt;element name="ACDCId" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/>
- *         &lt;element name="AlarmLevel" type="{http://schemas.datacontract.org/2004/07/BPMDevices}AlarmManager.AlarmLevel" minOccurs="0"/>
+ *         &lt;element name="AlarmLevel" type="{http://schemas.datacontract.org/2004/07/BPMDevices.Vendor.Common}Alarm.AlarmLevel" minOccurs="0"/>
  *         &lt;element name="AreaId" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/>
  *         &lt;element name="AreaIdPath" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="AreaName" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
@@ -71,7 +70,7 @@ public class CircuitInfo {
     protected JAXBElement<Long> acdcId;
     @XmlElement(name = "AlarmLevel")
     @XmlSchemaType(name = "string")
-    protected AlarmManagerAlarmLevel alarmLevel;
+    protected AlarmAlarmLevel alarmLevel;
     @XmlElement(name = "AreaId")
     protected Long areaId;
     @XmlElementRef(name = "AreaIdPath", namespace = "http://schemas.datacontract.org/2004/07/BPMDevices.Vendor.WebModel", type = JAXBElement.class, required = false)
@@ -130,10 +129,10 @@ public class CircuitInfo {
      * 
      * @return
      *     possible object is
-     *     {@link AlarmManagerAlarmLevel }
+     *     {@link AlarmAlarmLevel }
      *     
      */
-    public AlarmManagerAlarmLevel getAlarmLevel() {
+    public AlarmAlarmLevel getAlarmLevel() {
         return alarmLevel;
     }
 
@@ -142,10 +141,10 @@ public class CircuitInfo {
      * 
      * @param value
      *     allowed object is
-     *     {@link AlarmManagerAlarmLevel }
+     *     {@link AlarmAlarmLevel }
      *     
      */
-    public void setAlarmLevel(AlarmManagerAlarmLevel value) {
+    public void setAlarmLevel(AlarmAlarmLevel value) {
         this.alarmLevel = value;
     }
 

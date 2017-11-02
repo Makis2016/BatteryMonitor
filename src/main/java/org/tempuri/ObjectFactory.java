@@ -37,39 +37,37 @@ import org.datacontract.schemas._2004._07.bpmservice.BatteryPackInfo;
 @XmlRegistry
 public class ObjectFactory {
 
-    private final static QName _GetBatteryPackByAreaResponseGetBatteryPackByAreaResult_QNAME = new QName("http://tempuri.org/", "GetBatteryPackByAreaResult");
-    private final static QName _UpdateBatteryThresholdBatteryThreshold_QNAME = new QName("http://tempuri.org/", "batteryThreshold");
-    private final static QName _GetCircuitsCountAreas_QNAME = new QName("http://tempuri.org/", "areas");
-    private final static QName _AddBatteryPackBatteryPack_QNAME = new QName("http://tempuri.org/", "batteryPack");
-    private final static QName _LoadBatteryPackAlarmDllBatteryPackAlarmDllByteBuff_QNAME = new QName("http://tempuri.org/", "batteryPackAlarmDllByteBuff");
-    private final static QName _SetSfECUConfigEcu_QNAME = new QName("http://tempuri.org/", "ecu");
-    private final static QName _GetBatteryGroupThresholdResponseGetBatteryGroupThresholdResult_QNAME = new QName("http://tempuri.org/", "GetBatteryGroupThresholdResult");
-    private final static QName _GetCircuitInfoListResponseGetCircuitInfoListResult_QNAME = new QName("http://tempuri.org/", "GetCircuitInfoListResult");
-    private final static QName _GetECUVersionResponseGetECUVersionResult_QNAME = new QName("http://tempuri.org/", "GetECUVersionResult");
-    private final static QName _UpdateSfBCUConfigBcu_QNAME = new QName("http://tempuri.org/", "bcu");
     private final static QName _UpdateCircuitCircuitInfo_QNAME = new QName("http://tempuri.org/", "circuitInfo");
-    private final static QName _GetCircuitInfosResponseGetCircuitInfosResult_QNAME = new QName("http://tempuri.org/", "GetCircuitInfosResult");
-    private final static QName _GetBatteryThresholdResponseGetBatteryThresholdResult_QNAME = new QName("http://tempuri.org/", "GetBatteryThresholdResult");
     private final static QName _GetBatteryAlarmCalcAssemblyObjectResponseGetBatteryAlarmCalcAssemblyObjectResult_QNAME = new QName("http://tempuri.org/", "GetBatteryAlarmCalcAssemblyObjectResult");
-    private final static QName _UpdateDeviceConfig_QNAME = new QName("http://tempuri.org/", "config");
-    private final static QName _GetCircuitListResponseGetCircuitListResult_QNAME = new QName("http://tempuri.org/", "GetCircuitListResult");
-    private final static QName _GetSfBCUConfigDataResponseGetSfBCUConfigDataResult_QNAME = new QName("http://tempuri.org/", "GetSfBCUConfigDataResult");
-    private final static QName _IgnoreAlarmKey_QNAME = new QName("http://tempuri.org/", "key");
-    private final static QName _GetCircuitResponseGetCircuitResult_QNAME = new QName("http://tempuri.org/", "GetCircuitResult");
-    private final static QName _GetVoltageCalibrationInfoListResponseGetVoltageCalibrationInfoListResult_QNAME = new QName("http://tempuri.org/", "GetVoltageCalibrationInfoListResult");
+    private final static QName _GetRealTimeAlarmResponseGetRealTimeAlarmResult_QNAME = new QName("http://tempuri.org/", "GetRealTimeAlarmResult");
+    private final static QName _SetSfECUConfigEcu_QNAME = new QName("http://tempuri.org/", "ecu");
+    private final static QName _GetSfECUConfigDataResponseGetSfECUConfigDataResult_QNAME = new QName("http://tempuri.org/", "GetSfECUConfigDataResult");
+    private final static QName _AddBatteryPackBatteryPack_QNAME = new QName("http://tempuri.org/", "batteryPack");
+    private final static QName _GetCircuitInfoListResponseGetCircuitInfoListResult_QNAME = new QName("http://tempuri.org/", "GetCircuitInfoListResult");
     private final static QName _GetBatteryCalcAlarmDllVersionResponseGetBatteryCalcAlarmDllVersionResult_QNAME = new QName("http://tempuri.org/", "GetBatteryCalcAlarmDllVersionResult");
-    private final static QName _GetBatteryPackAlarmCalcAssemblyObjectResponseGetBatteryPackAlarmCalcAssemblyObjectResult_QNAME = new QName("http://tempuri.org/", "GetBatteryPackAlarmCalcAssemblyObjectResult");
-    private final static QName _UpdateBatteryGroupThresholdBatteryGroupThreshold_QNAME = new QName("http://tempuri.org/", "batteryGroupThreshold");
+    private final static QName _GetBatteryPackByAreaResponseGetBatteryPackByAreaResult_QNAME = new QName("http://tempuri.org/", "GetBatteryPackByAreaResult");
+    private final static QName _GetBatteryGroupThresholdResponseGetBatteryGroupThresholdResult_QNAME = new QName("http://tempuri.org/", "GetBatteryGroupThresholdResult");
     private final static QName _AddBatteryBattery_QNAME = new QName("http://tempuri.org/", "battery");
+    private final static QName _GetCircuitListResponseGetCircuitListResult_QNAME = new QName("http://tempuri.org/", "GetCircuitListResult");
+    private final static QName _GetBatteryThresholdResponseGetBatteryThresholdResult_QNAME = new QName("http://tempuri.org/", "GetBatteryThresholdResult");
     private final static QName _GetBatteriesResponseGetBatteriesResult_QNAME = new QName("http://tempuri.org/", "GetBatteriesResult");
+    private final static QName _GetSfBCUConfigDataResponseGetSfBCUConfigDataResult_QNAME = new QName("http://tempuri.org/", "GetSfBCUConfigDataResult");
+    private final static QName _GetCircuitResponseGetCircuitResult_QNAME = new QName("http://tempuri.org/", "GetCircuitResult");
+    private final static QName _GetCircuitsResponseGetCircuitsResult_QNAME = new QName("http://tempuri.org/", "GetCircuitsResult");
+    private final static QName _GetECUVersionResponseGetECUVersionResult_QNAME = new QName("http://tempuri.org/", "GetECUVersionResult");
+    private final static QName _LoadBatteryAlarmDllBatteryAlarmDllByteBuff_QNAME = new QName("http://tempuri.org/", "batteryAlarmDllByteBuff");
+    private final static QName _GetBatteryPackAlarmCalcAssemblyObjectResponseGetBatteryPackAlarmCalcAssemblyObjectResult_QNAME = new QName("http://tempuri.org/", "GetBatteryPackAlarmCalcAssemblyObjectResult");
+    private final static QName _GetBatteryPackCalcAlarmDllVersionResponseGetBatteryPackCalcAlarmDllVersionResult_QNAME = new QName("http://tempuri.org/", "GetBatteryPackCalcAlarmDllVersionResult");
+    private final static QName _GetVoltageCalibrationInfoListResponseGetVoltageCalibrationInfoListResult_QNAME = new QName("http://tempuri.org/", "GetVoltageCalibrationInfoListResult");
+    private final static QName _UpdateBatteryThresholdBatteryThreshold_QNAME = new QName("http://tempuri.org/", "batteryThreshold");
+    private final static QName _UpdateDeviceConfig_QNAME = new QName("http://tempuri.org/", "config");
     private final static QName _GetBatteryPackResponseGetBatteryPackResult_QNAME = new QName("http://tempuri.org/", "GetBatteryPackResult");
+    private final static QName _LoadBatteryPackAlarmDllBatteryPackAlarmDllByteBuff_QNAME = new QName("http://tempuri.org/", "batteryPackAlarmDllByteBuff");
     private final static QName _AddDeviceName_QNAME = new QName("http://tempuri.org/", "name");
     private final static QName _AddDeviceType_QNAME = new QName("http://tempuri.org/", "type");
-    private final static QName _GetRealTimeAlarmResponseGetRealTimeAlarmResult_QNAME = new QName("http://tempuri.org/", "GetRealTimeAlarmResult");
-    private final static QName _LoadBatteryAlarmDllBatteryAlarmDllByteBuff_QNAME = new QName("http://tempuri.org/", "batteryAlarmDllByteBuff");
-    private final static QName _GetCircuitsResponseGetCircuitsResult_QNAME = new QName("http://tempuri.org/", "GetCircuitsResult");
-    private final static QName _GetBatteryPackCalcAlarmDllVersionResponseGetBatteryPackCalcAlarmDllVersionResult_QNAME = new QName("http://tempuri.org/", "GetBatteryPackCalcAlarmDllVersionResult");
-    private final static QName _GetSfECUConfigDataResponseGetSfECUConfigDataResult_QNAME = new QName("http://tempuri.org/", "GetSfECUConfigDataResult");
+    private final static QName _UpdateBatteryGroupThresholdBatteryGroupThreshold_QNAME = new QName("http://tempuri.org/", "batteryGroupThreshold");
+    private final static QName _SetSfBCUConfigBcu_QNAME = new QName("http://tempuri.org/", "bcu");
+    private final static QName _GetCircuitInfosResponseGetCircuitInfosResult_QNAME = new QName("http://tempuri.org/", "GetCircuitInfosResult");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: org.tempuri
@@ -148,6 +146,14 @@ public class ObjectFactory {
      */
     public IgnoreAlarm createIgnoreAlarm() {
         return new IgnoreAlarm();
+    }
+
+    /**
+     * Create an instance of {@link IgnoreAlarmTypeResponse }
+     * 
+     */
+    public IgnoreAlarmTypeResponse createIgnoreAlarmTypeResponse() {
+        return new IgnoreAlarmTypeResponse();
     }
 
     /**
@@ -295,6 +301,22 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link CheckResistance }
+     * 
+     */
+    public CheckResistance createCheckResistance() {
+        return new CheckResistance();
+    }
+
+    /**
+     * Create an instance of {@link SetCurrentDucerResponse }
+     * 
+     */
+    public SetCurrentDucerResponse createSetCurrentDucerResponse() {
+        return new SetCurrentDucerResponse();
+    }
+
+    /**
      * Create an instance of {@link RemoveCircuit }
      * 
      */
@@ -383,14 +405,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link RemoveAreaCircuits }
-     * 
-     */
-    public RemoveAreaCircuits createRemoveAreaCircuits() {
-        return new RemoveAreaCircuits();
-    }
-
-    /**
      * Create an instance of {@link GetSfBCUConfig }
      * 
      */
@@ -455,6 +469,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link SetCurrentDucer }
+     * 
+     */
+    public SetCurrentDucer createSetCurrentDucer() {
+        return new SetCurrentDucer();
+    }
+
+    /**
      * Create an instance of {@link AddBatteryPack }
      * 
      */
@@ -468,6 +490,14 @@ public class ObjectFactory {
      */
     public DisableBatteryResponse createDisableBatteryResponse() {
         return new DisableBatteryResponse();
+    }
+
+    /**
+     * Create an instance of {@link IgnoreAlarmType }
+     * 
+     */
+    public IgnoreAlarmType createIgnoreAlarmType() {
+        return new IgnoreAlarmType();
     }
 
     /**
@@ -676,14 +706,6 @@ public class ObjectFactory {
      */
     public GetCircuitsResponse createGetCircuitsResponse() {
         return new GetCircuitsResponse();
-    }
-
-    /**
-     * Create an instance of {@link RemoveAreaCircuitsResponse }
-     * 
-     */
-    public RemoveAreaCircuitsResponse createRemoveAreaCircuitsResponse() {
-        return new RemoveAreaCircuitsResponse();
     }
 
     /**
@@ -943,6 +965,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link CheckResistanceResponse }
+     * 
+     */
+    public CheckResistanceResponse createCheckResistanceResponse() {
+        return new CheckResistanceResponse();
+    }
+
+    /**
      * Create an instance of {@link LoadBatteryAlarmDllResponse }
      * 
      */
@@ -1023,48 +1053,39 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOfBatteryPack }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link CircuitInfo }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://tempuri.org/", name = "GetBatteryPackByAreaResult", scope = GetBatteryPackByAreaResponse.class)
-    public JAXBElement<ArrayOfBatteryPack> createGetBatteryPackByAreaResponseGetBatteryPackByAreaResult(ArrayOfBatteryPack value) {
-        return new JAXBElement<ArrayOfBatteryPack>(_GetBatteryPackByAreaResponseGetBatteryPackByAreaResult_QNAME, ArrayOfBatteryPack.class, GetBatteryPackByAreaResponse.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link BatteryThreshold }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://tempuri.org/", name = "batteryThreshold", scope = UpdateBatteryThreshold.class)
-    public JAXBElement<BatteryThreshold> createUpdateBatteryThresholdBatteryThreshold(BatteryThreshold value) {
-        return new JAXBElement<BatteryThreshold>(_UpdateBatteryThresholdBatteryThreshold_QNAME, BatteryThreshold.class, UpdateBatteryThreshold.class, value);
+    @XmlElementDecl(namespace = "http://tempuri.org/", name = "circuitInfo", scope = UpdateCircuit.class)
+    public JAXBElement<CircuitInfo> createUpdateCircuitCircuitInfo(CircuitInfo value) {
+        return new JAXBElement<CircuitInfo>(_UpdateCircuitCircuitInfo_QNAME, CircuitInfo.class, UpdateCircuit.class, value);
     }
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://tempuri.org/", name = "areas", scope = GetCircuitsCount.class)
-    public JAXBElement<String> createGetCircuitsCountAreas(String value) {
-        return new JAXBElement<String>(_GetCircuitsCountAreas_QNAME, String.class, GetCircuitsCount.class, value);
+    @XmlElementDecl(namespace = "http://tempuri.org/", name = "GetBatteryAlarmCalcAssemblyObjectResult", scope = GetBatteryAlarmCalcAssemblyObjectResponse.class)
+    public JAXBElement<String> createGetBatteryAlarmCalcAssemblyObjectResponseGetBatteryAlarmCalcAssemblyObjectResult(String value) {
+        return new JAXBElement<String>(_GetBatteryAlarmCalcAssemblyObjectResponseGetBatteryAlarmCalcAssemblyObjectResult_QNAME, String.class, GetBatteryAlarmCalcAssemblyObjectResponse.class, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link BatteryPack }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link CircuitInfo }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://tempuri.org/", name = "batteryPack", scope = AddBatteryPack.class)
-    public JAXBElement<BatteryPack> createAddBatteryPackBatteryPack(BatteryPack value) {
-        return new JAXBElement<BatteryPack>(_AddBatteryPackBatteryPack_QNAME, BatteryPack.class, AddBatteryPack.class, value);
+    @XmlElementDecl(namespace = "http://tempuri.org/", name = "circuitInfo", scope = AddCircuit.class)
+    public JAXBElement<CircuitInfo> createAddCircuitCircuitInfo(CircuitInfo value) {
+        return new JAXBElement<CircuitInfo>(_UpdateCircuitCircuitInfo_QNAME, CircuitInfo.class, AddCircuit.class, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link byte[]}{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOfAlarm }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://tempuri.org/", name = "batteryPackAlarmDllByteBuff", scope = LoadBatteryPackAlarmDll.class)
-    public JAXBElement<byte[]> createLoadBatteryPackAlarmDllBatteryPackAlarmDllByteBuff(byte[] value) {
-        return new JAXBElement<byte[]>(_LoadBatteryPackAlarmDllBatteryPackAlarmDllByteBuff_QNAME, byte[].class, LoadBatteryPackAlarmDll.class, ((byte[]) value));
+    @XmlElementDecl(namespace = "http://tempuri.org/", name = "GetRealTimeAlarmResult", scope = GetRealTimeAlarmResponse.class)
+    public JAXBElement<ArrayOfAlarm> createGetRealTimeAlarmResponseGetRealTimeAlarmResult(ArrayOfAlarm value) {
+        return new JAXBElement<ArrayOfAlarm>(_GetRealTimeAlarmResponseGetRealTimeAlarmResult_QNAME, ArrayOfAlarm.class, GetRealTimeAlarmResponse.class, value);
     }
 
     /**
@@ -1077,12 +1098,21 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link BatteryPackThreshold }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link SfECU }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://tempuri.org/", name = "GetBatteryGroupThresholdResult", scope = GetBatteryGroupThresholdResponse.class)
-    public JAXBElement<BatteryPackThreshold> createGetBatteryGroupThresholdResponseGetBatteryGroupThresholdResult(BatteryPackThreshold value) {
-        return new JAXBElement<BatteryPackThreshold>(_GetBatteryGroupThresholdResponseGetBatteryGroupThresholdResult_QNAME, BatteryPackThreshold.class, GetBatteryGroupThresholdResponse.class, value);
+    @XmlElementDecl(namespace = "http://tempuri.org/", name = "GetSfECUConfigDataResult", scope = GetSfECUConfigDataResponse.class)
+    public JAXBElement<SfECU> createGetSfECUConfigDataResponseGetSfECUConfigDataResult(SfECU value) {
+        return new JAXBElement<SfECU>(_GetSfECUConfigDataResponseGetSfECUConfigDataResult_QNAME, SfECU.class, GetSfECUConfigDataResponse.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link BatteryPack }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://tempuri.org/", name = "batteryPack", scope = AddBatteryPack.class)
+    public JAXBElement<BatteryPack> createAddBatteryPackBatteryPack(BatteryPack value) {
+        return new JAXBElement<BatteryPack>(_AddBatteryPackBatteryPack_QNAME, BatteryPack.class, AddBatteryPack.class, value);
     }
 
     /**
@@ -1098,171 +1128,27 @@ public class ObjectFactory {
      * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://tempuri.org/", name = "GetECUVersionResult", scope = GetECUVersionResponse.class)
-    public JAXBElement<String> createGetECUVersionResponseGetECUVersionResult(String value) {
-        return new JAXBElement<String>(_GetECUVersionResponseGetECUVersionResult_QNAME, String.class, GetECUVersionResponse.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link SfBCU }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://tempuri.org/", name = "bcu", scope = UpdateSfBCUConfig.class)
-    public JAXBElement<SfBCU> createUpdateSfBCUConfigBcu(SfBCU value) {
-        return new JAXBElement<SfBCU>(_UpdateSfBCUConfigBcu_QNAME, SfBCU.class, UpdateSfBCUConfig.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link CircuitInfo }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://tempuri.org/", name = "circuitInfo", scope = UpdateCircuit.class)
-    public JAXBElement<CircuitInfo> createUpdateCircuitCircuitInfo(CircuitInfo value) {
-        return new JAXBElement<CircuitInfo>(_UpdateCircuitCircuitInfo_QNAME, CircuitInfo.class, UpdateCircuit.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOfCircuitInfo }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://tempuri.org/", name = "GetCircuitInfosResult", scope = GetCircuitInfosResponse.class)
-    public JAXBElement<ArrayOfCircuitInfo> createGetCircuitInfosResponseGetCircuitInfosResult(ArrayOfCircuitInfo value) {
-        return new JAXBElement<ArrayOfCircuitInfo>(_GetCircuitInfosResponseGetCircuitInfosResult_QNAME, ArrayOfCircuitInfo.class, GetCircuitInfosResponse.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link BatteryThreshold }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://tempuri.org/", name = "GetBatteryThresholdResult", scope = GetBatteryThresholdResponse.class)
-    public JAXBElement<BatteryThreshold> createGetBatteryThresholdResponseGetBatteryThresholdResult(BatteryThreshold value) {
-        return new JAXBElement<BatteryThreshold>(_GetBatteryThresholdResponseGetBatteryThresholdResult_QNAME, BatteryThreshold.class, GetBatteryThresholdResponse.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://tempuri.org/", name = "GetBatteryAlarmCalcAssemblyObjectResult", scope = GetBatteryAlarmCalcAssemblyObjectResponse.class)
-    public JAXBElement<String> createGetBatteryAlarmCalcAssemblyObjectResponseGetBatteryAlarmCalcAssemblyObjectResult(String value) {
-        return new JAXBElement<String>(_GetBatteryAlarmCalcAssemblyObjectResponseGetBatteryAlarmCalcAssemblyObjectResult_QNAME, String.class, GetBatteryAlarmCalcAssemblyObjectResponse.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://tempuri.org/", name = "config", scope = UpdateDevice.class)
-    public JAXBElement<String> createUpdateDeviceConfig(String value) {
-        return new JAXBElement<String>(_UpdateDeviceConfig_QNAME, String.class, UpdateDevice.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link CircuitInfo }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://tempuri.org/", name = "circuitInfo", scope = AddCircuit.class)
-    public JAXBElement<CircuitInfo> createAddCircuitCircuitInfo(CircuitInfo value) {
-        return new JAXBElement<CircuitInfo>(_UpdateCircuitCircuitInfo_QNAME, CircuitInfo.class, AddCircuit.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link SfBCU }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://tempuri.org/", name = "bcu", scope = SetSfBCUConfig.class)
-    public JAXBElement<SfBCU> createSetSfBCUConfigBcu(SfBCU value) {
-        return new JAXBElement<SfBCU>(_UpdateSfBCUConfigBcu_QNAME, SfBCU.class, SetSfBCUConfig.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOfCircuitInfo }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://tempuri.org/", name = "GetCircuitListResult", scope = GetCircuitListResponse.class)
-    public JAXBElement<ArrayOfCircuitInfo> createGetCircuitListResponseGetCircuitListResult(ArrayOfCircuitInfo value) {
-        return new JAXBElement<ArrayOfCircuitInfo>(_GetCircuitListResponseGetCircuitListResult_QNAME, ArrayOfCircuitInfo.class, GetCircuitListResponse.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link SfBCU }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://tempuri.org/", name = "GetSfBCUConfigDataResult", scope = GetSfBCUConfigDataResponse.class)
-    public JAXBElement<SfBCU> createGetSfBCUConfigDataResponseGetSfBCUConfigDataResult(SfBCU value) {
-        return new JAXBElement<SfBCU>(_GetSfBCUConfigDataResponseGetSfBCUConfigDataResult_QNAME, SfBCU.class, GetSfBCUConfigDataResponse.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://tempuri.org/", name = "key", scope = IgnoreAlarm.class)
-    public JAXBElement<String> createIgnoreAlarmKey(String value) {
-        return new JAXBElement<String>(_IgnoreAlarmKey_QNAME, String.class, IgnoreAlarm.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://tempuri.org/", name = "areas", scope = RemoveAreaCircuits.class)
-    public JAXBElement<String> createRemoveAreaCircuitsAreas(String value) {
-        return new JAXBElement<String>(_GetCircuitsCountAreas_QNAME, String.class, RemoveAreaCircuits.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link CircuitInfo }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://tempuri.org/", name = "GetCircuitResult", scope = GetCircuitResponse.class)
-    public JAXBElement<CircuitInfo> createGetCircuitResponseGetCircuitResult(CircuitInfo value) {
-        return new JAXBElement<CircuitInfo>(_GetCircuitResponseGetCircuitResult_QNAME, CircuitInfo.class, GetCircuitResponse.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://tempuri.org/", name = "areas", scope = GetCircuitInfos.class)
-    public JAXBElement<String> createGetCircuitInfosAreas(String value) {
-        return new JAXBElement<String>(_GetCircuitsCountAreas_QNAME, String.class, GetCircuitInfos.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOfanyType }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://tempuri.org/", name = "GetVoltageCalibrationInfoListResult", scope = GetVoltageCalibrationInfoListResponse.class)
-    public JAXBElement<ArrayOfanyType> createGetVoltageCalibrationInfoListResponseGetVoltageCalibrationInfoListResult(ArrayOfanyType value) {
-        return new JAXBElement<ArrayOfanyType>(_GetVoltageCalibrationInfoListResponseGetVoltageCalibrationInfoListResult_QNAME, ArrayOfanyType.class, GetVoltageCalibrationInfoListResponse.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
-     * 
-     */
     @XmlElementDecl(namespace = "http://tempuri.org/", name = "GetBatteryCalcAlarmDllVersionResult", scope = GetBatteryCalcAlarmDllVersionResponse.class)
     public JAXBElement<String> createGetBatteryCalcAlarmDllVersionResponseGetBatteryCalcAlarmDllVersionResult(String value) {
         return new JAXBElement<String>(_GetBatteryCalcAlarmDllVersionResponseGetBatteryCalcAlarmDllVersionResult_QNAME, String.class, GetBatteryCalcAlarmDllVersionResponse.class, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOfBatteryPack }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://tempuri.org/", name = "GetBatteryPackAlarmCalcAssemblyObjectResult", scope = GetBatteryPackAlarmCalcAssemblyObjectResponse.class)
-    public JAXBElement<String> createGetBatteryPackAlarmCalcAssemblyObjectResponseGetBatteryPackAlarmCalcAssemblyObjectResult(String value) {
-        return new JAXBElement<String>(_GetBatteryPackAlarmCalcAssemblyObjectResponseGetBatteryPackAlarmCalcAssemblyObjectResult_QNAME, String.class, GetBatteryPackAlarmCalcAssemblyObjectResponse.class, value);
+    @XmlElementDecl(namespace = "http://tempuri.org/", name = "GetBatteryPackByAreaResult", scope = GetBatteryPackByAreaResponse.class)
+    public JAXBElement<ArrayOfBatteryPack> createGetBatteryPackByAreaResponseGetBatteryPackByAreaResult(ArrayOfBatteryPack value) {
+        return new JAXBElement<ArrayOfBatteryPack>(_GetBatteryPackByAreaResponseGetBatteryPackByAreaResult_QNAME, ArrayOfBatteryPack.class, GetBatteryPackByAreaResponse.class, value);
     }
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link BatteryPackThreshold }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://tempuri.org/", name = "batteryGroupThreshold", scope = UpdateBatteryGroupThreshold.class)
-    public JAXBElement<BatteryPackThreshold> createUpdateBatteryGroupThresholdBatteryGroupThreshold(BatteryPackThreshold value) {
-        return new JAXBElement<BatteryPackThreshold>(_UpdateBatteryGroupThresholdBatteryGroupThreshold_QNAME, BatteryPackThreshold.class, UpdateBatteryGroupThreshold.class, value);
+    @XmlElementDecl(namespace = "http://tempuri.org/", name = "GetBatteryGroupThresholdResult", scope = GetBatteryGroupThresholdResponse.class)
+    public JAXBElement<BatteryPackThreshold> createGetBatteryGroupThresholdResponseGetBatteryGroupThresholdResult(BatteryPackThreshold value) {
+        return new JAXBElement<BatteryPackThreshold>(_GetBatteryGroupThresholdResponseGetBatteryGroupThresholdResult_QNAME, BatteryPackThreshold.class, GetBatteryGroupThresholdResponse.class, value);
     }
 
     /**
@@ -1275,6 +1161,24 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOfCircuitInfo }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://tempuri.org/", name = "GetCircuitListResult", scope = GetCircuitListResponse.class)
+    public JAXBElement<ArrayOfCircuitInfo> createGetCircuitListResponseGetCircuitListResult(ArrayOfCircuitInfo value) {
+        return new JAXBElement<ArrayOfCircuitInfo>(_GetCircuitListResponseGetCircuitListResult_QNAME, ArrayOfCircuitInfo.class, GetCircuitListResponse.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link BatteryThreshold }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://tempuri.org/", name = "GetBatteryThresholdResult", scope = GetBatteryThresholdResponse.class)
+    public JAXBElement<BatteryThreshold> createGetBatteryThresholdResponseGetBatteryThresholdResult(BatteryThreshold value) {
+        return new JAXBElement<BatteryThreshold>(_GetBatteryThresholdResponseGetBatteryThresholdResult_QNAME, BatteryThreshold.class, GetBatteryThresholdResponse.class, value);
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOfBattery }{@code >}}
      * 
      */
@@ -1284,12 +1188,93 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link BatteryPack }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link SfBCU }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://tempuri.org/", name = "batteryPack", scope = UpdateBatteryPack.class)
-    public JAXBElement<BatteryPack> createUpdateBatteryPackBatteryPack(BatteryPack value) {
-        return new JAXBElement<BatteryPack>(_AddBatteryPackBatteryPack_QNAME, BatteryPack.class, UpdateBatteryPack.class, value);
+    @XmlElementDecl(namespace = "http://tempuri.org/", name = "GetSfBCUConfigDataResult", scope = GetSfBCUConfigDataResponse.class)
+    public JAXBElement<SfBCU> createGetSfBCUConfigDataResponseGetSfBCUConfigDataResult(SfBCU value) {
+        return new JAXBElement<SfBCU>(_GetSfBCUConfigDataResponseGetSfBCUConfigDataResult_QNAME, SfBCU.class, GetSfBCUConfigDataResponse.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link CircuitInfo }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://tempuri.org/", name = "GetCircuitResult", scope = GetCircuitResponse.class)
+    public JAXBElement<CircuitInfo> createGetCircuitResponseGetCircuitResult(CircuitInfo value) {
+        return new JAXBElement<CircuitInfo>(_GetCircuitResponseGetCircuitResult_QNAME, CircuitInfo.class, GetCircuitResponse.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOfCircuitInfo }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://tempuri.org/", name = "GetCircuitsResult", scope = GetCircuitsResponse.class)
+    public JAXBElement<ArrayOfCircuitInfo> createGetCircuitsResponseGetCircuitsResult(ArrayOfCircuitInfo value) {
+        return new JAXBElement<ArrayOfCircuitInfo>(_GetCircuitsResponseGetCircuitsResult_QNAME, ArrayOfCircuitInfo.class, GetCircuitsResponse.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://tempuri.org/", name = "GetECUVersionResult", scope = GetECUVersionResponse.class)
+    public JAXBElement<String> createGetECUVersionResponseGetECUVersionResult(String value) {
+        return new JAXBElement<String>(_GetECUVersionResponseGetECUVersionResult_QNAME, String.class, GetECUVersionResponse.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link byte[]}{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://tempuri.org/", name = "batteryAlarmDllByteBuff", scope = LoadBatteryAlarmDll.class)
+    public JAXBElement<byte[]> createLoadBatteryAlarmDllBatteryAlarmDllByteBuff(byte[] value) {
+        return new JAXBElement<byte[]>(_LoadBatteryAlarmDllBatteryAlarmDllByteBuff_QNAME, byte[].class, LoadBatteryAlarmDll.class, ((byte[]) value));
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://tempuri.org/", name = "GetBatteryPackAlarmCalcAssemblyObjectResult", scope = GetBatteryPackAlarmCalcAssemblyObjectResponse.class)
+    public JAXBElement<String> createGetBatteryPackAlarmCalcAssemblyObjectResponseGetBatteryPackAlarmCalcAssemblyObjectResult(String value) {
+        return new JAXBElement<String>(_GetBatteryPackAlarmCalcAssemblyObjectResponseGetBatteryPackAlarmCalcAssemblyObjectResult_QNAME, String.class, GetBatteryPackAlarmCalcAssemblyObjectResponse.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://tempuri.org/", name = "GetBatteryPackCalcAlarmDllVersionResult", scope = GetBatteryPackCalcAlarmDllVersionResponse.class)
+    public JAXBElement<String> createGetBatteryPackCalcAlarmDllVersionResponseGetBatteryPackCalcAlarmDllVersionResult(String value) {
+        return new JAXBElement<String>(_GetBatteryPackCalcAlarmDllVersionResponseGetBatteryPackCalcAlarmDllVersionResult_QNAME, String.class, GetBatteryPackCalcAlarmDllVersionResponse.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOfanyType }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://tempuri.org/", name = "GetVoltageCalibrationInfoListResult", scope = GetVoltageCalibrationInfoListResponse.class)
+    public JAXBElement<ArrayOfanyType> createGetVoltageCalibrationInfoListResponseGetVoltageCalibrationInfoListResult(ArrayOfanyType value) {
+        return new JAXBElement<ArrayOfanyType>(_GetVoltageCalibrationInfoListResponseGetVoltageCalibrationInfoListResult_QNAME, ArrayOfanyType.class, GetVoltageCalibrationInfoListResponse.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link BatteryThreshold }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://tempuri.org/", name = "batteryThreshold", scope = UpdateBatteryThreshold.class)
+    public JAXBElement<BatteryThreshold> createUpdateBatteryThresholdBatteryThreshold(BatteryThreshold value) {
+        return new JAXBElement<BatteryThreshold>(_UpdateBatteryThresholdBatteryThreshold_QNAME, BatteryThreshold.class, UpdateBatteryThreshold.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://tempuri.org/", name = "config", scope = UpdateDevice.class)
+    public JAXBElement<String> createUpdateDeviceConfig(String value) {
+        return new JAXBElement<String>(_UpdateDeviceConfig_QNAME, String.class, UpdateDevice.class, value);
     }
 
     /**
@@ -1299,6 +1284,15 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://tempuri.org/", name = "GetBatteryPackResult", scope = GetBatteryPackResponse.class)
     public JAXBElement<BatteryPackInfo> createGetBatteryPackResponseGetBatteryPackResult(BatteryPackInfo value) {
         return new JAXBElement<BatteryPackInfo>(_GetBatteryPackResponseGetBatteryPackResult_QNAME, BatteryPackInfo.class, GetBatteryPackResponse.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link byte[]}{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://tempuri.org/", name = "batteryPackAlarmDllByteBuff", scope = LoadBatteryPackAlarmDll.class)
+    public JAXBElement<byte[]> createLoadBatteryPackAlarmDllBatteryPackAlarmDllByteBuff(byte[] value) {
+        return new JAXBElement<byte[]>(_LoadBatteryPackAlarmDllBatteryPackAlarmDllByteBuff_QNAME, byte[].class, LoadBatteryPackAlarmDll.class, ((byte[]) value));
     }
 
     /**
@@ -1329,48 +1323,48 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOfAlarm }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link BatteryPackThreshold }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://tempuri.org/", name = "GetRealTimeAlarmResult", scope = GetRealTimeAlarmResponse.class)
-    public JAXBElement<ArrayOfAlarm> createGetRealTimeAlarmResponseGetRealTimeAlarmResult(ArrayOfAlarm value) {
-        return new JAXBElement<ArrayOfAlarm>(_GetRealTimeAlarmResponseGetRealTimeAlarmResult_QNAME, ArrayOfAlarm.class, GetRealTimeAlarmResponse.class, value);
+    @XmlElementDecl(namespace = "http://tempuri.org/", name = "batteryGroupThreshold", scope = UpdateBatteryGroupThreshold.class)
+    public JAXBElement<BatteryPackThreshold> createUpdateBatteryGroupThresholdBatteryGroupThreshold(BatteryPackThreshold value) {
+        return new JAXBElement<BatteryPackThreshold>(_UpdateBatteryGroupThresholdBatteryGroupThreshold_QNAME, BatteryPackThreshold.class, UpdateBatteryGroupThreshold.class, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link byte[]}{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link SfBCU }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://tempuri.org/", name = "batteryAlarmDllByteBuff", scope = LoadBatteryAlarmDll.class)
-    public JAXBElement<byte[]> createLoadBatteryAlarmDllBatteryAlarmDllByteBuff(byte[] value) {
-        return new JAXBElement<byte[]>(_LoadBatteryAlarmDllBatteryAlarmDllByteBuff_QNAME, byte[].class, LoadBatteryAlarmDll.class, ((byte[]) value));
+    @XmlElementDecl(namespace = "http://tempuri.org/", name = "bcu", scope = SetSfBCUConfig.class)
+    public JAXBElement<SfBCU> createSetSfBCUConfigBcu(SfBCU value) {
+        return new JAXBElement<SfBCU>(_SetSfBCUConfigBcu_QNAME, SfBCU.class, SetSfBCUConfig.class, value);
     }
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link ArrayOfCircuitInfo }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://tempuri.org/", name = "GetCircuitsResult", scope = GetCircuitsResponse.class)
-    public JAXBElement<ArrayOfCircuitInfo> createGetCircuitsResponseGetCircuitsResult(ArrayOfCircuitInfo value) {
-        return new JAXBElement<ArrayOfCircuitInfo>(_GetCircuitsResponseGetCircuitsResult_QNAME, ArrayOfCircuitInfo.class, GetCircuitsResponse.class, value);
+    @XmlElementDecl(namespace = "http://tempuri.org/", name = "GetCircuitInfosResult", scope = GetCircuitInfosResponse.class)
+    public JAXBElement<ArrayOfCircuitInfo> createGetCircuitInfosResponseGetCircuitInfosResult(ArrayOfCircuitInfo value) {
+        return new JAXBElement<ArrayOfCircuitInfo>(_GetCircuitInfosResponseGetCircuitInfosResult_QNAME, ArrayOfCircuitInfo.class, GetCircuitInfosResponse.class, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link SfBCU }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://tempuri.org/", name = "GetBatteryPackCalcAlarmDllVersionResult", scope = GetBatteryPackCalcAlarmDllVersionResponse.class)
-    public JAXBElement<String> createGetBatteryPackCalcAlarmDllVersionResponseGetBatteryPackCalcAlarmDllVersionResult(String value) {
-        return new JAXBElement<String>(_GetBatteryPackCalcAlarmDllVersionResponseGetBatteryPackCalcAlarmDllVersionResult_QNAME, String.class, GetBatteryPackCalcAlarmDllVersionResponse.class, value);
+    @XmlElementDecl(namespace = "http://tempuri.org/", name = "bcu", scope = UpdateSfBCUConfig.class)
+    public JAXBElement<SfBCU> createUpdateSfBCUConfigBcu(SfBCU value) {
+        return new JAXBElement<SfBCU>(_SetSfBCUConfigBcu_QNAME, SfBCU.class, UpdateSfBCUConfig.class, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link SfECU }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link BatteryPack }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://tempuri.org/", name = "GetSfECUConfigDataResult", scope = GetSfECUConfigDataResponse.class)
-    public JAXBElement<SfECU> createGetSfECUConfigDataResponseGetSfECUConfigDataResult(SfECU value) {
-        return new JAXBElement<SfECU>(_GetSfECUConfigDataResponseGetSfECUConfigDataResult_QNAME, SfECU.class, GetSfECUConfigDataResponse.class, value);
+    @XmlElementDecl(namespace = "http://tempuri.org/", name = "batteryPack", scope = UpdateBatteryPack.class)
+    public JAXBElement<BatteryPack> createUpdateBatteryPackBatteryPack(BatteryPack value) {
+        return new JAXBElement<BatteryPack>(_AddBatteryPackBatteryPack_QNAME, BatteryPack.class, UpdateBatteryPack.class, value);
     }
 
 }

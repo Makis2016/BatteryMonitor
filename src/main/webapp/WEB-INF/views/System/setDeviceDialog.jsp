@@ -415,13 +415,13 @@
                     $("#cfg_value_1").val("0")
                     $("#lab_cfg2").html(obj.Port);
                     $("#lab_cfg3").html(obj.BaudRate);
-                    $("#cfg_value_3").combobox('setValue', "9600");
+                    $("#cfg_value_3").combobox('setValue', "34800");
                     $("#lab_cfg4").html(obj.Parity);
-                    $("#cfg_value_4").combobox('setValue', "1");
+                    $("#cfg_value_4").combobox('setValue', "0");
                     $("#lab_cfg5").html(obj.DataBits);
-                    $("#cfg_value_5").combobox('setValue', "1");
+                    $("#cfg_value_5").combobox('setValue', "8");
                     $("#lab_cfg6").html(obj.StopBits);
-                    $("#cfg_value_6").combobox('setValue', "1");
+                    $("#cfg_value_6").combobox('setValue', "0");
                     $("#lab_cfg7").html(obj.ReadTimeout);
                     $("#cfg_value_7").val("1000");
                     $("#cfg_value_7_unit").html("ms");

@@ -345,6 +345,11 @@ $.DeclareClass("Business.Misc", {
         validateMail:function(value){
             var reg  = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
             return reg.test(value);
+        },
+
+        validateHex:function (value) {
+            var reg = /^[0-9a-fA-F]{1,4}$/
+            return reg.test(value);
         }
     }
 });
