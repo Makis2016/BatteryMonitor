@@ -63,6 +63,8 @@
                        style="width:62px" flag="collapse">设备</a></td>
                 <td><a href="javascript:;" id="btn_shrink" iconCls="icon-remove" class="easyui-linkbutton"
                        style="width:62px;display: none;">收缩</a></td>
+                <td><a href="javascript:;" id="btn_sensor" iconCls="icon-remove" class="easyui-linkbutton"
+                       style="width:100px;">电流传感器</a></td>
             </tr>
         </table>
     </div>
@@ -71,6 +73,7 @@
     <div id="ecuA" style="display: block;">
         <span class="title" style="width: 100%">ecuA-配置 <input type="button" id="set_ecuA" value="设置">
             <span>ECU版本：</span><span id="ECUVN1">${versionECU}</span>
+            <input type="button" id="refresh_ecuA" value="刷新">
         </span>
         <table class="set-table">
             <tr>
@@ -114,6 +117,7 @@
     <div id="ecuB" style="display: none;">
         <span class="title" style="width:100%">ecuB-配置 <input type="button" id="set_ecuB" value="设置">
             <span>ECU版本：</span><span id="ECUVN2">${versionECU}</span>
+            <input type="button" id="refresh_ecuB" value="刷新">
         </span>
         <table class="set-table">
             <tr>
@@ -181,10 +185,6 @@
                            name="voltageRange" class="easyui-textbox" style="width:100px;">
                 </td>
                 <td style="display: none;">测试模式：<span id="testMode" testMode="auto">自动</span></td>
-                <td>充电电流传感器额定输入电流：</td>
-                <td><input id="inputCurrent"  class="easyui-textbox" style="width:100px;"></td>
-                <td>充电电流传感器额定输出电压：</td>
-                <td><input id="outputVoltage"  class="easyui-textbox" style="width:100px;"></td>
             </tr>
             <td>电池节数：</td>
             <td><input onchange="batteryPackParamChangeEvent(this)" test="true" disabled="disabled"
@@ -197,11 +197,6 @@
             <td><input onchange="batteryPackParamChangeEvent(this)" test="true" id="checkCycleTime"
                        name="checkCycleTime" class="easyui-textbox" style="width:100px;">
             </td>
-            <td>放电电流传感器额定输入电流：</td>
-            <td><input id="inputCurrent2"  class="easyui-textbox" style="width:100px;"></td>
-            <td>放电电流传感器额定输出电压：</td>
-            <td><input id="outputVoltage2"  class="easyui-textbox" style="width:100px;"></td>
-            <td><input type="button" value="设置传感器" onclick="setCurrentDucer()"></td>
             <td style="display: none;">
                 <input id="btnAutoTest" type="button" value="自动" title="根据自动周期进行循环测试"/>
                 <input id="btnTest" type="button" value="手动" title="手动点击一次测试一次"/>
@@ -258,25 +253,37 @@
                 <td><input id="device_name" name="device_name" class="easyui-textbox" style="width:100px;"></td>
                 <td>ModBus总线地址：</td>
                 <td><input id="address" name="address" class="easyui-textbox" style="width:100px;"></td>
-            </tr>
-            <tr>
                 <td>端口号：</td>
                 <td><input id="port" name="port" class="easyui-textbox" style="width:100px;"></td>
                 <%--<td>波特率：</td>
                 <td><input id="baudRate" name="baudRate" class="easyui-textbox" style="width:100px;"></td>--%>
                 <td>读取超时：</td>
                 <td><input id="readTimeout" name="readTimeout" class="easyui-textbox" style="width:100px;"></td>
-            </tr>
-            <tr>
                 <td>写入超时：</td>
                 <td><input id="writeTimeout" name="writeTimeout" class="easyui-textbox" style="width:100px;"></td>
-                <td></td>
-                <td></td>
+            </tr>
+        </table>
+    </div>
+    <div id="sensorDiv" style="display: none;">
+        <table class="set-table">
+            <tr>
+                <td>充电电流传感器额定输入电流：</td>
+                <td><input id="inputCurrent"  class="easyui-textbox" style="width:100px;"></td>
+                <td>充电电流传感器额定输出电压：</td>
+                <td><input id="outputVoltage"  class="easyui-textbox" style="width:100px;"></td>
+                <td><input type="button" value="设置传感器" onclick="setCurrentDucer()"></td>
+            </tr>
+            <tr>
+                <td>放电电流传感器额定输入电流：</td>
+                <td><input id="inputCurrent2"  class="easyui-textbox" style="width:100px;"></td>
+                <td>放电电流传感器额定输出电压：</td>
+                <td><input id="outputVoltage2"  class="easyui-textbox" style="width:100px;"></td>
+                <td><input type="button" value="获取传感器" onclick="getCurrentDucer()"></td>
             </tr>
         </table>
     </div>
 </div>
-<div id="bcu_grid_content" data-options="region:'center'" style="height: 470px;display: none;margin-top: 30px">
+<div id="bcu_grid_content" data-options="region:'center'" style="height: 470px;display: none;">
     <table id="dg"></table>
 </div>
 <div data-options="region:'south'" style="text-align: center;">
@@ -341,6 +348,8 @@
          */
         batteriesInfo:${batteriesInfo}
     };
+
+    console.log(parameters);
 
     /**
      * 是否初始化列表
@@ -486,11 +495,33 @@
             action: "${_RootPath}/System/setCurrentDucer",
             data: {
                 circuitId: circuitId,
-                inputCurrent:$('#inputCurrent').val(),
-                outputVoltage:$('#outputVoltage').val()
+                chargeInputCurrent:$('#inputCurrent').val(),
+                chargeOutputVoltage:$('#outputVoltage').val(),
+                dischargeInputCurrent:$('#inputCurrent2').val(),
+                dischargeOutputVoltage:$('#outputVoltage2').val()
             },
             success: function (rec) {
                 XspWeb.Misc.Tips(rec.message);
+            }
+        });
+    }
+
+    function getCurrentDucer(){
+        var circuitId = parameters.circuit.id;
+        XspWeb.Misc.Ajax({
+            action: "${_RootPath}/System/getCurrentDucer",
+            data: {
+                circuitId: circuitId,
+            },
+            success: function (rec) {
+                if(rec.data != null){
+                    $('#inputCurrent').val(rec.data.chargeInputCurrent);
+                    $('#outputVoltage').val(rec.data.chargeOutputVoltage),
+                    $('#inputCurrent2').val(rec.data.dischargeInputCurrent),
+                    $('#outputVoltage2').val(rec.data.dischargeOutputVoltage)
+                }else{
+                    XspWeb.Misc.Tips(rec.message);
+                }
             }
         });
     }
@@ -1403,7 +1434,8 @@
                 groupName: circuitName,
                 batteryGroupId: batteryGroupId,
                 deviceId: deviceId,
-                dataAccuracy: dataAccuracy
+                dataAccuracy: dataAccuracy,
+                areaIdPath:parameters.circuit.areaIds
             },
             success: function (rec) {
                 if (rec) {
@@ -1526,6 +1558,7 @@
         $("#btn_batteryPack").attr("flag", "collapse");
         $("#set_fd").attr("flag", "collapse");
         $("#btn_device").attr("flag", "collapse");
+        $("#btn_sensor").attr("flag", "collapse");
     }
 
     /**
@@ -1934,7 +1967,7 @@
             var flag2 = $(this).attr("flag");
             $("#btn_device").attr("flag", "collapse");
             if (flag2 === "collapse") {
-                $("#bcu_grid_content").attr("style", "height: 470px;display: block;margin-top: 30px");
+                $("#bcu_grid_content").attr("style", "height: 470px;display: block;");
                 // 第一次初始化列表
                 if (!isBcuGridInit) {
                     var paramsJson = '${circuit}';
@@ -1947,7 +1980,6 @@
                 }
 
                 $("#tool-content").css("display", "block");
-                $("#tool-content").css("height", "200px");
 
                 $("#btn_shrink").attr("style", "width:62px;display: block;");
 
@@ -1955,7 +1987,7 @@
                 $("#ecuB").attr("style", "display:none;");
                 $("#batteryPack").attr("style", "display:block;");
                 $("#device").attr("style", "display:none;");
-
+                $("#sensorDiv").attr("style", "display:none;");
                 $(this).attr("flag", "expand");
             }
             else {
@@ -2016,6 +2048,7 @@
                 $("#ecuB").attr("style", "display:none;");
                 $("#batteryPack").attr("style", "display:none;");
                 $("#device").attr("style", "display:block;");
+                $("#sensorDiv").attr("style", "display:none;");
 
                 $(this).attr("flag", "expand");
             }
@@ -2024,6 +2057,19 @@
                 $("#tool-content").css("display", "none");
                 $("#btn_shrink").attr("style", "width:62px;display: none;");
             }
+        });
+
+        $('#btn_sensor').click(function (){
+            $("#tool-content").css("display", "block");
+
+            $("#btn_shrink").attr("style", "display:none;");
+            $("#ecuA").attr("style", "display:none;");
+            $("#ecuB").attr("style", "display:none;");
+            $("#batteryPack").attr("style", "display:none;");
+            $("#device").attr("style", "display:none;");
+            $("#sensorDiv").attr("style", "display:block;");
+
+            $(this).attr("flag", "expand");
         });
 
         /**
@@ -2274,6 +2320,125 @@
             $("#checkCycleTime").removeAttr("disabled");
             $("#testMode").html("自动");
             $("#testMode").attr("testMode", "auto");
+        });
+
+        $("#refresh_ecuA").click(refreshEcuA);
+
+        $("#refresh_ecuB").click(refreshEcuB);
+    }
+
+    function refreshEcuA(){
+        XspWeb.Misc.Ajax({
+            action: "${_RootPath}/System/getSfECUConfig",
+            data: {
+                circuitId: parameters.circuit.id
+            },
+            success: function (rec) {
+                if (rec) {
+                    if (rec.code === 0) {
+                        getSfECUA();
+                    } else {
+                        XspWeb.Misc.Tips("下发命令失败");
+                    }
+                } else {
+                    XspWeb.Misc.Tips("下发命令失败");
+                }
+            }
+        });
+    }
+
+    /**
+     * 轮询获取深福ECU
+     */
+    var ajaxECUACount = 0;
+    function getSfECUA() {
+        XspWeb.Misc.Ajax({
+            action: "${_RootPath}/System/getSfECUConfigData",
+            success: function (rec) {
+                console.log(rec);
+                if (rec) {
+                    if (rec.code === 0) {
+                        ajaxECUACount = 0;
+                        $('#ecuA0_canel1').combobox('setValue',"0"+parseInt(rec.data.channel1,10).toString(16).toUpperCase());
+                        $('#ecuA0_canel2').combobox('setValue',"0"+parseInt(rec.data.channel2,10).toString(16).toUpperCase());
+                        $('#ecuA0_canel3').combobox('setValue',"0"+parseInt(rec.data.channel3,10).toString(16).toUpperCase());
+                        $('#ecuA0_panid1').val("0"+parseInt(rec.data.panId1,10).toString(16).toUpperCase());
+                        $('#ecuA0_panid2').val("0"+parseInt(rec.data.panId2,10).toString(16).toUpperCase());
+                        $('#ecuA0_panid3').val("0"+parseInt(rec.data.panId3,10).toString(16).toUpperCase());
+                        $('#ecuA0_panid4').val("0"+parseInt(rec.data.panId4,10).toString(16).toUpperCase());
+                        $('#ecuA0_panid5').val("0"+parseInt(rec.data.panId5,10).toString(16).toUpperCase());
+                        $('#ecuA0_panid6').val("0"+parseInt(rec.data.panId6,10).toString(16).toUpperCase());
+                    }
+                    else if (ajaxECUCount <= 3) {
+                        ajaxECUACount++;
+                        setTimeout(getSfECUA, 1000);
+                    }
+                    else {
+                        XspWeb.Misc.Tips("设置失败");
+                        ajaxECUACount = 0;
+                    }
+                }
+                else {
+                    XspWeb.Misc.Tips("设置失败");
+                }
+            }
+        });
+    }
+
+    function refreshEcuB(){
+        XspWeb.Misc.Ajax({
+            action: "${_RootPath}/System/getSfECUConfig",
+            data: {
+                circuitId: parameters.circuit.id
+            },
+            success: function (rec) {
+                if (rec) {
+                    if (rec.code === 0) {
+                        getSfECUB();
+                    } else {
+                        XspWeb.Misc.Tips("下发命令失败");
+                    }
+                } else {
+                    XspWeb.Misc.Tips("下发命令失败");
+                }
+            }
+        });
+    }
+
+    /**
+     * 轮询获取深福ECU
+     */
+    var ajaxECUBCount = 0;
+    function getSfECUB() {
+        XspWeb.Misc.Ajax({
+            action: "${_RootPath}/System/getSfECUConfigData",
+            success: function (rec) {
+                console.log(rec);
+                if (rec) {
+                    if (rec.code === 0) {
+                        ajaxECUBCount = 0;
+                        $('#ecuB0_canel1').combobox('setValue',"0"+parseInt(rec.data.channel1,10).toString(16).toUpperCase());
+                        $('#ecuB0_canel2').combobox('setValue',"0"+parseInt(rec.data.channel2,10).toString(16).toUpperCase());
+                        $('#ecuB0_canel3').combobox('setValue',"0"+parseInt(rec.data.channel3,10).toString(16).toUpperCase());
+                        $('#ecuB0_panid1').val("0"+parseInt(rec.data.panId1,10).toString(16).toUpperCase());
+                        $('#ecuB0_panid2').val("0"+parseInt(rec.data.panId2,10).toString(16).toUpperCase());
+                        $('#ecuB0_panid3').val("0"+parseInt(rec.data.panId3,10).toString(16).toUpperCase());
+                        $('#ecuB0_panid4').val("0"+parseInt(rec.data.panId4,10).toString(16).toUpperCase());
+                        $('#ecuB0_panid5').val("0"+parseInt(rec.data.panId5,10).toString(16).toUpperCase());
+                        $('#ecuB0_panid6').val("0"+parseInt(rec.data.panId6,10).toString(16).toUpperCase());
+                    }
+                    else if (ajaxECUCount <= 3) {
+                        ajaxECUBCount++;
+                        setTimeout(getSfECUB, 1000);
+                    }
+                    else {
+                        ajaxECUBCount = 0;
+                    }
+                }
+                else {
+                    XspWeb.Misc.Tips("设置失败");
+                }
+            }
         });
     }
 

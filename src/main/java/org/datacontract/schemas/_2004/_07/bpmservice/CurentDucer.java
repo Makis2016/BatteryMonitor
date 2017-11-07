@@ -1,27 +1,26 @@
 
-package org.tempuri;
+package org.datacontract.schemas._2004._07.bpmservice;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>anonymous complex type的 Java 类。
+ * <p>CurentDucer complex type的 Java 类。
  * 
  * <p>以下模式片段指定包含在此类中的预期内容。
  * 
  * <pre>
- * &lt;complexType>
+ * &lt;complexType name="CurentDucer">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="circuitId" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/>
- *         &lt;element name="chargeInputCurrent" type="{http://www.w3.org/2001/XMLSchema}double" minOccurs="0"/>
- *         &lt;element name="chargeOutputVoltage" type="{http://www.w3.org/2001/XMLSchema}double" minOccurs="0"/>
- *         &lt;element name="dischargeInputCurrent" type="{http://www.w3.org/2001/XMLSchema}double" minOccurs="0"/>
- *         &lt;element name="dischargeOutputVoltage" type="{http://www.w3.org/2001/XMLSchema}double" minOccurs="0"/>
+ *         &lt;element name="ChargeInputCurrent" type="{http://www.w3.org/2001/XMLSchema}double" minOccurs="0"/>
+ *         &lt;element name="ChargeOutputVoltage" type="{http://www.w3.org/2001/XMLSchema}double" minOccurs="0"/>
+ *         &lt;element name="DischargeInputCurrent" type="{http://www.w3.org/2001/XMLSchema}double" minOccurs="0"/>
+ *         &lt;element name="DischargeOutputVoltage" type="{http://www.w3.org/2001/XMLSchema}double" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -31,45 +30,22 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = {
-    "circuitId",
+@XmlType(name = "CurentDucer", propOrder = {
     "chargeInputCurrent",
     "chargeOutputVoltage",
     "dischargeInputCurrent",
     "dischargeOutputVoltage"
 })
-@XmlRootElement(name = "SetCurrentDucer")
-public class SetCurrentDucer {
+public class CurentDucer {
 
-    protected Long circuitId;
+    @XmlElement(name = "ChargeInputCurrent")
     protected Double chargeInputCurrent;
+    @XmlElement(name = "ChargeOutputVoltage")
     protected Double chargeOutputVoltage;
+    @XmlElement(name = "DischargeInputCurrent")
     protected Double dischargeInputCurrent;
+    @XmlElement(name = "DischargeOutputVoltage")
     protected Double dischargeOutputVoltage;
-
-    /**
-     * 获取circuitId属性的值。
-     * 
-     * @return
-     *     possible object is
-     *     {@link Long }
-     *     
-     */
-    public Long getCircuitId() {
-        return circuitId;
-    }
-
-    /**
-     * 设置circuitId属性的值。
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Long }
-     *     
-     */
-    public void setCircuitId(Long value) {
-        this.circuitId = value;
-    }
 
     /**
      * 获取chargeInputCurrent属性的值。

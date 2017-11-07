@@ -17,6 +17,7 @@ import org.datacontract.schemas._2004._07.bpmdevices_vendor.*;
 import org.datacontract.schemas._2004._07.bpmdevices_vendor.Battery;
 import org.datacontract.schemas._2004._07.bpmdevices_vendor.BatteryPack;
 import org.datacontract.schemas._2004._07.bpmservice.BatteryPackInfo;
+import org.datacontract.schemas._2004._07.bpmservice.CurentDucer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.tempuri.IBPMWebInterface;
@@ -635,11 +636,11 @@ public class CallService {
     /// <param name="circuitId">回路索引</param>
     /// <param name="registerAddress">寄存器地址</param>
     /// <returns>下发结果</returns>
-    public static Boolean getSfECUConfig(Long circuitId, Integer registerAddress) {
+    public static Boolean getSfECUConfig(Long circuitId) {
         IBPMWebInterface webInterface = BpmServiceUtil.GetService();
         if (webInterface != null) {
-            return false;
-//            return webInterface.getSfECUConfig(circuitId, registerAddress);
+//            return false;
+            return webInterface.getSfECUConfig(circuitId);
         }
         else {
             return false;
@@ -711,16 +712,16 @@ public class CallService {
     /// </summary>
     /// <param name="circuitId">回路索引</param>
     /// <returns>BCU对象</returns>
-    public static MSfBCU getSfECUConfigData() {
+    public static MSfECU getSfECUConfigData() {
         SfECU sfECU = null;
         IBPMWebInterface webInterface = BpmServiceUtil.GetService();
         if (webInterface != null) {
             sfECU = webInterface.getSfECUConfigData();
         }
 
-        MSfBCU mSfBCU = null;
+        MSfECU mSfECU = null;
         if (sfECU != null) {
-            mSfBCU = new MSfBCU();
+            mSfECU = new MSfECU();
             byte[] macBytes = sfECU.getMac().getValue();
             if (macBytes != null) {
                 String mac = "";
@@ -733,17 +734,25 @@ public class CallService {
                         mac += hex + ":";
                     }
                 }
-                mSfBCU.setMac(mac.toUpperCase());
+                mSfECU.setMac(mac.toUpperCase());
             }
-            mSfBCU.setAddress(sfECU.getAddress());
-            mSfBCU.setBaudRate(sfECU.getBaudRate());
-            mSfBCU.setChannel(sfECU.getChannel1());
-            mSfBCU.setIdStatus(sfECU.getIdStatus());
-            mSfBCU.setLength(sfECU.getLength());
-            mSfBCU.setRegisterAddress(sfECU.getRegisterAddress());
-            mSfBCU.setRefresh(sfECU.isIsRefresh());
-            mSfBCU.setType(sfECU.getType());
-            mSfBCU.setSerialNumber(sfECU.getSerialNumber());
+            mSfECU.setAddress(sfECU.getAddress());
+            mSfECU.setBaudRate(sfECU.getBaudRate());
+            mSfECU.setChannel1(sfECU.getChannel1());
+            mSfECU.setIdStatus(sfECU.getIdStatus());
+            mSfECU.setLength(sfECU.getLength());
+            mSfECU.setRegisterAddress(sfECU.getRegisterAddress());
+            mSfECU.setRefresh(sfECU.isIsRefresh());
+            mSfECU.setType(sfECU.getType());
+            mSfECU.setSerialNumber(sfECU.getSerialNumber());
+            mSfECU.setChannel2(sfECU.getChannel2());
+            mSfECU.setChannel3(sfECU.getChannel3());
+            mSfECU.setPanId1(sfECU.getPANId1());
+            mSfECU.setPanId2(sfECU.getPANId2());
+            mSfECU.setPanId3(sfECU.getPANId3());
+            mSfECU.setPanId4(sfECU.getPANId4());
+            mSfECU.setPanId5(sfECU.getPANId5());
+            mSfECU.setPanId6(sfECU.getPANId6());
             byte[] reserveBytes = sfECU.getReserve().getValue();
             if (macBytes != null) {
                 String reserve = "";
@@ -751,12 +760,12 @@ public class CallService {
                     String hex = Integer.toHexString(reserveBytes[i] & 0xFF);
                     reserve += hex;
                 }
-                mSfBCU.setReserve(reserve);
+                mSfECU.setReserve(reserve);
             }
-            mSfBCU.setZigBeeGoal(sfECU.getZigBeeTarget());
-            mSfBCU.setZigBeeLocal(sfECU.getZigBeeLocal());
+            mSfECU.setZigBeeGoal(sfECU.getZigBeeTarget());
+            mSfECU.setZigBeeLocal(sfECU.getZigBeeLocal());
         }
-        return mSfBCU;
+        return mSfECU;
     }
 
     /// <summary>
@@ -908,12 +917,12 @@ public class CallService {
     /**
      *  设置电流传感器
      * @param circuitId 回路ID
-     * @param inputCurrent 输入电流
-     * @param outputVoltage 输出电压
+     * @param chargeInputCurrent 输入电流
+     * @param chargeOutputVoltage 输出电压
      * @return
      */
-    public static Boolean setCurrentDucer(Long circuitId, Double inputCurrent, Double outputVoltage){
-        return BpmServiceUtil.GetService().setCurrentDucer(circuitId,inputCurrent,outputVoltage);
+    public static Boolean setCurrentDucer(Long circuitId, Double chargeInputCurrent, Double chargeOutputVoltage,Double dischargeInputCurrent,Double dischargeOutputVoltage){
+        return BpmServiceUtil.GetService().setCurrentDucer(circuitId,chargeInputCurrent,chargeOutputVoltage,dischargeInputCurrent,dischargeOutputVoltage);
     }
 
     /**
@@ -923,5 +932,9 @@ public class CallService {
      */
     public static Boolean checkResistance(Long circuitId){
         return BpmServiceUtil.GetService().checkResistance(circuitId);
+    }
+
+    public static CurentDucer getCurrentDucer(Long circuitId){
+        return BpmServiceUtil.GetService().getCurrentDucer(circuitId);
     }
 }

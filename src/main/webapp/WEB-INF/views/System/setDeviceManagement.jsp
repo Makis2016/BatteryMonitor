@@ -88,7 +88,7 @@
 
     #version{
         width: 100% !important;
-        height: 700px !important;
+        height: 510px !important;
         border: none;
     }
 

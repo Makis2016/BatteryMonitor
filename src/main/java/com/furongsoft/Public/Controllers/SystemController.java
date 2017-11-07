@@ -469,8 +469,8 @@ public class SystemController extends BaseController {
 
     @RequestMapping(value = "/getSfECUConfig")
     @ResponseBody
-    public void getSfECUConfig(Long circuitId, Integer registerAddress) {
-        responseJson(systemService.getSfECUConfig(circuitId, registerAddress));
+    public void getSfECUConfig(Long circuitId) {
+        responseJson(systemService.getSfECUConfig(circuitId));
     }
 
     @RequestMapping(value = "/updateSfECUConfig")
@@ -573,8 +573,8 @@ public class SystemController extends BaseController {
 
     @RequestMapping(value = "/setCurrentDucer")
     @ResponseBody
-    public void setCurrentDucer(Long circuitId,Double inputCurrent,Double outputVoltage){
-        responseJson(systemService.setCurrentDucer(circuitId,inputCurrent,outputVoltage));
+    public void setCurrentDucer(Long circuitId,Double chargeInputCurrent, Double chargeOutputVoltage,Double dischargeInputCurrent,Double dischargeOutputVoltage){
+        responseJson(systemService.setCurrentDucer(circuitId,chargeInputCurrent,chargeOutputVoltage,dischargeInputCurrent,dischargeOutputVoltage));
     }
 
     @RequestMapping(value = "/checkResistance")
@@ -583,4 +583,9 @@ public class SystemController extends BaseController {
         responseJson(systemService.checkResistance(circuitId));
     }
 
+    @RequestMapping(value = "/getCurrentDucer")
+    @ResponseBody
+    public void getCurrentDucer(Long circuitId){
+        responseJson(systemService.getCurrentDucer(circuitId));
+    }
 }

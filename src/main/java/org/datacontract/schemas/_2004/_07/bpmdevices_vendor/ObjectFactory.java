@@ -50,6 +50,20 @@ public class ObjectFactory {
     private final static QName _AlarmAlarmLevel_QNAME = new QName("http://schemas.datacontract.org/2004/07/BPMDevices.Vendor.Common", "Alarm.AlarmLevel");
     private final static QName _BatteryPackBatterySpecification_QNAME = new QName("http://schemas.datacontract.org/2004/07/BPMDevices.Vendor.Common", "BatteryPack.BatterySpecification");
     private final static QName _ArrayOfBattery_QNAME = new QName("http://schemas.datacontract.org/2004/07/BPMDevices.Vendor.Common", "ArrayOfBattery");
+    private final static QName _SfBCUMac_QNAME = new QName("http://schemas.datacontract.org/2004/07/BPMDevices.Vendor.Shenfu", "Mac");
+    private final static QName _SfBCUReserve_QNAME = new QName("http://schemas.datacontract.org/2004/07/BPMDevices.Vendor.Shenfu", "Reserve");
+    private final static QName _CircuitInfoAreaName_QNAME = new QName("http://schemas.datacontract.org/2004/07/BPMDevices.Vendor.WebModel", "AreaName");
+    private final static QName _CircuitInfoDCDCId_QNAME = new QName("http://schemas.datacontract.org/2004/07/BPMDevices.Vendor.WebModel", "DCDCId");
+    private final static QName _CircuitInfoBatteryPackInfo_QNAME = new QName("http://schemas.datacontract.org/2004/07/BPMDevices.Vendor.WebModel", "BatteryPackInfo");
+    private final static QName _CircuitInfoACDCId_QNAME = new QName("http://schemas.datacontract.org/2004/07/BPMDevices.Vendor.WebModel", "ACDCId");
+    private final static QName _CircuitInfoAreaIdPath_QNAME = new QName("http://schemas.datacontract.org/2004/07/BPMDevices.Vendor.WebModel", "AreaIdPath");
+    private final static QName _CircuitInfoMonitorId_QNAME = new QName("http://schemas.datacontract.org/2004/07/BPMDevices.Vendor.WebModel", "MonitorId");
+    private final static QName _CircuitInfoDataAccuracyInfo_QNAME = new QName("http://schemas.datacontract.org/2004/07/BPMDevices.Vendor.WebModel", "DataAccuracyInfo");
+    private final static QName _CircuitInfoDcdcInfo_QNAME = new QName("http://schemas.datacontract.org/2004/07/BPMDevices.Vendor.WebModel", "DcdcInfo");
+    private final static QName _CircuitInfoName_QNAME = new QName("http://schemas.datacontract.org/2004/07/BPMDevices.Vendor.WebModel", "Name");
+    private final static QName _AlarmMAlarmMessage_QNAME = new QName("http://schemas.datacontract.org/2004/07/BPMDevices.Vendor.Common", "mAlarmMessage");
+    private final static QName _AlarmMMaintainAdvise_QNAME = new QName("http://schemas.datacontract.org/2004/07/BPMDevices.Vendor.Common", "mMaintainAdvise");
+    private final static QName _AlarmMAreaName_QNAME = new QName("http://schemas.datacontract.org/2004/07/BPMDevices.Vendor.Common", "mAreaName");
     private final static QName _BatteryPackBatteryTeamperatureLevelBaseLine1_QNAME = new QName("http://schemas.datacontract.org/2004/07/BPMDevices.Vendor.Common", "BatteryTeamperatureLevelBaseLine1");
     private final static QName _BatteryPackBatteryTeamperatureLevelBaseLine2_QNAME = new QName("http://schemas.datacontract.org/2004/07/BPMDevices.Vendor.Common", "BatteryTeamperatureLevelBaseLine2");
     private final static QName _BatteryPackBatteryVoltageLevelBaseLine1_QNAME = new QName("http://schemas.datacontract.org/2004/07/BPMDevices.Vendor.Common", "BatteryVoltageLevelBaseLine1");
@@ -66,11 +80,6 @@ public class ObjectFactory {
     private final static QName _BatteryPackWaterTemperature_QNAME = new QName("http://schemas.datacontract.org/2004/07/BPMDevices.Vendor.Common", "WaterTemperature");
     private final static QName _BatteryPackBatteries_QNAME = new QName("http://schemas.datacontract.org/2004/07/BPMDevices.Vendor.Common", "Batteries");
     private final static QName _BatteryPackName_QNAME = new QName("http://schemas.datacontract.org/2004/07/BPMDevices.Vendor.Common", "Name");
-    private final static QName _SfECUMac_QNAME = new QName("http://schemas.datacontract.org/2004/07/BPMDevices.Vendor.Shenfu", "Mac");
-    private final static QName _SfECUReserve_QNAME = new QName("http://schemas.datacontract.org/2004/07/BPMDevices.Vendor.Shenfu", "Reserve");
-    private final static QName _AlarmMAlarmMessage_QNAME = new QName("http://schemas.datacontract.org/2004/07/BPMDevices.Vendor.Common", "mAlarmMessage");
-    private final static QName _AlarmMMaintainAdvise_QNAME = new QName("http://schemas.datacontract.org/2004/07/BPMDevices.Vendor.Common", "mMaintainAdvise");
-    private final static QName _AlarmMAreaName_QNAME = new QName("http://schemas.datacontract.org/2004/07/BPMDevices.Vendor.Common", "mAreaName");
     private final static QName _BatteryResistance_QNAME = new QName("http://schemas.datacontract.org/2004/07/BPMDevices.Vendor.Common", "Resistance");
     private final static QName _BatterySerialNum_QNAME = new QName("http://schemas.datacontract.org/2004/07/BPMDevices.Vendor.Common", "SerialNum");
     private final static QName _BatteryDesignVoltage_QNAME = new QName("http://schemas.datacontract.org/2004/07/BPMDevices.Vendor.Common", "DesignVoltage");
@@ -93,15 +102,6 @@ public class ObjectFactory {
     private final static QName _BatteryVirtualCapacity_QNAME = new QName("http://schemas.datacontract.org/2004/07/BPMDevices.Vendor.Common", "VirtualCapacity");
     private final static QName _BatteryFloatChargeLife_QNAME = new QName("http://schemas.datacontract.org/2004/07/BPMDevices.Vendor.Common", "FloatChargeLife");
     private final static QName _BatteryBatteryThreshold_QNAME = new QName("http://schemas.datacontract.org/2004/07/BPMDevices.Vendor.Common", "BatteryThreshold");
-    private final static QName _CircuitInfoAreaName_QNAME = new QName("http://schemas.datacontract.org/2004/07/BPMDevices.Vendor.WebModel", "AreaName");
-    private final static QName _CircuitInfoDCDCId_QNAME = new QName("http://schemas.datacontract.org/2004/07/BPMDevices.Vendor.WebModel", "DCDCId");
-    private final static QName _CircuitInfoBatteryPackInfo_QNAME = new QName("http://schemas.datacontract.org/2004/07/BPMDevices.Vendor.WebModel", "BatteryPackInfo");
-    private final static QName _CircuitInfoACDCId_QNAME = new QName("http://schemas.datacontract.org/2004/07/BPMDevices.Vendor.WebModel", "ACDCId");
-    private final static QName _CircuitInfoAreaIdPath_QNAME = new QName("http://schemas.datacontract.org/2004/07/BPMDevices.Vendor.WebModel", "AreaIdPath");
-    private final static QName _CircuitInfoMonitorId_QNAME = new QName("http://schemas.datacontract.org/2004/07/BPMDevices.Vendor.WebModel", "MonitorId");
-    private final static QName _CircuitInfoDataAccuracyInfo_QNAME = new QName("http://schemas.datacontract.org/2004/07/BPMDevices.Vendor.WebModel", "DataAccuracyInfo");
-    private final static QName _CircuitInfoDcdcInfo_QNAME = new QName("http://schemas.datacontract.org/2004/07/BPMDevices.Vendor.WebModel", "DcdcInfo");
-    private final static QName _CircuitInfoName_QNAME = new QName("http://schemas.datacontract.org/2004/07/BPMDevices.Vendor.WebModel", "Name");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: org.datacontract.schemas._2004._07.bpmdevices_vendor
@@ -362,6 +362,150 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link byte[]}{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/BPMDevices.Vendor.Shenfu", name = "Mac", scope = SfBCU.class)
+    public JAXBElement<byte[]> createSfBCUMac(byte[] value) {
+        return new JAXBElement<byte[]>(_SfBCUMac_QNAME, byte[].class, SfBCU.class, ((byte[]) value));
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link byte[]}{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/BPMDevices.Vendor.Shenfu", name = "Reserve", scope = SfBCU.class)
+    public JAXBElement<byte[]> createSfBCUReserve(byte[] value) {
+        return new JAXBElement<byte[]>(_SfBCUReserve_QNAME, byte[].class, SfBCU.class, ((byte[]) value));
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/BPMDevices.Vendor.WebModel", name = "AreaName", scope = CircuitInfo.class)
+    public JAXBElement<String> createCircuitInfoAreaName(String value) {
+        return new JAXBElement<String>(_CircuitInfoAreaName_QNAME, String.class, CircuitInfo.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link Long }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/BPMDevices.Vendor.WebModel", name = "DCDCId", scope = CircuitInfo.class)
+    public JAXBElement<Long> createCircuitInfoDCDCId(Long value) {
+        return new JAXBElement<Long>(_CircuitInfoDCDCId_QNAME, Long.class, CircuitInfo.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link BatteryPackInfo }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/BPMDevices.Vendor.WebModel", name = "BatteryPackInfo", scope = CircuitInfo.class)
+    public JAXBElement<BatteryPackInfo> createCircuitInfoBatteryPackInfo(BatteryPackInfo value) {
+        return new JAXBElement<BatteryPackInfo>(_CircuitInfoBatteryPackInfo_QNAME, BatteryPackInfo.class, CircuitInfo.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link Long }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/BPMDevices.Vendor.WebModel", name = "ACDCId", scope = CircuitInfo.class)
+    public JAXBElement<Long> createCircuitInfoACDCId(Long value) {
+        return new JAXBElement<Long>(_CircuitInfoACDCId_QNAME, Long.class, CircuitInfo.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/BPMDevices.Vendor.WebModel", name = "AreaIdPath", scope = CircuitInfo.class)
+    public JAXBElement<String> createCircuitInfoAreaIdPath(String value) {
+        return new JAXBElement<String>(_CircuitInfoAreaIdPath_QNAME, String.class, CircuitInfo.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link Long }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/BPMDevices.Vendor.WebModel", name = "MonitorId", scope = CircuitInfo.class)
+    public JAXBElement<Long> createCircuitInfoMonitorId(Long value) {
+        return new JAXBElement<Long>(_CircuitInfoMonitorId_QNAME, Long.class, CircuitInfo.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link DataAccuracyInfo }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/BPMDevices.Vendor.WebModel", name = "DataAccuracyInfo", scope = CircuitInfo.class)
+    public JAXBElement<DataAccuracyInfo> createCircuitInfoDataAccuracyInfo(DataAccuracyInfo value) {
+        return new JAXBElement<DataAccuracyInfo>(_CircuitInfoDataAccuracyInfo_QNAME, DataAccuracyInfo.class, CircuitInfo.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link DcdcData }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/BPMDevices.Vendor.WebModel", name = "DcdcInfo", scope = CircuitInfo.class)
+    public JAXBElement<DcdcData> createCircuitInfoDcdcInfo(DcdcData value) {
+        return new JAXBElement<DcdcData>(_CircuitInfoDcdcInfo_QNAME, DcdcData.class, CircuitInfo.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/BPMDevices.Vendor.WebModel", name = "Name", scope = CircuitInfo.class)
+    public JAXBElement<String> createCircuitInfoName(String value) {
+        return new JAXBElement<String>(_CircuitInfoName_QNAME, String.class, CircuitInfo.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/BPMDevices.Vendor.Common", name = "mAlarmMessage", scope = Alarm.class)
+    public JAXBElement<String> createAlarmMAlarmMessage(String value) {
+        return new JAXBElement<String>(_AlarmMAlarmMessage_QNAME, String.class, Alarm.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/BPMDevices.Vendor.Common", name = "mMaintainAdvise", scope = Alarm.class)
+    public JAXBElement<String> createAlarmMMaintainAdvise(String value) {
+        return new JAXBElement<String>(_AlarmMMaintainAdvise_QNAME, String.class, Alarm.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/BPMDevices.Vendor.Common", name = "mAreaName", scope = Alarm.class)
+    public JAXBElement<String> createAlarmMAreaName(String value) {
+        return new JAXBElement<String>(_AlarmMAreaName_QNAME, String.class, Alarm.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link byte[]}{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/BPMDevices.Vendor.Shenfu", name = "Mac", scope = SfECU.class)
+    public JAXBElement<byte[]> createSfECUMac(byte[] value) {
+        return new JAXBElement<byte[]>(_SfBCUMac_QNAME, byte[].class, SfECU.class, ((byte[]) value));
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link byte[]}{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/BPMDevices.Vendor.Shenfu", name = "Reserve", scope = SfECU.class)
+    public JAXBElement<byte[]> createSfECUReserve(byte[] value) {
+        return new JAXBElement<byte[]>(_SfBCUReserve_QNAME, byte[].class, SfECU.class, ((byte[]) value));
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link Double }{@code >}}
      * 
      */
@@ -503,51 +647,6 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/BPMDevices.Vendor.Common", name = "Name", scope = BatteryPack.class)
     public JAXBElement<String> createBatteryPackName(String value) {
         return new JAXBElement<String>(_BatteryPackName_QNAME, String.class, BatteryPack.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link byte[]}{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/BPMDevices.Vendor.Shenfu", name = "Mac", scope = SfECU.class)
-    public JAXBElement<byte[]> createSfECUMac(byte[] value) {
-        return new JAXBElement<byte[]>(_SfECUMac_QNAME, byte[].class, SfECU.class, ((byte[]) value));
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link byte[]}{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/BPMDevices.Vendor.Shenfu", name = "Reserve", scope = SfECU.class)
-    public JAXBElement<byte[]> createSfECUReserve(byte[] value) {
-        return new JAXBElement<byte[]>(_SfECUReserve_QNAME, byte[].class, SfECU.class, ((byte[]) value));
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/BPMDevices.Vendor.Common", name = "mAlarmMessage", scope = Alarm.class)
-    public JAXBElement<String> createAlarmMAlarmMessage(String value) {
-        return new JAXBElement<String>(_AlarmMAlarmMessage_QNAME, String.class, Alarm.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/BPMDevices.Vendor.Common", name = "mMaintainAdvise", scope = Alarm.class)
-    public JAXBElement<String> createAlarmMMaintainAdvise(String value) {
-        return new JAXBElement<String>(_AlarmMMaintainAdvise_QNAME, String.class, Alarm.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/BPMDevices.Vendor.Common", name = "mAreaName", scope = Alarm.class)
-    public JAXBElement<String> createAlarmMAreaName(String value) {
-        return new JAXBElement<String>(_AlarmMAreaName_QNAME, String.class, Alarm.class, value);
     }
 
     /**
@@ -764,105 +863,6 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/BPMDevices.Vendor.Common", name = "Name", scope = Battery.class)
     public JAXBElement<String> createBatteryName(String value) {
         return new JAXBElement<String>(_BatteryPackName_QNAME, String.class, Battery.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link byte[]}{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/BPMDevices.Vendor.Shenfu", name = "Mac", scope = SfBCU.class)
-    public JAXBElement<byte[]> createSfBCUMac(byte[] value) {
-        return new JAXBElement<byte[]>(_SfECUMac_QNAME, byte[].class, SfBCU.class, ((byte[]) value));
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link byte[]}{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/BPMDevices.Vendor.Shenfu", name = "Reserve", scope = SfBCU.class)
-    public JAXBElement<byte[]> createSfBCUReserve(byte[] value) {
-        return new JAXBElement<byte[]>(_SfECUReserve_QNAME, byte[].class, SfBCU.class, ((byte[]) value));
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/BPMDevices.Vendor.WebModel", name = "AreaName", scope = CircuitInfo.class)
-    public JAXBElement<String> createCircuitInfoAreaName(String value) {
-        return new JAXBElement<String>(_CircuitInfoAreaName_QNAME, String.class, CircuitInfo.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Long }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/BPMDevices.Vendor.WebModel", name = "DCDCId", scope = CircuitInfo.class)
-    public JAXBElement<Long> createCircuitInfoDCDCId(Long value) {
-        return new JAXBElement<Long>(_CircuitInfoDCDCId_QNAME, Long.class, CircuitInfo.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link BatteryPackInfo }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/BPMDevices.Vendor.WebModel", name = "BatteryPackInfo", scope = CircuitInfo.class)
-    public JAXBElement<BatteryPackInfo> createCircuitInfoBatteryPackInfo(BatteryPackInfo value) {
-        return new JAXBElement<BatteryPackInfo>(_CircuitInfoBatteryPackInfo_QNAME, BatteryPackInfo.class, CircuitInfo.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Long }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/BPMDevices.Vendor.WebModel", name = "ACDCId", scope = CircuitInfo.class)
-    public JAXBElement<Long> createCircuitInfoACDCId(Long value) {
-        return new JAXBElement<Long>(_CircuitInfoACDCId_QNAME, Long.class, CircuitInfo.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/BPMDevices.Vendor.WebModel", name = "AreaIdPath", scope = CircuitInfo.class)
-    public JAXBElement<String> createCircuitInfoAreaIdPath(String value) {
-        return new JAXBElement<String>(_CircuitInfoAreaIdPath_QNAME, String.class, CircuitInfo.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Long }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/BPMDevices.Vendor.WebModel", name = "MonitorId", scope = CircuitInfo.class)
-    public JAXBElement<Long> createCircuitInfoMonitorId(Long value) {
-        return new JAXBElement<Long>(_CircuitInfoMonitorId_QNAME, Long.class, CircuitInfo.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link DataAccuracyInfo }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/BPMDevices.Vendor.WebModel", name = "DataAccuracyInfo", scope = CircuitInfo.class)
-    public JAXBElement<DataAccuracyInfo> createCircuitInfoDataAccuracyInfo(DataAccuracyInfo value) {
-        return new JAXBElement<DataAccuracyInfo>(_CircuitInfoDataAccuracyInfo_QNAME, DataAccuracyInfo.class, CircuitInfo.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link DcdcData }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/BPMDevices.Vendor.WebModel", name = "DcdcInfo", scope = CircuitInfo.class)
-    public JAXBElement<DcdcData> createCircuitInfoDcdcInfo(DcdcData value) {
-        return new JAXBElement<DcdcData>(_CircuitInfoDcdcInfo_QNAME, DcdcData.class, CircuitInfo.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/BPMDevices.Vendor.WebModel", name = "Name", scope = CircuitInfo.class)
-    public JAXBElement<String> createCircuitInfoName(String value) {
-        return new JAXBElement<String>(_CircuitInfoName_QNAME, String.class, CircuitInfo.class, value);
     }
 
 }

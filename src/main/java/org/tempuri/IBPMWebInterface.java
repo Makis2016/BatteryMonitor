@@ -22,6 +22,7 @@ import org.datacontract.schemas._2004._07.bpmdevices_vendor.CircuitInfo;
 import org.datacontract.schemas._2004._07.bpmdevices_vendor.SfBCU;
 import org.datacontract.schemas._2004._07.bpmdevices_vendor.SfECU;
 import org.datacontract.schemas._2004._07.bpmservice.BatteryPackInfo;
+import org.datacontract.schemas._2004._07.bpmservice.CurentDucer;
 
 
 /**
@@ -997,6 +998,20 @@ public interface IBPMWebInterface {
 
     /**
      * 
+     * @param circuitId
+     * @return
+     *     returns java.lang.Boolean
+     */
+    @WebMethod(operationName = "GetSfECUConfig", action = "http://tempuri.org/IBPMWebInterface/GetSfECUConfig")
+    @WebResult(name = "GetSfECUConfigResult", targetNamespace = "http://tempuri.org/")
+    @RequestWrapper(localName = "GetSfECUConfig", targetNamespace = "http://tempuri.org/", className = "org.tempuri.GetSfECUConfig")
+    @ResponseWrapper(localName = "GetSfECUConfigResponse", targetNamespace = "http://tempuri.org/", className = "org.tempuri.GetSfECUConfigResponse")
+    public Boolean getSfECUConfig(
+        @WebParam(name = "circuitId", targetNamespace = "http://tempuri.org/")
+        Long circuitId);
+
+    /**
+     * 
      * @return
      *     returns org.datacontract.schemas._2004._07.bpmdevices_vendor.SfECU
      */
@@ -1022,9 +1037,11 @@ public interface IBPMWebInterface {
 
     /**
      * 
-     * @param circuit
-     * @param outputVoltage
-     * @param inputCurrent
+     * @param dischargeInputCurrent
+     * @param dischargeOutputVoltage
+     * @param chargeInputCurrent
+     * @param chargeOutputVoltage
+     * @param circuitId
      * @return
      *     returns java.lang.Boolean
      */
@@ -1033,11 +1050,29 @@ public interface IBPMWebInterface {
     @RequestWrapper(localName = "SetCurrentDucer", targetNamespace = "http://tempuri.org/", className = "org.tempuri.SetCurrentDucer")
     @ResponseWrapper(localName = "SetCurrentDucerResponse", targetNamespace = "http://tempuri.org/", className = "org.tempuri.SetCurrentDucerResponse")
     public Boolean setCurrentDucer(
-        @WebParam(name = "circuit", targetNamespace = "http://tempuri.org/")
-        Long circuit,
-        @WebParam(name = "inputCurrent", targetNamespace = "http://tempuri.org/")
-        Double inputCurrent,
-        @WebParam(name = "outputVoltage", targetNamespace = "http://tempuri.org/")
-        Double outputVoltage);
+        @WebParam(name = "circuitId", targetNamespace = "http://tempuri.org/")
+        Long circuitId,
+        @WebParam(name = "chargeInputCurrent", targetNamespace = "http://tempuri.org/")
+        Double chargeInputCurrent,
+        @WebParam(name = "chargeOutputVoltage", targetNamespace = "http://tempuri.org/")
+        Double chargeOutputVoltage,
+        @WebParam(name = "dischargeInputCurrent", targetNamespace = "http://tempuri.org/")
+        Double dischargeInputCurrent,
+        @WebParam(name = "dischargeOutputVoltage", targetNamespace = "http://tempuri.org/")
+        Double dischargeOutputVoltage);
+
+    /**
+     * 
+     * @param circuitId
+     * @return
+     *     returns org.datacontract.schemas._2004._07.bpmservice.CurentDucer
+     */
+    @WebMethod(operationName = "GetCurrentDucer", action = "http://tempuri.org/IBPMWebInterface/GetCurrentDucer")
+    @WebResult(name = "GetCurrentDucerResult", targetNamespace = "http://tempuri.org/")
+    @RequestWrapper(localName = "GetCurrentDucer", targetNamespace = "http://tempuri.org/", className = "org.tempuri.GetCurrentDucer")
+    @ResponseWrapper(localName = "GetCurrentDucerResponse", targetNamespace = "http://tempuri.org/", className = "org.tempuri.GetCurrentDucerResponse")
+    public CurentDucer getCurrentDucer(
+        @WebParam(name = "circuitId", targetNamespace = "http://tempuri.org/")
+        Long circuitId);
 
 }

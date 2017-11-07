@@ -1613,12 +1613,11 @@ public class SystemService {
      * 下发获取ECU命令
      *
      * @param circuitId       回路ID
-     * @param registerAddress ECU编号
      * @return 下发是否成功信息
      */
-    public String getSfECUConfig(Long circuitId, Integer registerAddress) {
+    public String getSfECUConfig(Long circuitId) {
         try {
-            if (CallService.getSfECUConfig(circuitId, registerAddress)) {
+            if (CallService.getSfECUConfig(circuitId)) {
                 return Misc.convertAResultJson("下发成功", 0, true);
             }
             else {
@@ -1638,9 +1637,9 @@ public class SystemService {
      */
     public String getSfECUConfigData() {
         try {
-            MSfBCU sfBCU = CallService.getSfECUConfigData();
-            if (sfBCU != null) {
-                return Misc.convertAResultJson("", 0, sfBCU);
+            MSfECU sfECU = CallService.getSfECUConfigData();
+            if (sfECU != null) {
+                return Misc.convertAResultJson("", 0, sfECU);
             }
             return Misc.convertAResultJson(Constant.operationError, -1, null);
         }
@@ -2133,12 +2132,12 @@ public class SystemService {
     /**
      *  设置电流传感器
      * @param circuitId 回路ID
-     * @param inputCurrent 输入电流
-     * @param outputVoltage 输出电压
+     * @param chargeInputCurrent 输入电流
+     * @param chargeOutputVoltage 输出电压
      * @return
      */
-    public String setCurrentDucer(Long circuitId, Double inputCurrent, Double outputVoltage) {
-        if (CallService.setCurrentDucer(circuitId,inputCurrent,outputVoltage))
+    public String setCurrentDucer(Long circuitId, Double chargeInputCurrent, Double chargeOutputVoltage,Double dischargeInputCurrent,Double dischargeOutputVoltage) {
+        if (CallService.setCurrentDucer(circuitId,chargeInputCurrent,chargeOutputVoltage,dischargeInputCurrent,dischargeOutputVoltage))
             return JSON.toJSONString(new AResult("请求成功", 0, null));
         return JSON.toJSONString(new AResult("请求失败", 0, null));
     }
@@ -2151,6 +2150,18 @@ public class SystemService {
     public String checkResistance(Long circuitId){
         if (CallService.checkResistance(circuitId))
             return JSON.toJSONString(new AResult("请求成功", 0, null));
+        return JSON.toJSONString(new AResult("请求失败", 0, null));
+    }
+
+    /**
+     *  获取传感器数据
+     *
+     * @param circuitId 回路ID
+     * @return
+     */
+    public String getCurrentDucer(Long circuitId){
+        if(CallService.getCurrentDucer(circuitId) != null)
+            return JSON.toJSONString(new AResult("请求成功", 0, CallService.getCurrentDucer(circuitId)));
         return JSON.toJSONString(new AResult("请求失败", 0, null));
     }
 }
