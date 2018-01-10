@@ -54,7 +54,7 @@
 
     /*grid*/
     .panel-body {
-        background-color: rgba(236, 239, 232, 0);
+        /*background-color: rgba(236, 239, 232, 0);*/
     }
 
     .datagrid-header td, .datagrid-body td, .datagrid-footer td {

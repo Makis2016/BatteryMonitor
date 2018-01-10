@@ -1387,12 +1387,12 @@ public class SystemService {
         batteryPackSF = baseDao.getJdbcTemplate()
                 .query("SELECT * FROM t_bpm_sfbattery_pack_alarm_data tbb " +
                                 "WHERE tbb.battery_pack_id = ? "
-                        , new BatteryPackSFRowMapper(), id);
+                        , new BatteryPackCharacterMapper(), id);
         if(batteryPackSF.isEmpty() ){
             batteryPackSF = baseDao.getJdbcTemplate()
                     .query("SELECT * FROM t_bpm_battery_pack_sf_extension tbb " +
                                     "WHERE tbb.battery_pack_id = ? "
-                            , new BatteryPackSFRowMapper(), id);
+                            , new BatteryPackCharacterMapper(), id);
         }
 
         // 取出二进制对象

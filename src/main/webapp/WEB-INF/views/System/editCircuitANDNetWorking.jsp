@@ -64,7 +64,7 @@
                 <td><a href="javascript:;" id="btn_shrink" iconCls="icon-remove" class="easyui-linkbutton"
                        style="width:62px;display: none;">收缩</a></td>
                 <td><a href="javascript:;" id="btn_sensor" iconCls="icon-remove" class="easyui-linkbutton"
-                       style="width:100px;">电流传感器</a></td>
+                       style="width:98px;">电流传感器</a></td>
             </tr>
         </table>
     </div>
@@ -299,7 +299,7 @@
         </div>
     </div>
     <div id="checkResistance">
-        <div style="left: 80px;top: 24px;text-align: center">
+        <div style="left: 80px;top: 24px;text-align: center;margin: 30px auto;">
             请确认是否要测试内阻
         </div>
     </div>
