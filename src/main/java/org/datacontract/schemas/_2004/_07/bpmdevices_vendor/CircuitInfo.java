@@ -36,6 +36,7 @@ import org.datacontract.schemas._2004._07.bpmservice.DcdcData;
  *         &lt;element name="FormattingState" type="{http://schemas.datacontract.org/2004/07/BPMDevices.Vendor.Common}Circuit.FormattingStatus" minOccurs="0"/>
  *         &lt;element name="Id" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/>
  *         &lt;element name="MonitorId" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/>
+ *         &lt;element name="MonitorOrderNum" type="{http://www.w3.org/2001/XMLSchema}byte" minOccurs="0"/>
  *         &lt;element name="MonitorState" type="{http://schemas.datacontract.org/2004/07/BPMDevices.Vendor.Common}Circuit.BatteryPackStatus" minOccurs="0"/>
  *         &lt;element name="Name" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *       &lt;/sequence>
@@ -61,6 +62,7 @@ import org.datacontract.schemas._2004._07.bpmservice.DcdcData;
     "formattingState",
     "id",
     "monitorId",
+    "monitorOrderNum",
     "monitorState",
     "name"
 })
@@ -94,6 +96,8 @@ public class CircuitInfo {
     protected Long id;
     @XmlElementRef(name = "MonitorId", namespace = "http://schemas.datacontract.org/2004/07/BPMDevices.Vendor.WebModel", type = JAXBElement.class, required = false)
     protected JAXBElement<Long> monitorId;
+    @XmlElement(name = "MonitorOrderNum")
+    protected Byte monitorOrderNum;
     @XmlElement(name = "MonitorState")
     @XmlSchemaType(name = "string")
     protected CircuitBatteryPackStatus monitorState;
@@ -410,6 +414,30 @@ public class CircuitInfo {
      */
     public void setMonitorId(JAXBElement<Long> value) {
         this.monitorId = value;
+    }
+
+    /**
+     * 获取monitorOrderNum属性的值。
+     * 
+     * @return
+     *     possible object is
+     *     {@link Byte }
+     *     
+     */
+    public Byte getMonitorOrderNum() {
+        return monitorOrderNum;
+    }
+
+    /**
+     * 设置monitorOrderNum属性的值。
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link Byte }
+     *     
+     */
+    public void setMonitorOrderNum(Byte value) {
+        this.monitorOrderNum = value;
     }
 
     /**

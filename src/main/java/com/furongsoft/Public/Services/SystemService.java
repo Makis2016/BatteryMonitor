@@ -443,7 +443,8 @@ public class SystemService {
             String dataAccuracy,
             String newAreaStr,
             Boolean isAddArea,
-            String areaIdPath
+            String areaIdPath,
+            Integer monitorOrderNum
             ) {
         Long operationId = operationLogSevcie.insertOperation("addCircuit", null);
         try {
@@ -474,7 +475,11 @@ public class SystemService {
                     areaIdPath);
             circuit.setAreaName(xmlAreaName);
             circuit.setAreaIdPath(xmlAreaIdPath);
+            circuit.setMonitorOrderNum(monitorOrderNum.byteValue());
 
+            if(hasCircuit(monitorOrderNum,deviceId)){
+                return Misc.convertAResultJson("已有相同组内序号", -1, null);
+            }
             //User user = securityService.getUser(SecurityUtils.getSubject().getPrincipal().toString());
 
             if (CallService.AddCircuit(circuit, 1L)) {
@@ -524,7 +529,8 @@ public class SystemService {
             String dataAccuracy,
             String newAreaStr,
             Boolean isAddArea,
-            String areaIdPath) {
+            String areaIdPath,
+            Integer monitorOrderNum) {
         Long operationId = operationLogSevcie.insertOperation("editCircuit", null);
         try {
             String namespace = "http://schemas.datacontract.org/2004/07/BPMDevices.Vendor.WebModel";
@@ -557,7 +563,11 @@ public class SystemService {
                     areaIdPath);
             circuit.setAreaName(xmlAreaName);
             circuit.setAreaIdPath(xmlAreaIdPath);
+            circuit.setMonitorOrderNum(monitorOrderNum.byteValue());
 
+            if(hasCircuit(monitorOrderNum,deviceId,id)){
+                return Misc.convertAResultJson("已有相同组内序号", -1, null);
+            }
             //User user = securityService.getUser(SecurityUtils.getSubject().getPrincipal().toString());
             if (CallService.UpdateCircuit(circuit,1L)) {
                 operationLogSevcie.updateOperationResult(operationId);
@@ -741,7 +751,8 @@ public class SystemService {
                                 "t2.`name` AS batteryPack," +
                                 "t2.id AS batteryPackId," +
                                 "t3.`id` AS areaId," +
-                                "t4.* " +
+                                "t4.*, " +
+                                "t1.monitor_order_num AS monitorOrderNum "+
                                 "FROM " +
                                 "t_bpm_circuit t1 LEFT JOIN " +
                                 "t_bpm_battery_pack t2 ON t1.battery_pack_id = t2.id AND t2.status = 0 LEFT JOIN " +
@@ -768,6 +779,7 @@ public class SystemService {
                     circuitGridData.setEnvironTemperature(srs.getDouble("environment_temperature"));
                     circuitGridData.setRippleVoltage(srs.getDouble("ripple_voltage"));
                     circuitGridData.setLeakageCurrent(srs.getDouble("leakage_current"));
+                    circuitGridData.setMonitorOrderNum(srs.getInt("monitorOrderNum"));
                     circuitGridDatas.add(circuitGridData);
                 }
                 return JSON.toJSONString(
@@ -2163,5 +2175,34 @@ public class SystemService {
         if(CallService.getCurrentDucer(circuitId) != null)
             return JSON.toJSONString(new AResult("请求成功", 0, CallService.getCurrentDucer(circuitId)));
         return JSON.toJSONString(new AResult("请求失败", 0, null));
+    }
+
+    public Boolean hasCircuit(Integer monitorOrderNum,Long monitorId){
+        List<MCircuit> circuitInfo = null;
+        circuitInfo = baseDao.getJdbcTemplate()
+                .query("SELECT id FROM t_bpm_circuit " +
+                                "WHERE monitor_id = "+monitorId+
+                        " AND monitor_order_num = "+ monitorOrderNum
+                        , new CircuitMapper());
+        if(circuitInfo != null && circuitInfo.size()>0){
+            return true;
+        }
+
+        return false;
+    }
+
+    public Boolean hasCircuit(Integer monitorOrderNum,Long monitorId,Long id){
+        List<MCircuit> circuitInfo = null;
+        circuitInfo = baseDao.getJdbcTemplate()
+                .query("SELECT id FROM t_bpm_circuit " +
+                                "WHERE monitor_id = "+monitorId +
+                                " AND monitor_order_num = "+ monitorOrderNum +
+                                " AND id != " + id
+                        , new CircuitMapper());
+        if(circuitInfo != null && circuitInfo.size()>0){
+            return true;
+        }
+
+        return false;
     }
 }

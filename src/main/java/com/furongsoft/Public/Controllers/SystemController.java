@@ -126,9 +126,10 @@ public class SystemController extends BaseController {
             String dataAccuracy,
             String newAreaStr,
             Boolean isAddArea,
-            String areaIdPath
+            String areaIdPath,
+            Integer monitorOrderNum
             ) {
-        responseJson(systemService.addCircuit(areaId, groupName, batteryGroupId, deviceId, dataAccuracy, newAreaStr, isAddArea,areaIdPath));
+        responseJson(systemService.addCircuit(areaId, groupName, batteryGroupId, deviceId, dataAccuracy, newAreaStr, isAddArea,areaIdPath,monitorOrderNum));
     }
 
     @RequestMapping(value = "/deleteCircuit")
@@ -145,8 +146,8 @@ public class SystemController extends BaseController {
 
     @RequestMapping(value = "/editCircuit")
     @ResponseBody
-    public void editCircuit(Long id, Long areaId, String groupName, Long batteryGroupId, Long deviceId, String dataAccuracy, String newAreaStr, Boolean isAddArea, String areaIdPath) {
-        responseJson(systemService.editCircuit(id, areaId, groupName, batteryGroupId, deviceId, dataAccuracy, newAreaStr, isAddArea, areaIdPath));
+    public void editCircuit(Long id, Long areaId, String groupName, Long batteryGroupId, Long deviceId, String dataAccuracy, String newAreaStr, Boolean isAddArea, String areaIdPath,Integer monitorOrderNum) {
+        responseJson(systemService.editCircuit(id, areaId, groupName, batteryGroupId, deviceId, dataAccuracy, newAreaStr, isAddArea, areaIdPath,monitorOrderNum));
     }
 
     // 电池组管理 ---设备管理

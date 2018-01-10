@@ -27,14 +27,6 @@ public class ObjectFactory {
 
     private final static QName _BatteryPackThreshold_QNAME = new QName("http://schemas.datacontract.org/2004/07/BPMDevices", "BatteryPackThreshold");
     private final static QName _BatteryThreshold_QNAME = new QName("http://schemas.datacontract.org/2004/07/BPMDevices", "BatteryThreshold");
-    private final static QName _BatteryThresholdRippleVoltage_QNAME = new QName("http://schemas.datacontract.org/2004/07/BPMDevices", "RippleVoltage");
-    private final static QName _BatteryThresholdVoltageThresholdDown_QNAME = new QName("http://schemas.datacontract.org/2004/07/BPMDevices", "VoltageThresholdDown");
-    private final static QName _BatteryThresholdCreatTime_QNAME = new QName("http://schemas.datacontract.org/2004/07/BPMDevices", "CreatTime");
-    private final static QName _BatteryThresholdTemperature_QNAME = new QName("http://schemas.datacontract.org/2004/07/BPMDevices", "Temperature");
-    private final static QName _BatteryThresholdVoltageThresholdUp_QNAME = new QName("http://schemas.datacontract.org/2004/07/BPMDevices", "VoltageThresholdUp");
-    private final static QName _BatteryThresholdConfig_QNAME = new QName("http://schemas.datacontract.org/2004/07/BPMDevices", "Config");
-    private final static QName _BatteryThresholdResistanceLevel1_QNAME = new QName("http://schemas.datacontract.org/2004/07/BPMDevices", "ResistanceLevel1");
-    private final static QName _BatteryThresholdResistanceLevel2_QNAME = new QName("http://schemas.datacontract.org/2004/07/BPMDevices", "ResistanceLevel2");
     private final static QName _BatteryPackThresholdGroupVoltageUp_QNAME = new QName("http://schemas.datacontract.org/2004/07/BPMDevices", "GroupVoltageUp");
     private final static QName _BatteryPackThresholdEnvirTeaperature_QNAME = new QName("http://schemas.datacontract.org/2004/07/BPMDevices", "EnvirTeaperature");
     private final static QName _BatteryPackThresholdGroupLeakageCurrent_QNAME = new QName("http://schemas.datacontract.org/2004/07/BPMDevices", "GroupLeakageCurrent");
@@ -42,6 +34,14 @@ public class ObjectFactory {
     private final static QName _BatteryPackThresholdGroupRippleCurrent_QNAME = new QName("http://schemas.datacontract.org/2004/07/BPMDevices", "GroupRippleCurrent");
     private final static QName _BatteryPackThresholdGroupRippleVoltage_QNAME = new QName("http://schemas.datacontract.org/2004/07/BPMDevices", "GroupRippleVoltage");
     private final static QName _BatteryPackThresholdGroupVoltageDown_QNAME = new QName("http://schemas.datacontract.org/2004/07/BPMDevices", "GroupVoltageDown");
+    private final static QName _BatteryPackThresholdConfig_QNAME = new QName("http://schemas.datacontract.org/2004/07/BPMDevices", "Config");
+    private final static QName _BatteryThresholdRippleVoltage_QNAME = new QName("http://schemas.datacontract.org/2004/07/BPMDevices", "RippleVoltage");
+    private final static QName _BatteryThresholdVoltageThresholdDown_QNAME = new QName("http://schemas.datacontract.org/2004/07/BPMDevices", "VoltageThresholdDown");
+    private final static QName _BatteryThresholdCreatTime_QNAME = new QName("http://schemas.datacontract.org/2004/07/BPMDevices", "CreatTime");
+    private final static QName _BatteryThresholdTemperature_QNAME = new QName("http://schemas.datacontract.org/2004/07/BPMDevices", "Temperature");
+    private final static QName _BatteryThresholdVoltageThresholdUp_QNAME = new QName("http://schemas.datacontract.org/2004/07/BPMDevices", "VoltageThresholdUp");
+    private final static QName _BatteryThresholdResistanceLevel1_QNAME = new QName("http://schemas.datacontract.org/2004/07/BPMDevices", "ResistanceLevel1");
+    private final static QName _BatteryThresholdResistanceLevel2_QNAME = new QName("http://schemas.datacontract.org/2004/07/BPMDevices", "ResistanceLevel2");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: org.datacontract.schemas._2004._07.bpmdevices
@@ -82,78 +82,6 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/BPMDevices", name = "BatteryThreshold")
     public JAXBElement<BatteryThreshold> createBatteryThreshold(BatteryThreshold value) {
         return new JAXBElement<BatteryThreshold>(_BatteryThreshold_QNAME, BatteryThreshold.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Double }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/BPMDevices", name = "RippleVoltage", scope = BatteryThreshold.class)
-    public JAXBElement<Double> createBatteryThresholdRippleVoltage(Double value) {
-        return new JAXBElement<Double>(_BatteryThresholdRippleVoltage_QNAME, Double.class, BatteryThreshold.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Double }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/BPMDevices", name = "VoltageThresholdDown", scope = BatteryThreshold.class)
-    public JAXBElement<Double> createBatteryThresholdVoltageThresholdDown(Double value) {
-        return new JAXBElement<Double>(_BatteryThresholdVoltageThresholdDown_QNAME, Double.class, BatteryThreshold.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link XMLGregorianCalendar }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/BPMDevices", name = "CreatTime", scope = BatteryThreshold.class)
-    public JAXBElement<XMLGregorianCalendar> createBatteryThresholdCreatTime(XMLGregorianCalendar value) {
-        return new JAXBElement<XMLGregorianCalendar>(_BatteryThresholdCreatTime_QNAME, XMLGregorianCalendar.class, BatteryThreshold.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Double }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/BPMDevices", name = "Temperature", scope = BatteryThreshold.class)
-    public JAXBElement<Double> createBatteryThresholdTemperature(Double value) {
-        return new JAXBElement<Double>(_BatteryThresholdTemperature_QNAME, Double.class, BatteryThreshold.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Double }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/BPMDevices", name = "VoltageThresholdUp", scope = BatteryThreshold.class)
-    public JAXBElement<Double> createBatteryThresholdVoltageThresholdUp(Double value) {
-        return new JAXBElement<Double>(_BatteryThresholdVoltageThresholdUp_QNAME, Double.class, BatteryThreshold.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/BPMDevices", name = "Config", scope = BatteryThreshold.class)
-    public JAXBElement<String> createBatteryThresholdConfig(String value) {
-        return new JAXBElement<String>(_BatteryThresholdConfig_QNAME, String.class, BatteryThreshold.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Double }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/BPMDevices", name = "ResistanceLevel1", scope = BatteryThreshold.class)
-    public JAXBElement<Double> createBatteryThresholdResistanceLevel1(Double value) {
-        return new JAXBElement<Double>(_BatteryThresholdResistanceLevel1_QNAME, Double.class, BatteryThreshold.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Double }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/BPMDevices", name = "ResistanceLevel2", scope = BatteryThreshold.class)
-    public JAXBElement<Double> createBatteryThresholdResistanceLevel2(Double value) {
-        return new JAXBElement<Double>(_BatteryThresholdResistanceLevel2_QNAME, Double.class, BatteryThreshold.class, value);
     }
 
     /**
@@ -225,7 +153,79 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/BPMDevices", name = "Config", scope = BatteryPackThreshold.class)
     public JAXBElement<String> createBatteryPackThresholdConfig(String value) {
-        return new JAXBElement<String>(_BatteryThresholdConfig_QNAME, String.class, BatteryPackThreshold.class, value);
+        return new JAXBElement<String>(_BatteryPackThresholdConfig_QNAME, String.class, BatteryPackThreshold.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link Double }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/BPMDevices", name = "RippleVoltage", scope = BatteryThreshold.class)
+    public JAXBElement<Double> createBatteryThresholdRippleVoltage(Double value) {
+        return new JAXBElement<Double>(_BatteryThresholdRippleVoltage_QNAME, Double.class, BatteryThreshold.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link Double }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/BPMDevices", name = "VoltageThresholdDown", scope = BatteryThreshold.class)
+    public JAXBElement<Double> createBatteryThresholdVoltageThresholdDown(Double value) {
+        return new JAXBElement<Double>(_BatteryThresholdVoltageThresholdDown_QNAME, Double.class, BatteryThreshold.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link XMLGregorianCalendar }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/BPMDevices", name = "CreatTime", scope = BatteryThreshold.class)
+    public JAXBElement<XMLGregorianCalendar> createBatteryThresholdCreatTime(XMLGregorianCalendar value) {
+        return new JAXBElement<XMLGregorianCalendar>(_BatteryThresholdCreatTime_QNAME, XMLGregorianCalendar.class, BatteryThreshold.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link Double }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/BPMDevices", name = "Temperature", scope = BatteryThreshold.class)
+    public JAXBElement<Double> createBatteryThresholdTemperature(Double value) {
+        return new JAXBElement<Double>(_BatteryThresholdTemperature_QNAME, Double.class, BatteryThreshold.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link Double }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/BPMDevices", name = "VoltageThresholdUp", scope = BatteryThreshold.class)
+    public JAXBElement<Double> createBatteryThresholdVoltageThresholdUp(Double value) {
+        return new JAXBElement<Double>(_BatteryThresholdVoltageThresholdUp_QNAME, Double.class, BatteryThreshold.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/BPMDevices", name = "Config", scope = BatteryThreshold.class)
+    public JAXBElement<String> createBatteryThresholdConfig(String value) {
+        return new JAXBElement<String>(_BatteryPackThresholdConfig_QNAME, String.class, BatteryThreshold.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link Double }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/BPMDevices", name = "ResistanceLevel1", scope = BatteryThreshold.class)
+    public JAXBElement<Double> createBatteryThresholdResistanceLevel1(Double value) {
+        return new JAXBElement<Double>(_BatteryThresholdResistanceLevel1_QNAME, Double.class, BatteryThreshold.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link Double }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://schemas.datacontract.org/2004/07/BPMDevices", name = "ResistanceLevel2", scope = BatteryThreshold.class)
+    public JAXBElement<Double> createBatteryThresholdResistanceLevel2(Double value) {
+        return new JAXBElement<Double>(_BatteryThresholdResistanceLevel2_QNAME, Double.class, BatteryThreshold.class, value);
     }
 
 }

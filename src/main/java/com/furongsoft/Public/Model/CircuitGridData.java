@@ -20,6 +20,7 @@ public class CircuitGridData
     private double environTemperature;
     private double rippleVoltage;
     private double leakageCurrent;
+    private Integer monitorOrderNum;
 
     public String getName()
     {
@@ -175,5 +176,13 @@ public class CircuitGridData
     public void setDeviceId(long deviceId)
     {
         this.deviceId = deviceId;
+    }
+
+    public Integer getMonitorOrderNum() {
+        return monitorOrderNum;
+    }
+
+    public void setMonitorOrderNum(Integer monitorOrderNum) {
+        this.monitorOrderNum = monitorOrderNum;
     }
 }

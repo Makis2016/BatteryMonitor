@@ -144,6 +144,16 @@
                  style="width: 40px;text-align: center">mA
             </div>
         </div>
+        <div style="width: 100%;height: 35px;">
+            <div class="sjfd-span-b" style="width: 210px;">组内序号:</div>
+            <div class="sjfd-span-b">
+                <select class="easyui-combobox" id="MonitorOrderNum"
+                        style="width: 100px;height: 30px;line-height: 30px;display: block;float: left;"></select>
+            </div>
+            <div class="sjfd-span-b"
+                 style="width: 40px;text-align: center">
+            </div>
+        </div>
     </div>
     <div style="height: 420px;width: 380px;display: block;float: left">
         <div style="width:370px;height: 95px;">
@@ -318,6 +328,15 @@
 
     // 初始化回路数据显示精度下拉框
     function initDataAccuracyCom() {
+        var monitorOrderNum = [['0','0'],['1','1'],['2','2'],['3','3'],['4','4'],['5','5']];
+        $("#MonitorOrderNum").combobox({
+            data: monitorOrderNum,
+            textField: 1,
+            valueField: 0,
+            editable: false
+        });
+        $("#MonitorOrderNum").combobox('setValue', 0);
+
         // 单体电压分度
         var batteryV = [['1', '1'], ['10', '10'], ['100', '100']];
         $("#batteryV").combobox({
@@ -673,6 +692,8 @@
             isAddArea = true;
         }
 
+        var monitorOrderNum = $("#MonitorOrderNum").combobox("getValue");
+
         $("#btnSure").attr("disabled", "disabled");
         $("#btnSure").addClass("disabled");
         XspWeb.Misc.Ajax({
@@ -685,7 +706,8 @@
                 dataAccuracy: dataAccuracy,
                 newAreaStr: newAreaStr,
                 isAddArea: isAddArea,
-                areaIdPath:areaIdPath
+                areaIdPath:areaIdPath,
+                monitorOrderNum:monitorOrderNum
             },
             success: function (rec) {
                 if (rec) {
